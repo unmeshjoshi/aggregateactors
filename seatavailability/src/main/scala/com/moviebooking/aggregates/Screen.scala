@@ -1,7 +1,9 @@
 package com.moviebooking.aggregates
 
-import akka.actor.{ActorSystem, Props}
+import akka.actor.{ActorSystem, PoisonPill, Props}
+import akka.cluster.singleton.{ClusterSingletonManager, ClusterSingletonManagerSettings, ClusterSingletonProxy, ClusterSingletonProxySettings}
 import akka.persistence.PersistentActor
+import com.moviebooking.common.ClusterSettings
 
 case class SeatNumber(row:String, value:Int)
 case class Seat(seatNumber:SeatNumber, isReserved:Boolean = false) {
@@ -41,11 +43,17 @@ class Screen(screenId: String) extends PersistentActor {
 
   override def receiveCommand: Receive = {
     case InitializeAvailability(availableSeats) ⇒ {
-      persist(Initialized(availableSeats))(initializeState)
+      persist(Initialized(availableSeats)){event ⇒
+        initializeState(event)
+        context.system.eventStream.publish(event)
+      }
     }
     case ReserveSeats(count) ⇒ {
       println(s"Received reserve seats event for ${count}")
-      persist(SeatsReserved(count))(updateState)
+      persist(SeatsReserved(count)){ event ⇒
+        updateState(event)
+        context.system.eventStream.publish(event)
+      }
     }
 
   }
@@ -54,7 +62,7 @@ class Screen(screenId: String) extends PersistentActor {
 
 object ScreenMain extends App {
   //create the actor system
-  val system = ActorSystem("PersitenceSystem")
+  val system = new ClusterSettings().system
 
   val screen1 =
     system.actorOf(Props.create(classOf[Screen], "screen1"),
@@ -79,5 +87,22 @@ object ScreenMain extends App {
       "demo-order-actor-1")
 
   order1 ! SubmitOder()
+
+  def createSingleton(implicit system: ActorSystem) = {
+
+    val singletonManagerProps = ClusterSingletonManager.props(
+      singletonProps = Props[Order],
+      terminationMessage = PoisonPill,
+      settings = ClusterSingletonManagerSettings(system)
+    )
+    val manager = system.actorOf(singletonManagerProps)
+
+    val proxyProps = ClusterSingletonProxy.props(
+      singletonManagerPath = manager.path.toStringWithoutAddress,
+      settings = ClusterSingletonProxySettings(system)
+    )
+
+    system.actorOf(proxyProps)
+  }
 
 }

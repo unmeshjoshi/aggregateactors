@@ -20,6 +20,8 @@ object Dependencies {
 
   val Aggregates = Seq(
     Akka.`akka-actor`,
+    Akka.`akka-remote`,
+    Akka.`akka-cluster-tools`,
     Akka.`akka-persistence`,
     Akka.`leveldb`,
     Akka.`leveldb-jni`,
