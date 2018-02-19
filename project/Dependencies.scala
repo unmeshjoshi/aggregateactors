@@ -24,6 +24,8 @@ object Dependencies {
     Akka.`leveldb`,
     Akka.`leveldb-jni`,
     Akka.`akka-multi-node-testkit` % Test,
-    Kafka.akkaStreamKafka
+    Kafka.akkaStreamKafka,
+    Enumeratum.`enumeratum`,
+    Enumeratum.`enumeratum-play`
   )
 }
