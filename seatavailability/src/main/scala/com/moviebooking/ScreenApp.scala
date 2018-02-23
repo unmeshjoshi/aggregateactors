@@ -5,8 +5,8 @@ import akka.cluster.sharding.{ClusterSharding, ClusterShardingSettings}
 import com.moviebooking.aggregates.{Command, Screen}
 import com.moviebooking.common.ClusterSettings
 
-object SeedApp extends App {
-  private val settings = new ClusterSettings(2552)
+object ScreenApp extends App {
+  private val settings = new ClusterSettings(2555)
   val system = settings.system
 
 
@@ -17,5 +17,7 @@ object SeedApp extends App {
     extractEntityId = Command.idExtractor,
     extractShardId = Command.shardResolver)
 
+  Thread.sleep(1000)
   SharedStoreApp.registerSharedJournal(system)
+
 }

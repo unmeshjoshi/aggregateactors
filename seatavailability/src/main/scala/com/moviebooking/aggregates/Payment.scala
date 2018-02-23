@@ -26,7 +26,7 @@ case class PaymentState(amount:BigDecimal, status:PaymentStatus = PaymentStatus.
 }
 
 
-class Payment(paymentId: String) extends PersistentActor {
+class Payment() extends PersistentActor {
 
   var paymentState:PaymentState = PaymentState(0, PaymentStatus.UnInitialized)
 
@@ -46,5 +46,5 @@ class Payment(paymentId: String) extends PersistentActor {
       persist(PaymentSubmited(amount))(updateState)
   }
 
-  override def persistenceId: String = paymentId
+  override def persistenceId: String = self.path.parent.name + "-" + self.path.name
 }

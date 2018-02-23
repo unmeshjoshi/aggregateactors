@@ -41,4 +41,6 @@ class ClusterSettings(listenPort:Int = 0) {
   }
 
   def system: ActorSystem = ActorSystem(clusterName, config)
+
+  def sharedStorePath = s"akka.tcp://aggregate-cluster@${hostname}:2552/user/store"
 }

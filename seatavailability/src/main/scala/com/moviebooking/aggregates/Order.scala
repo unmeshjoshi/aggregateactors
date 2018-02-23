@@ -21,7 +21,7 @@ case class OrderConfirmed()
 
 case class OrderState(orderStatus:OrderStatus)
 
-class Order(orderId:String) extends PersistentActor {
+class Order() extends PersistentActor {
   var orderState = OrderState(OrderStatus.UnInitialized)
 
   def updateState(event:OrderSubmited): Unit = {
@@ -37,5 +37,5 @@ class Order(orderId:String) extends PersistentActor {
     case SubmitOder ⇒ persist(OrderSubmited())(updateState)
   }
 
-  override def persistenceId: String = orderId
+  override def persistenceId: String = self.path.parent.name + "-" + self.path.name
 }

@@ -22,6 +22,7 @@ object Dependencies {
     Akka.`akka-actor`,
     Akka.`akka-remote`,
     Akka.`akka-cluster-tools`,
+    Akka.`akka-cluster-sharding`,
     Akka.`akka-persistence`,
     Akka.`leveldb`,
     Akka.`leveldb-jni`,
