@@ -6,34 +6,26 @@ import akka.pattern.ask
 import akka.persistence.journal.leveldb.{SharedLeveldbJournal, SharedLeveldbStore}
 import akka.util.Timeout
 import com.moviebooking.aggregates.{Command, Screen}
-import com.moviebooking.common.ClusterSettings
+import com.moviebooking.common.{ClusterSettings, ClusterShard}
 
 import scala.concurrent.duration._
 
-object SharedStoreApp extends App {
-  private val settings = new ClusterSettings(2552)
+object SharedStoreSeedApp extends App {
+  private val settings = new ClusterSettings(ClusterSettings.seedPort)
   private val sharedJournalPath = ActorPath.fromString(settings.sharedStorePath)
-  val system = settings.system
+  implicit val system = settings.system
 
 
   val numberOfShards = 100
 
-  ClusterSharding(system).start(
-    typeName = "Screen",
-    entityProps = Props[Screen],
-    settings = ClusterShardingSettings(system),
-    extractEntityId = Command.idExtractor,
-    extractShardId = Command.shardResolver)
-
   startupSharedJournal(system, startStore = true)
 
+  ClusterShard.start()
 
   def startupSharedJournal(system: ActorSystem, startStore: Boolean): Unit = {
     // Start the shared journal one one node (don't crash this SPOF)
     // This will not be needed with a distributed journal
-
     val store = system.actorOf(Props[SharedLeveldbStore], "store")
-    registerSharedJournal(system)
   }
 
   def registerSharedJournal(system: ActorSystem) = {

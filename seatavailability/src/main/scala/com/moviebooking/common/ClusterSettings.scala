@@ -5,8 +5,12 @@ import com.typesafe.config.{Config, ConfigFactory}
 
 import scala.collection.JavaConverters._
 
-class ClusterSettings(listenPort:Int = 0) {
+object ClusterSettings {
   val clusterName = "aggregate-cluster"
+  val seedPort = 2552
+}
+
+class ClusterSettings(listenPort:Int = 0) {
   def hostname: String = new Networks("").hostname()
 
   //Get the port for current ActorSystem to start. If no port is provided 0 will be used default.
@@ -18,8 +22,8 @@ class ClusterSettings(listenPort:Int = 0) {
 
   //Prepare a list of seedNodes provided via clusterSeeds
   def seedNodes: List[String] = {
-    val seeds = List(s"${hostname}:2552").flatMap(_.toString.split(",")).map(_.trim)
-    seeds.map(seed ⇒ s"akka.tcp://$clusterName@$seed")
+    val seeds = List(s"${hostname}:${ClusterSettings.seedPort}").flatMap(_.toString.split(",")).map(_.trim)
+    seeds.map(seed ⇒ s"akka.tcp://$ClusterSettings.clusterName@$seed")
   }
   //Prepare config for ActorSystem to join csw-cluster
   def config: Config = {
@@ -42,5 +46,5 @@ class ClusterSettings(listenPort:Int = 0) {
 
   def system: ActorSystem = ActorSystem(clusterName, config)
 
-  def sharedStorePath = s"akka.tcp://aggregate-cluster@${hostname}:2552/user/store"
+  def sharedStorePath = s"akka.tcp://aggregate-cluster@${hostname}:${seedPort}/user/store"
 }

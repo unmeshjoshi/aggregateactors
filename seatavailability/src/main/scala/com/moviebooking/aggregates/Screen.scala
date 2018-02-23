@@ -1,14 +1,12 @@
 package com.moviebooking.aggregates
 
 import akka.actor.{ActorSystem, PoisonPill, Props}
-import akka.cluster.sharding.{ClusterSharding, ClusterShardingSettings, ShardRegion}
-import akka.cluster.singleton.{ClusterSingletonManager, ClusterSingletonManagerSettings, ClusterSingletonProxy, ClusterSingletonProxySettings}
+import akka.cluster.sharding.ClusterSharding
+import akka.cluster.singleton.{ClusterSingletonManager, ClusterSingletonManagerSettings}
 import akka.event.Logging
 import akka.persistence.PersistentActor
-import com.moviebooking.ScreenApp.system
-import com.moviebooking.SharedStoreApp
-import com.moviebooking.SharedStoreApp.system
-import com.moviebooking.common.ClusterSettings
+import com.moviebooking.aggregates.messages.Command
+import com.moviebooking.common.{ClusterSettings, ClusterShard}
 
 case class SeatNumber(row:String, value:Int)
 case class Seat(seatNumber:SeatNumber, isReserved:Boolean = false) {
@@ -25,29 +23,12 @@ case class SeatAvailability(seats:List[Seat]) {
   }
 }
 
-object Command {
-
-  val idExtractor: ShardRegion.ExtractEntityId = {
-    case s: Command => (s.id, s)
-  }
-
-  val shardResolver: ShardRegion.ExtractShardId = msg => msg match {
-    case s: Command => (math.abs(s.id.hashCode) % 100).toString
-  }
-
-}
-
-sealed trait Command {
-  def id: String
-}
-
 case class InitializeAvailability(id:String, seats:List[Seat]) extends Command
 case class ReserveSeats(id:String, seats:List[SeatNumber]) extends Command
 case class SeatsReserved(seats:List[SeatNumber])
 case class Initialized(seats:List[Seat])
 
 object Screen {
-
   val shardName: String = "Screen"
 }
 
@@ -91,52 +72,32 @@ class Screen() extends PersistentActor {
 
 object ScreenMain extends App {
   //create the actor system
-  val system = new ClusterSettings(2553).system
+  implicit val system = new ClusterSettings(2553).system
   Thread.sleep(5000)
-  SharedStoreApp.registerSharedJournal(system)
+
+  ClusterShard.start()
+  val screenShard = ClusterShard.shardRegion(Screen.shardName)
+  val paymentShard = ClusterShard.shardRegion(Payment.shardName)
+  val orderShard = ClusterShard.shardRegion(Order.shardName)
 
   private val screenName = "demo-screen-actor-"
 
-  val shard = ClusterSharding(system).start(
-    typeName = "Screen",
-    entityProps = Props[Screen],
-    settings = ClusterShardingSettings(system),
-    extractEntityId = Command.idExtractor,
-    extractShardId = Command.shardResolver)
-  //  val screen1 = createSingleton(system, Props.create(classOf[Screen], "screen1"), screenName)
-//
-//  println(screen1.path.toStringWithoutAddress)
-//
-//  val proxy = system.actorOf(
-//    ClusterSingletonProxy.props(
-//      singletonManagerPath = "/user/" + screenName,
-//      settings = ClusterSingletonProxySettings(system)),
-//    name = "demo-screen-actor-proxy-1")
-
-//  val payment1 =
+  //  val payment1 =
 //    system.actorOf(Props.create(classOf[Payment], "Payment-screen1-account1-customer1"),
 //      "demo-payment-actor1")
 //
-//  val screen2 =
-//    system.actorOf(Props.create(classOf[Screen], "screen2"),
-//      "demo-screen-actor-2")
 
   println("sending messages to actor")
-  shard ! InitializeAvailability(screenName + 1, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-  shard ! InitializeAvailability(screenName + 2, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-  shard ! InitializeAvailability(screenName + 3, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-  shard ! InitializeAvailability(screenName + 4, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
+  screenShard ! InitializeAvailability(screenName + 1, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
+  screenShard ! InitializeAvailability(screenName + 2, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
+  screenShard ! InitializeAvailability(screenName + 3, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
+  screenShard ! InitializeAvailability(screenName + 4, List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
 
-  shard !  ReserveSeats(screenName, List(SeatNumber("A", 1)))
+  screenShard !  ReserveSeats(screenName + 1, List(SeatNumber("A", 1)))
 
+  paymentShard ! SubmitPayment("payment1", 100)
 
-//  payment1 ! SubmitPayment(100)
-//
-//  val order1 =
-//    system.actorOf(Props.create(classOf[Order], "order1"),
-//      "demo-order-actor-1")
-//
-//  order1 ! SubmitOder()
+  orderShard ! SubmitOder("order1")
 
   def createSingleton(system: ActorSystem, actorProps:Props, name:String) = {
     val singletonManagerProps = ClusterSingletonManager.props(

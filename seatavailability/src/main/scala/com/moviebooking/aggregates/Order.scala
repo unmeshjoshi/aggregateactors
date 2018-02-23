@@ -1,6 +1,7 @@
 package com.moviebooking.aggregates
 
 import akka.persistence.PersistentActor
+import com.moviebooking.aggregates.messages.Command
 import enumeratum.{Enum, EnumEntry}
 
 
@@ -15,17 +16,21 @@ object OrderStatus extends Enum[PaymentStatus] {
   val values = findValues
 }
 
-case class SubmitOder()
-case class OrderSubmited()
-case class OrderConfirmed()
+case class SubmitOder(id:String) extends Command
+case class OrderSubmited(id:String)
+case class OrderConfirmed(id:String)
 
-case class OrderState(orderStatus:OrderStatus)
+case class OrderState(id:String, orderStatus:OrderStatus)
+
+object Order {
+  val shardName = "Order"
+}
 
 class Order() extends PersistentActor {
-  var orderState = OrderState(OrderStatus.UnInitialized)
+  var orderState = OrderState("", OrderStatus.UnInitialized)
 
   def updateState(event:OrderSubmited): Unit = {
-    orderState = OrderState(OrderStatus.Submitted)
+    orderState = OrderState(event.id, OrderStatus.Submitted)
   }
 
   override def receiveRecover: Receive = {
@@ -34,7 +39,7 @@ class Order() extends PersistentActor {
   }
 
   override def receiveCommand: Receive = {
-    case SubmitOder ⇒ persist(OrderSubmited())(updateState)
+    case SubmitOder(id) ⇒ persist(OrderSubmited(id))(updateState)
   }
 
   override def persistenceId: String = self.path.parent.name + "-" + self.path.name
