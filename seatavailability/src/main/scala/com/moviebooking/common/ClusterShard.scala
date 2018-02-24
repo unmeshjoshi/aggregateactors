@@ -8,32 +8,35 @@ import com.moviebooking.aggregates.{Order, Payment, Screen}
 
 object ClusterShard {
 
-  def shardRegion(name:String)(implicit system:ActorSystem) = {
+  def shardRegion(name: String)(implicit system: ActorSystem) = {
     ClusterSharding.get(system).shardRegion(name)
   }
 
-  def start()(implicit system:ActorSystem) = {
+  def start()(implicit system: ActorSystem) = {
     val screenShard: ActorRef = ClusterSharding(system).start(
       typeName = Screen.shardName,
       entityProps = Props[Screen],
       settings = ClusterShardingSettings(system),
       extractEntityId = Command.idExtractor,
-      extractShardId = Command.shardResolver)
+      extractShardId = Command.shardResolver
+    )
 
     val paymentShard = ClusterSharding(system).start(
       typeName = Payment.shardName,
       entityProps = Props[Payment],
       settings = ClusterShardingSettings(system),
       extractEntityId = Command.idExtractor,
-      extractShardId = Command.shardResolver)
+      extractShardId = Command.shardResolver
+    )
 
     val orderShard = ClusterSharding(system).start(
       typeName = Order.shardName,
       entityProps = Props[Order],
       settings = ClusterShardingSettings(system),
       extractEntityId = Command.idExtractor,
-      extractShardId = Command.shardResolver)
+      extractShardId = Command.shardResolver
+    )
 
-    SharedStoreSeedApp.registerSharedJournal(system)
+//    SharedStoreSeedApp.registerSharedJournal(system)
   }
 }

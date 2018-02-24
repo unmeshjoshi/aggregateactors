@@ -4,7 +4,6 @@ import akka.persistence.PersistentActor
 import com.moviebooking.aggregates.messages.Command
 import enumeratum.{Enum, EnumEntry}
 
-
 sealed trait OrderStatus extends EnumEntry
 
 object OrderStatus extends Enum[PaymentStatus] {
@@ -16,11 +15,19 @@ object OrderStatus extends Enum[PaymentStatus] {
   val values = findValues
 }
 
-case class SubmitOder(id:String) extends Command
-case class OrderSubmited(id:String)
-case class OrderConfirmed(id:String)
+case class User(fistName: String,
+                lastName: String,
+                email: String,
+                mobileNumber: String)
+case class OrderDetails(id: String,
+                        totalPrice: BigDecimal,
+                        seatNumbers: List[SeatNumber],
+                        user: User)
+case class SubmitOder(id: String, orderDetails: OrderDetails) extends Command
+case class OrderSubmited(id: String)
+case class OrderConfirmed(id: String)
 
-case class OrderState(id:String, orderStatus:OrderStatus)
+case class OrderState(id: String, orderStatus: OrderStatus)
 
 object Order {
   val shardName = "Order"
@@ -29,18 +36,19 @@ object Order {
 class Order() extends PersistentActor {
   var orderState = OrderState("", OrderStatus.UnInitialized)
 
-  def updateState(event:OrderSubmited): Unit = {
+  def updateState(event: OrderSubmited): Unit = {
     orderState = OrderState(event.id, OrderStatus.Submitted)
   }
 
   override def receiveRecover: Receive = {
-    case event:OrderSubmited ⇒ updateState(event)
+    case event: OrderSubmited ⇒ updateState(event)
 
   }
 
   override def receiveCommand: Receive = {
-    case SubmitOder(id) ⇒ persist(OrderSubmited(id))(updateState)
+    case SubmitOder(id, orderDetails) ⇒ persist(OrderSubmited(id))(updateState)
   }
 
-  override def persistenceId: String = self.path.parent.name + "-" + self.path.name
+  override def persistenceId: String =
+    self.path.parent.name + "-" + self.path.name
 }

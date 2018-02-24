@@ -1,11 +1,12 @@
 package com.moviebooking
 
 import akka.actor.{ActorIdentity, ActorPath, ActorSystem, Identify, Props}
-import akka.cluster.sharding.{ClusterSharding, ClusterShardingSettings, ShardRegion}
 import akka.pattern.ask
-import akka.persistence.journal.leveldb.{SharedLeveldbJournal, SharedLeveldbStore}
+import akka.persistence.journal.leveldb.{
+  SharedLeveldbJournal,
+  SharedLeveldbStore
+}
 import akka.util.Timeout
-import com.moviebooking.aggregates.{Command, Screen}
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
 
 import scala.concurrent.duration._
@@ -15,10 +16,9 @@ object SharedStoreSeedApp extends App {
   private val sharedJournalPath = ActorPath.fromString(settings.sharedStorePath)
   implicit val system = settings.system
 
-
   val numberOfShards = 100
 
-  startupSharedJournal(system, startStore = true)
+//  startupSharedJournal(system, startStore = true)
 
   ClusterShard.start()
 
@@ -37,16 +37,17 @@ object SharedStoreSeedApp extends App {
     println(s"Trying to find ${sharedJournalPath}")
     val f = (system.actorSelection(sharedJournalPath) ? Identify(None))
     f.onSuccess {
-      case ActorIdentity(_, Some(ref)) => SharedLeveldbJournal.setStore(ref, system)
+      case ActorIdentity(_, Some(ref)) =>
+        SharedLeveldbJournal.setStore(ref, system)
       case _ =>
         system.log.error("Shared journal not started at {}", sharedJournalPath)
         system.terminate()
     }
     f.onFailure {
       case _ =>
-        system.log.error("Lookup of shared journal at {} timed out", sharedJournalPath)
+        system.log.error("Lookup of shared journal at {} timed out",
+                         sharedJournalPath)
         system.terminate()
     }
   }
 }
-

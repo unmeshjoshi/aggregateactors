@@ -89,13 +89,14 @@ object Chill {
 }
 
 object Akka {
-  val Version                   = "2.5.6" //all akka is Apache License 2.0
+  val Version                   = "2.5.10" //all akka is Apache License 2.0
   val `akka-stream`             = "com.typesafe.akka" %% "akka-stream" % Version
   val `akka-remote`             = "com.typesafe.akka" %% "akka-remote" % Version
   val `akka-stream-testkit`     = "com.typesafe.akka" %% "akka-stream-testkit" % Version
   val `akka-actor`              = "com.typesafe.akka" %% "akka-actor" % Version
   val `akka-typed`              = "com.typesafe.akka" %% "akka-typed" % Version
   val `akka-persistence`        =   "com.typesafe.akka"           %% "akka-persistence" % Version
+  val `akka-persistence-query`        =   "com.typesafe.akka" %% "akka-persistence-query" % Version
   val `leveldb`                 =   "org.iq80.leveldb"            % "leveldb"          % "0.7"
   val `leveldb-jni`             =   "org.fusesource.leveldbjni"   % "leveldbjni-all"   % "1.8"
   val `akka-typed-testkit`      = "com.typesafe.akka" %% "akka-typed-testkit" % Version
@@ -103,6 +104,8 @@ object Akka {
   val `akka-multi-node-testkit` = "com.typesafe.akka" %% "akka-multi-node-testkit" % Version
   val `akka-cluster-tools`      = "com.typesafe.akka" %% "akka-cluster-tools" % Version
   val `akka-cluster-sharding`                        = "com.typesafe.akka" %% "akka-cluster-sharding" % Version
+  val `akka-persistence-cassandra` = "com.typesafe.akka" %% "akka-persistence-cassandra" % "0.83"
+  val `akka-persistence-cassandra-launcher` = "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % "0.83"
   val `akka-slf4j`              = "com.typesafe.akka" %% "akka-slf4j" % Version
 }
 
