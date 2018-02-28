@@ -11,7 +11,6 @@ import com.moviebooking.common.{ClusterSettings, ClusterShard}
 
 import scala.concurrent.duration._
 
-
 object SharedStoreSeedApp extends App {
   private val settings = new ClusterSettings(ClusterSettings.seedPort)
   private val sharedJournalPath = ActorPath.fromString(settings.sharedStorePath)

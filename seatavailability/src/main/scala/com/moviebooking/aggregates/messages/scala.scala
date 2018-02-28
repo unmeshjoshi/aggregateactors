@@ -19,5 +19,4 @@ trait Command {
   def id: String
 }
 
-trait Event {
-}
+trait Event {}

@@ -2,7 +2,7 @@ import sbt._
 import scalapb.compiler.Version.scalapbVersion
 
 object Libs {
-  val ScalaVersion = "2.12.4"
+  val ScalaVersion = "2.11.8"
 
   val `scalatest`                    = "org.scalatest"          %% "scalatest"                    % "3.0.4" //Apache License 2.0
   val `scala-java8-compat`           = "org.scala-lang.modules" %% "scala-java8-compat"           % "0.8.0" //BSD 3-clause "New" or "Revised" License
@@ -119,4 +119,5 @@ object AkkaHttp {
 
 object Neo4J {
   val `neo4j-java` = "org.neo4j.driver" % "neo4j-java-driver" % "1.5.1"
+  val `neo4j-test` = "org.neo4j.test" % "neo4j-harness" % "3.3.3"
 }

@@ -37,6 +37,8 @@ object Dependencies {
 
   val MovieRecommendations = Seq(
     Kafka.akkaStreamKafka,
+    Neo4J.`neo4j-java`,
+    Neo4J.`neo4j-test` % Test,
     Libs.`scalatest` % Test,
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`

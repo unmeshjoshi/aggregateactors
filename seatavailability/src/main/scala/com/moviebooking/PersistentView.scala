@@ -13,7 +13,8 @@ object PersistentView extends App {
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   val readJournal =
-    PersistenceQuery(system).readJournalFor[CassandraReadJournal](CassandraReadJournal.Identifier)
+    PersistenceQuery(system)
+      .readJournalFor[CassandraReadJournal](CassandraReadJournal.Identifier)
   private val value: Source[String, NotUsed] = readJournal.persistenceIds()
 
   value.runForeach((id: String) ⇒ {

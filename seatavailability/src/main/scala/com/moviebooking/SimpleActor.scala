@@ -4,7 +4,7 @@ import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
 class SimpleActor extends Actor {
   override def receive: Receive = {
-    case a@_ ⇒ println(s"Received ${a}")
+    case a @ _ ⇒ println(s"Received ${a}")
   }
 }
 
