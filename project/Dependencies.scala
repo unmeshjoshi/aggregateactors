@@ -34,4 +34,11 @@ object Dependencies {
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`
   )
+
+  val MovieRecommendations = Seq(
+    Kafka.akkaStreamKafka,
+    Libs.`scalatest` % Test,
+    Enumeratum.`enumeratum`,
+    Enumeratum.`enumeratum-play`
+  )
 }

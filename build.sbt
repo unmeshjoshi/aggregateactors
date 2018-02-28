@@ -2,10 +2,11 @@ import Settings._
 
 
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
-  `moviebookingview`,
   `seatavailability`,
   `payment`,
-  `booking`)
+  `booking`,
+  `seatavailabilityview`,
+  `movierecommendationview`)
 
 
 val `aggregatesactors` = project
@@ -32,7 +33,14 @@ lazy val `booking` = project
   )
 
   //Read side
-lazy val `moviebookingview` = project
+lazy val `seatavailabilityview` = project
   .settings(
     libraryDependencies ++= Dependencies.Aggregates
+  )
+
+
+//Read side
+lazy val `movierecommendationview` = project
+  .settings(
+    libraryDependencies ++= Dependencies.MovieRecommendations
   )

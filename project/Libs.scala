@@ -116,3 +116,7 @@ object AkkaHttp {
   val `akka-http2`        = "com.typesafe.akka" %% "akka-http2-support" % Version
 }
   // http://doc.akka.io/docs/akka/2.4.1/scala/persistence.html#Local_LevelDB_journal
+
+object Neo4J {
+  val `neo4j-java` = "org.neo4j.driver" % "neo4j-java-driver" % "1.5.1"
+}

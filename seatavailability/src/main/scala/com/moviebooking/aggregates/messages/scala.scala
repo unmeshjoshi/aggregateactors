@@ -18,3 +18,6 @@ object Command {
 trait Command {
   def id: String
 }
+
+trait Event {
+}

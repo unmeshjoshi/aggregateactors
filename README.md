@@ -1,1 +1,1 @@
-A thin thread for ETL pipeline with Alpakka, Akka persistence, Kafka, Spark, Neo4j, Hadoop, Akka-http
+An application to demonstrate event sourcing and CQRS with Akka persistence

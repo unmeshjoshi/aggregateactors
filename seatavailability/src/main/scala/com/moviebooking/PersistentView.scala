@@ -21,5 +21,4 @@ object PersistentView extends App {
     val events = readJournal.eventsByPersistenceId(id, 0, Long.MaxValue)
     events.runForeach(event ⇒ println(event.event))
   })
-
 }
