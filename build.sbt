@@ -41,6 +41,7 @@ lazy val `seatavailabilityview` = project
 
 //Read side
 lazy val `movierecommendationview` = project
+    .dependsOn(`seatavailability`)
   .settings(
     libraryDependencies ++= Dependencies.MovieRecommendations
   )

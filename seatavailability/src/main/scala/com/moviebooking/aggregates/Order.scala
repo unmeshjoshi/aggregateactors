@@ -25,7 +25,7 @@ case class OrderDetails(id: String,
                         user: User)
 case class SubmitOder(id: String, orderDetails: OrderDetails) extends Command
 case class OrderSubmited(id: String)
-case class OrderConfirmed(id: String)
+case class OrderConfirmed(id: String, userName:String, movieName:String)
 
 case class OrderState(id: String, orderStatus: OrderStatus)
 

@@ -6,6 +6,7 @@ object ExampleData {
     "              (movie2:Movie{name:'Jurasic Park'}),\n" +
     "              (movie3:Movie{name:'Green Lantern'}),\n" +
     "              (movie4:Movie{name:'Spider Man'}),\n" +
+    "              (movie5:Movie{name:'Kaun Banega Karodpati'}),\n" +
     "              (bill:Person{name:'Bill'}), \n" +
     "              (gill:Person{name:'gill'}), \n" +
     "              (joyce:Person{name:'Joyce'}), \n" +
@@ -15,7 +16,8 @@ object ExampleData {
     "              (user1:Person{name:'User1'}), \n" +
     "              (user1)-[:BOOKED]->(movie1), \n" +
     "              (user1)-[:BOOKED]->(movie3), \n" +
-    "              (bill)-[:ACTED_IN]->(movie2)"
+    "              (bill)-[:ACTED_IN]->(movie2), \n" +
+    "              (bill)-[:ACTED_IN]->(movie5)"
 
 
   val smallGraph = "CREATE (ian:Person {name:'Ian'}),\n" +
