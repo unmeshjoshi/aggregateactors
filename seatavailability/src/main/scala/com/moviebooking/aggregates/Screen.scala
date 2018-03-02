@@ -1,21 +1,18 @@
 package com.moviebooking.aggregates
 
-import akka.actor.{ActorSystem, PoisonPill, Props}
-import akka.cluster.singleton.{
-  ClusterSingletonManager,
-  ClusterSingletonManagerSettings
-}
 import akka.event.Logging
 import akka.persistence.PersistentActor
 import com.moviebooking.aggregates.messages.Command
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
 
 case class SeatNumber(row: String, value: Int)
+
 case class Seat(seatNumber: SeatNumber, isReserved: Boolean = false) {
   def reserve(): Seat = {
     copy(seatNumber, true)
   }
 }
+
 case class SeatAvailability(seats: List[Seat]) {
   def reserve(seatsToReserve: SeatsReserved): SeatAvailability = {
     val seatsWithReservations = seats.map(
@@ -26,8 +23,11 @@ case class SeatAvailability(seats: List[Seat]) {
 }
 
 case class InitializeAvailability(id: String, seats: List[Seat]) extends Command
+
 case class ReserveSeats(id: String, seats: List[SeatNumber]) extends Command
+
 case class SeatsReserved(seats: List[SeatNumber])
+
 case class Initialized(seats: List[Seat])
 
 object Screen {
@@ -57,7 +57,6 @@ class Screen() extends PersistentActor {
       log.info("Initializing seat availability")
       persist(Initialized(availableSeats)) { event ⇒
         initializeState(event)
-        context.system.eventStream.publish(event)
       }
     }
     case ReserveSeats(id, count) ⇒ {
@@ -69,6 +68,7 @@ class Screen() extends PersistentActor {
     }
 
   }
+
   override def persistenceId: String =
     self.path.parent.name + "-" + self.path.name
 }
@@ -79,18 +79,15 @@ object ScreenMain extends App {
   Thread.sleep(5000)
 
   ClusterShard.start()
+
   val screenShard = ClusterShard.shardRegion(Screen.shardName)
   val paymentShard = ClusterShard.shardRegion(Payment.shardName)
   val orderShard = ClusterShard.shardRegion(Order.shardName)
 
   private val screenName = "demo-screen-actor-"
 
-  //  val payment1 =
-//    system.actorOf(Props.create(classOf[Payment], "Payment-screen1-account1-customer1"),
-//      "demo-payment-actor1")
-//
-
   println("sending messages to actor")
+
   screenShard ! InitializeAvailability(
     screenName + 1,
     List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
@@ -112,16 +109,8 @@ object ScreenMain extends App {
     "order1",
     OrderDetails("order1",
                  BigDecimal(100),
+                 "10",
+                 "Justice League",
                  List(SeatNumber("A", 1)),
                  User("scott", "davis", "scott@st.com", "12882882828")))
-
-  def createSingleton(system: ActorSystem, actorProps: Props, name: String) = {
-    val singletonManagerProps = ClusterSingletonManager.props(
-      singletonProps = actorProps,
-      terminationMessage = PoisonPill,
-      settings = ClusterSingletonManagerSettings(system)
-    )
-    system.actorOf(singletonManagerProps, name)
-  }
-
 }

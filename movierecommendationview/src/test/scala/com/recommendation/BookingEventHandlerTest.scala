@@ -1,6 +1,6 @@
 package com.recommendation
 
-import com.moviebooking.aggregates.OrderConfirmed
+import com.moviebooking.aggregates.{OrderConfirmed, OrderDetails, User}
 import org.scalatest.FunSuite
 
 class BookingEventHandlerTest extends FunSuite {
@@ -12,7 +12,7 @@ class BookingEventHandlerTest extends FunSuite {
 
     val repository = new RecommendationRepository(database)
     val bookingHandler = new BookingEventHandler(repository)
-    bookingHandler.handleBookingEvent(OrderConfirmed("1000", "User10", "Kaun Banega Karodpati"))
+    bookingHandler.handleBookingEvent(OrderConfirmed("1000", OrderDetails("10", BigDecimal(100), "1", "Kaun Banega Karodpati", List(), User("User10"))))
 
     val finder = new RecommendationFinder(database)
 

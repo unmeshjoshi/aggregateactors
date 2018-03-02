@@ -5,6 +5,8 @@ import com.moviebooking.aggregates.OrderConfirmed
 class BookingEventHandler(recommendationRepository: RecommendationRepository) {
 
   def handleBookingEvent(orderConfirmed: OrderConfirmed): Unit = {
-    recommendationRepository.addBooking(orderConfirmed.userName, orderConfirmed.movieName)
+    recommendationRepository.addBooking(
+      orderConfirmed.orderDetails.user.fistName,
+      orderConfirmed.orderDetails.movieName)
   }
 }

@@ -36,7 +36,5 @@ object ClusterShard {
       extractEntityId = Command.idExtractor,
       extractShardId = Command.shardResolver
     )
-
-//    SharedStoreSeedApp.registerSharedJournal(system)
   }
 }
