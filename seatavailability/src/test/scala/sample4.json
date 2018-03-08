@@ -1,0 +1,263 @@
+arrShowInfo=[
+  [
+    "INPA",
+    "75175",
+    "RY",
+    "ROYALE (Rs. 230.00)",
+    "230",
+    "Y",
+    "3",
+    "",
+    "RY",
+    "Y",
+    "",
+    "0",
+    "2",
+    "Y",
+    "N",
+    "N",
+    "",
+    "|THREEDRATEPERTICKET=23.44|FOODVOUCHER=0|CGST=25.16|SGST=25.16|UTGST=0|LBT=0|OtherTax=0|ServiceCharge=0|",
+    "",
+    "",
+    "O",
+    "N",
+    "Y",
+    "175",
+    "",
+    "ROYALE",
+    "N",
+    "",
+    "Y",
+    "Y",
+    "N",
+    "N",
+    "13",
+    "SCREEN 8            ",
+    "2020",
+    "20180303",
+    "Y",
+    "4",
+    "4",
+    "SB",
+    "N",
+    "4 hrs ",
+    "4",
+    "N",
+    "N",
+    [
+      {
+        "Day": "Sun",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Mon",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Tue",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Wed",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Thu",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Fri",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Sat",
+        "CutOff": "4 hrs"
+      }
+    ],
+    "",
+    "Y",
+    "N",
+    "N",
+    "0",
+    "10 hrs ",
+    "N",
+    "N",
+    "0",
+    "3 hrs "
+  ],
+  [
+    "INPA",
+    "75175",
+    "CL",
+    "CLUB (Rs. 118.00)",
+    "118",
+    "Y",
+    "10",
+    "",
+    "CL",
+    "Y",
+    "",
+    "0",
+    "2",
+    "Y",
+    "N",
+    "N",
+    "",
+    "|THREEDRATEPERTICKET=25.42|FOODVOUCHER=0|CGST=9|SGST=9|UTGST=0|LBT=0|OtherTax=0|ServiceCharge=0|",
+    "",
+    "",
+    "O",
+    "N",
+    "Y",
+    "175",
+    "",
+    "CLUB",
+    "N",
+    "",
+    "Y",
+    "Y",
+    "N",
+    "N",
+    "13",
+    "SCREEN 8            ",
+    "2020",
+    "20180303",
+    "Y",
+    "185",
+    "185",
+    "SB",
+    "N",
+    "4 hrs ",
+    "4",
+    "N",
+    "N",
+    [
+      {
+        "Day": "Sun",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Mon",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Tue",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Wed",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Thu",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Fri",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Sat",
+        "CutOff": "4 hrs"
+      }
+    ],
+    "",
+    "Y",
+    "N",
+    "N",
+    "0",
+    "10 hrs ",
+    "N",
+    "N",
+    "0",
+    "3 hrs "
+  ],
+  [
+    "INPA",
+    "75175",
+    "EX",
+    "EXECUTIVE (Rs. 118.00)",
+    "118",
+    "Y",
+    "10",
+    "",
+    "EX",
+    "Y",
+    "",
+    "0",
+    "2",
+    "Y",
+    "N",
+    "N",
+    "",
+    "|THREEDRATEPERTICKET=25.42|FOODVOUCHER=0|CGST=9|SGST=9|UTGST=0|LBT=0|OtherTax=0|ServiceCharge=0|",
+    "",
+    "",
+    "O",
+    "N",
+    "Y",
+    "175",
+    "",
+    "EXECUTIVE",
+    "N",
+    "",
+    "Y",
+    "Y",
+    "N",
+    "N",
+    "13",
+    "SCREEN 8            ",
+    "2020",
+    "20180303",
+    "Y",
+    "32",
+    "32",
+    "SB",
+    "N",
+    "4 hrs ",
+    "4",
+    "N",
+    "N",
+    [
+      {
+        "Day": "Sun",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Mon",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Tue",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Wed",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Thu",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Fri",
+        "CutOff": "4 hrs"
+      },
+      {
+        "Day": "Sat",
+        "CutOff": "4 hrs"
+      }
+    ],
+    "",
+    "Y",
+    "N",
+    "N",
+    "0",
+    "10 hrs ",
+    "N",
+    "N",
+    "0",
+    "3 hrs "
+  ]
+];

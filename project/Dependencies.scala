@@ -19,6 +19,7 @@ object Dependencies {
   )
 
   val Aggregates = Seq(
+    AkkaHttp.`akka-http`,
     Akka.`akka-actor`,
     Akka.`akka-remote`,
     Akka.`akka-cluster-tools`,
@@ -31,6 +32,7 @@ object Dependencies {
     Akka.`leveldb-jni`,
     Akka.`akka-multi-node-testkit` % Test,
     Kafka.akkaStreamKafka,
+    Kafka.`scalatest-embedded-kafka`,
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`
   )
@@ -42,6 +44,8 @@ object Dependencies {
     Neo4J.`neo4j-cypher`,
     Neo4J.`neo4j-test` % Test,
     Libs.`scalatest` % Test,
+    Kafka.akkaStreamKafka,
+    Kafka.`scalatest-embedded-kafka`,
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`
   )

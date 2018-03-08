@@ -1,0 +1,124 @@
+{
+  "popular": {
+    "ESCH": {
+      "venueCode": "ESCH",
+      "venueName": "E-SQUARE Xion: Hinjawadi",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "INPA": {
+      "venueCode": "INPA",
+      "venueName": "INOX: Amanora Town Centre",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "ESPN": {
+      "venueCode": "ESPN",
+      "venueName": "E-SQUARE: University Road",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "CPKT": {
+      "venueCode": "CPKT",
+      "venueName": "City Pride: Kothrud",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "CPRP": {
+      "venueCode": "CPRP",
+      "venueName": "City Pride Royal Cinemas: Rahatani",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "CNWE": {
+      "venueCode": "CNWE",
+      "venueName": "Cinepolis: WESTEND Mall Aundh, Pune",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "CPAR": {
+      "venueCode": "CPAR",
+      "venueName": "Abhiruchi City Pride: Sinhagad Road",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "PVRM": {
+      "venueCode": "PVRM",
+      "venueName": "PVR ICON: The Pavillion Pune",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "PVKP": {
+      "venueCode": "PVKP",
+      "venueName": "PVR: Nitesh Hub Premier, Koregaon",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "INPN": {
+      "venueCode": "INPN",
+      "venueName": "INOX: Bund Garden Road",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "PVPN": {
+      "venueCode": "PVPN",
+      "venueName": "PVR: Phoenix Market City, Pune",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "ESPM": {
+      "venueCode": "ESPM",
+      "venueName": "E-SQUARE Vishal: Pimpri",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "PCOP": {
+      "venueCode": "PCOP",
+      "venueName": "PVR: City One Mall, Pimpri",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "ADGL": {
+      "venueCode": "ADGL",
+      "venueName": "Carnival : Kalyaninagar (Gold)",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "CTSR": {
+      "venueCode": "CTSR",
+      "venueName": "City Pride: Satara Road",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "CXPN": {
+      "venueCode": "CXPN",
+      "venueName": "PVR: Inorbit Mall, Pune",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "ADCW": {
+      "venueCode": "ADCW",
+      "venueName": "Carnival: Premier Plaza, Chinchwad",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "RHMN": {
+      "venueCode": "RHMN",
+      "venueName": "INOX: Dorabjees Royale Heritage Mall",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "CTMP": {
+      "venueCode": "CTMP",
+      "venueName": "City Pride: Mangala Cinema",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    },
+    "PPKP": {
+      "venueCode": "PPKP",
+      "venueName": "PVR: Kumar Pacific, Pune",
+      "regionCode": "PUNE",
+      "regionName": "Pune"
+    }
+  }
+}

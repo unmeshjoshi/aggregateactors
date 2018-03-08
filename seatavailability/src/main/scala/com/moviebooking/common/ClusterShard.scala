@@ -2,9 +2,9 @@ package com.moviebooking.common
 
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.cluster.sharding.{ClusterSharding, ClusterShardingSettings}
-import com.moviebooking.SharedStoreSeedApp
 import com.moviebooking.aggregates.messages.Command
 import com.moviebooking.aggregates.{Order, Payment, Screen}
+import com.moviebooking.apps.SeedApp
 
 object ClusterShard {
 

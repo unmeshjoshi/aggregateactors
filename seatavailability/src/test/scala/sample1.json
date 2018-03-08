@@ -1,0 +1,3399 @@
+{
+  "moviesData": {
+    "BookMyShow": {
+      "arrLanguages": [
+        {
+          "EventLangCode": "Hindi",
+          "EventLangName": "Hindi"
+        },
+        {
+          "EventLangCode": "English",
+          "EventLangName": "English"
+        },
+        {
+          "EventLangCode": "Marathi",
+          "EventLangName": "Marathi"
+        },
+        {
+          "EventLangCode": "Gujarati",
+          "EventLangName": "Gujarati"
+        },
+        {
+          "EventLangCode": "Telugu",
+          "EventLangName": "Telugu"
+        }
+      ],
+      "arrPremiere": {
+        "arrLanguages": null,
+        "arrEvents": []
+      },
+      "arrEvents": [
+        {
+          "EventGroup": "EG00039391",
+          "EventTitle": "Sonu Ke Titu Ki Sweety",
+          "EventGrpDuration": "140",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|ROMANCE CO|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00058565",
+          "EventURLTitle": "sonu-ke-titu-ki-sweety",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00058565",
+              "EventImageCode": "sonu-ke-titu-ki-sweety-et00058565-17-06-2017-12-10-21",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Sonu Ke Titu Ki Sweety",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "sonu-ke-titu-ki-sweety",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Romance"
+                ]
+              },
+              "EventGenre": "Comedy|Romance",
+              "Genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "We have always been told that \"Marriage\" is a marriage between two families. 'Sonu ke Titu ki Sweety' explores the new age version of the same belief where \"Marriage\" is a marriage between two friend circles. What happens when you decide to get married, but your best friend and your girlfriend can't see eye to eye.<br\/><br\/>Sonu and Titu are childhood friends. Titu has always been a naive lover, who falls in love easily and Sonu has always had to step in to save him. But Sweety is the perfect bride and Titu is head over heels in love with her. Sonu's instinct to protect Titu at whatever cost, makes him feel that she's too good to be true.<br\/><br\/>What ensues is a war between the best friend and the bride to be. While Sweety is trying to impress Titu and the family alike, Sonu is out to sabotage the utopian romance.",
+              "EventDuration": "140",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=M2q64UowX9g",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "2 hrs 20 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 83,
+          "totalVotes": 101612
+        },
+        {
+          "EventGroup": "EG00039324",
+          "EventTitle": "Pari",
+          "EventGrpDuration": "137",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|HORROR|THRILLER|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00058504",
+          "EventURLTitle": "pari",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00058504",
+              "EventImageCode": "pari-et00058504-15-06-2017-03-25-55",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Pari",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "pari",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Horror": [],
+                "Plays": [
+                  "Thriller"
+                ]
+              },
+              "EventGenre": "Horror|Thriller",
+              "Genre": [
+                "Horror",
+                "Thriller"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Pari is a Hindi movie starring Anushka Sharma and Parambrata Chatterjee in prominent roles. It is a horror movie directed by Prosit Roy.<br\/><br\/>If you are a representative of the production house, please share the details of the film with <br\/><a href=\"synopsis@bookmyshow.com \">synopsis@bookmyshow.com <\/a>",
+              "EventDuration": "137",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=PQKu78NnyvU",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "2 hrs 17 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00049331",
+          "EventTitle": "Gulabjaam",
+          "EventGrpDuration": "120",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|DRAMA|",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00069281",
+          "EventURLTitle": "gulabjaam",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00069281",
+              "EventImageCode": "gulabjaam-et00069281-16-01-2018-01-20-23",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Gulabjaam",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-16",
+              "EventRating": "0",
+              "EventURL": "gulabjaam",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Comedy|Drama",
+              "Genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Aditya, a young Maharashtrian from London who aims to open a Maharashtrian gourmet restaurant in the city, comes to Pune to find someone who would help him learn traditional cooking styles. In his pursuit, he meets Radha, an eccentric woman who makes lunch boxes for the students and working men in the area. Radha agrees to teach him on the condition that he passes her tests. But, once she starts teaching him, a new path of life opens for Aditya. Gulabjaam is a food film, where Maharashtrian food is one of the important characters.",
+              "EventDuration": "120",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=uCM--sf04fM",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "16 Feb, 2018",
+              "Duration": "2 hrs ",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 83,
+          "totalVotes": 9013
+        },
+        {
+          "EventGroup": "EG00028415",
+          "EventTitle": "Black Panther",
+          "EventGrpDuration": "134",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ACTION|ADVN|FANTASY|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00046523",
+          "EventURLTitle": "black-panther-3d",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00046523",
+              "EventImageCode": "black-panther-et00046523-16-09-2016-12-06-19",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Black Panther (3D)",
+              "EventDimension": "3D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-16",
+              "EventRating": "0",
+              "EventURL": "black-panther-3d",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Fantasy": [],
+                "Plays": [
+                  "Action",
+                  "Adventure"
+                ]
+              },
+              "EventGenre": "Action|Adventure|Fantasy",
+              "Genre": [
+                "Action",
+                "Adventure",
+                "Fantasy"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "After the events of Captain America: Civil War, King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. <br\/><br\/>When two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.",
+              "EventDuration": "134",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=FHU6mmPSh68&feature=youtu.be",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "16 Feb, 2018",
+              "Duration": "2 hrs 14 mins",
+              "EventSearchTags": ""
+            },
+            {
+              "EventCode": "ET00070808",
+              "EventImageCode": "black-panther-et00070808-11-02-2018-09-56-26",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Black Panther (3D Hindi)",
+              "EventDimension": "3D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-16",
+              "EventRating": "0",
+              "EventURL": "black-panther-3d-hindi",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Fantasy": [],
+                "Plays": [
+                  "Action",
+                  "Adventure"
+                ]
+              },
+              "EventGenre": "Action|Adventure|Fantasy",
+              "Genre": [
+                "Action",
+                "Adventure",
+                "Fantasy"
+              ],
+              "isDefault": "N",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "After the events of Captain America: Civil War, King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. <br\/><br\/>When two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.",
+              "EventDuration": "134",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=8HLovZBBebE",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "16 Feb, 2018",
+              "Duration": "2 hrs 14 mins",
+              "EventSearchTags": ""
+            },
+            {
+              "EventCode": "ET00070747",
+              "EventImageCode": "black-panther-et00070747-09-02-2018-04-23-14",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Black Panther (3D) (4DX)",
+              "EventDimension": "4DX 3D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-16",
+              "EventRating": "0",
+              "EventURL": "black-panther-3d-4dx",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Fantasy": [],
+                "Plays": [
+                  "Action",
+                  "Adventure"
+                ]
+              },
+              "EventGenre": "Action|Adventure|Fantasy",
+              "Genre": [
+                "Action",
+                "Adventure",
+                "Fantasy"
+              ],
+              "isDefault": "N",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "After the events of Captain America: Civil War, King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. <br\/><br\/>When two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.",
+              "EventDuration": "134",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=FHU6mmPSh68&feature=youtu.be",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "16 Feb, 2018",
+              "Duration": "2 hrs 14 mins",
+              "EventSearchTags": ""
+            },
+            {
+              "EventCode": "ET00070886",
+              "EventImageCode": "black-panther-et00070886-12-02-2018-09-16-01",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Black Panther (IMAX 3D)",
+              "EventDimension": "IMAX 3D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-16",
+              "EventRating": "0",
+              "EventURL": "black-panther-imax-3d",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Fantasy": [],
+                "Plays": [
+                  "Action",
+                  "Adventure"
+                ]
+              },
+              "EventGenre": "Action|Adventure|Fantasy",
+              "Genre": [
+                "Action",
+                "Adventure",
+                "Fantasy"
+              ],
+              "isDefault": "N",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "After the events of Captain America: Civil War, King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. <br\/><br\/>When two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.",
+              "EventDuration": "134",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=FHU6mmPSh68&feature=youtu.be",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "16 Feb, 2018",
+              "Duration": "2 hrs 14 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 85,
+          "totalVotes": 121457
+        },
+        {
+          "EventGroup": "EG00048253",
+          "EventTitle": "Aapla Manus",
+          "EventGrpDuration": "138",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|SUSPENSE|THRILLER|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00068204",
+          "EventURLTitle": "aapla-manus",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00068204",
+              "EventImageCode": "aapla-manus-et00068204-25-12-2017-02-16-10",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Aapla Manus",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-09",
+              "EventRating": "0",
+              "EventURL": "aapla-manus",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama",
+                  "Thriller"
+                ],
+                "Suspense": []
+              },
+              "EventGenre": "Drama|Suspense|Thriller",
+              "Genre": [
+                "Drama",
+                "Suspense",
+                "Thriller"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "A young couple, living with the man's father, already struggles to draw a balance between the pressures of urban life and the complexity of relationships when an unexpected incident makes them re-evaluate their beliefs about their life and family.",
+              "EventDuration": "138",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=P5sfLO81dHU&feature=youtu.be",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "9 Feb, 2018",
+              "Duration": "2 hrs 18 mins",
+              "EventSearchTags": "apla"
+            }
+          ],
+          "avgRating": 82,
+          "totalVotes": 22078
+        },
+        {
+          "EventGroup": "EG00028410",
+          "EventTitle": "Padmaavat",
+          "EventGrpDuration": "163",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|PERIOD |ROMANCE CO|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00046516",
+          "EventURLTitle": "padmaavat-3d",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00069426",
+              "EventImageCode": "padmaavat-et00069426-18-01-2018-02-14-15",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Padmaavat (2D Hindi)",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-01-25",
+              "EventRating": "0",
+              "EventURL": "padmaavat-2d-hindi",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Period ": [],
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama|Period ",
+              "Genre": [
+                "Drama",
+                "Period "
+              ],
+              "isDefault": "N",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Set in 1303 AD medieval India, Padmaavat is the story of honour, valour and obsession. Queen Padmavati is known for her exceptional beauty along with a strong sense of justice and is the wife of Maharawal Ratan Singh and pride of the Kingdom of Chittor, a prosperous kingdom in the north west of India.<br\/><br\/>The legend of her beauty reaches the reigning sultan of Hindustan-Allaudin Khilji. The sultan who is a tyrant, is fixated with wanting anything that is of exceptional beauty for himself. He lays siege on the impregnable fortress of Chittorgarh.<br\/><br\/>After a gruelling 6 months, he returns empty handed. He becomes obsessed and now wants to capture Chittor and its Queen at any cost. He returns with a bigger army and raging fury. He attacks Chittor with brutal force and a bloody and fearsome battle takes place between the righteous Maharawal Ratan Singh defending his kingdom and the honour of his Queen and Sultan Allaudin Khilji. Khilji manages to breach the fortress but it goes in vain as the Queen chooses to make the ultimate sacrifice to protect her dignity.",
+              "EventDuration": "0",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=8YaF2m7hCx0&app=desktop",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "25 Jan, 2018",
+              "Duration": "-",
+              "EventSearchTags": "Padmavati"
+            },
+            {
+              "EventCode": "ET00046516",
+              "EventImageCode": "padmavati-et00046516-15-09-2016-06-11-48",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Padmaavat (3D)",
+              "EventDimension": "3D",
+              "EventProducerCode": "",
+              "EventDate": "2018-01-25",
+              "EventRating": "0",
+              "EventURL": "padmaavat-3d",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Period ": [],
+                "Plays": [
+                  "Drama",
+                  "Romance"
+                ]
+              },
+              "EventGenre": "Drama|Period |Romance",
+              "Genre": [
+                "Drama",
+                "Period ",
+                "Romance"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Set in 1303 AD medieval India, Padmaavat is the story of honour, valour and obsession. Queen Padmavati is known for her exceptional beauty along with a strong sense of justice and is the wife of Maharawal Ratan Singh and pride of the Kingdom of Chittor, a prosperous kingdom in the north west of India.<br\/><br\/>The legend of her beauty reaches the reigning sultan of Hindustan-Allaudin Khilji. The sultan who is a tyrant, is fixated with wanting anything that is of exceptional beauty for himself. He lays siege on the impregnable fortress of Chittorgarh.<br\/><br\/>After a gruelling 6 months, he returns empty handed. He becomes obsessed and now wants to capture Chittor and its Queen at any cost. He returns with a bigger army and raging fury. He attacks Chittor with brutal force and a bloody and fearsome battle takes place between the righteous Maharawal Ratan Singh defending his kingdom and the honour of his Queen and Sultan Allaudin Khilji. Khilji manages to breach the fortress but it goes in vain as the Queen chooses to make the ultimate sacrifice to protect her dignity.",
+              "EventDuration": "163",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=8YaF2m7hCx0&app=desktop",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "25 Jan, 2018",
+              "Duration": "2 hrs 43 mins",
+              "EventSearchTags": "Padmavati"
+            }
+          ],
+          "avgRating": 82,
+          "totalVotes": 519253
+        },
+        {
+          "EventGroup": "EG00032914",
+          "EventTitle": "Pad Man",
+          "EventGrpDuration": "140",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|BIOPIC|DRAMA|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00051589",
+          "EventURLTitle": "pad-man",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00051589",
+              "EventImageCode": "padman-et00051589-02-01-2017-10-48-22",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Pad Man",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-09",
+              "EventRating": "0",
+              "EventURL": "pad-man",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Biography": [],
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Biography|Drama",
+              "Genre": [
+                "Biography",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Padman is a biographical drama based on the life of the Tamil Nadu-based activist Arunachalam Muruganantham, who worked towards providing cost-effective and hygienic sanitary napkins to the women in the rural areas, and features Akshay Kumar playing the lead role while Radhika Apte plays the role of his wife.",
+              "EventDuration": "140",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=-K9ujx8vO_A",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "9 Feb, 2018",
+              "Duration": "2 hrs 20 mins",
+              "EventSearchTags": "Pad Man|padman"
+            }
+          ],
+          "avgRating": 83,
+          "totalVotes": 150591
+        },
+        {
+          "EventGroup": "EG00034749",
+          "EventTitle": "Red Sparrow",
+          "EventGrpDuration": "142",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|MYSTERY|SUSPENSE|THRILLER|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00053566",
+          "EventURLTitle": "red-sparrow",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00053566",
+              "EventImageCode": "red-sparrow-et00053566-15-02-2017-02-45-37",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Red Sparrow",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "red-sparrow",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Mystery": [],
+                "Plays": [
+                  "Thriller"
+                ],
+                "Suspense": []
+              },
+              "EventGenre": "Mystery|Suspense|Thriller",
+              "Genre": [
+                "Mystery",
+                "Suspense",
+                "Thriller"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Dominika Egorova is many things. A devoted daughter determined to protect her mother at all costs. A prima ballerina whose ferocity has pushed her body and mind to the absolute limit. A master of seductive and manipulative combat.<br\/><br\/>When she suffers a career-ending injury, Dominika and her mother are facing a bleak and uncertain future. That is why she finds herself manipulated into becoming the newest recruit for Sparrow School, a secret intelligence service that trains exceptional young people like her to use their bodies and minds as weapons. After enduring the perverse and sadistic training process, she emerges as the most dangerous Sparrow the program has ever produced. Dominika must now reconcile the person she was with the power she now commands, with her own life and everyone she cares about at risk, including an American CIA agent who tries to convince her he is the only person she can trust.",
+              "EventDuration": "142",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=PmUL6wMpMWw",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "2 hrs 22 mins",
+              "EventSearchTags": ""
+            },
+            {
+              "EventCode": "ET00069922",
+              "EventImageCode": "red-sparrow-et00069922-29-01-2018-10-48-16",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Red Sparrow (IMAX 2D)",
+              "EventDimension": "IMAX 2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "red-sparrow-imax-2d",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Mystery": [],
+                "Plays": [
+                  "Thriller"
+                ],
+                "Suspense": []
+              },
+              "EventGenre": "Mystery|Suspense|Thriller",
+              "Genre": [
+                "Mystery",
+                "Suspense",
+                "Thriller"
+              ],
+              "isDefault": "N",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Russian ballerina Dominika Egorova suffers a career-ending injury after she shatters her ankle. She is then recruited by the Russian intelligence service 'Sparrow School and trained to become a spy.",
+              "EventDuration": "142",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=PmUL6wMpMWw",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "2 hrs 22 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00049326",
+          "EventTitle": "Aamhi Doghi",
+          "EventGrpDuration": "140",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00069272",
+          "EventURLTitle": "aamhi-doghi",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00069272",
+              "EventImageCode": "aamhi-doghi-et00069272-16-01-2018-11-16-36",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Aamhi Doghi",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "aamhi-doghi",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama",
+              "Genre": [
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Friendship blossoms in various relationships... Sometimes we find our best friends in a relationship designed by fate. Two women who found each other, in the midst of living parallel lives, have woven together a story of understanding. Comfort and compassion can be found where least expected. One is never alone when together with another.<br\/><br\/>Amhi Doghi explores the beautiful relationship between 2 women - motherless 16 year old Savi and 25 year old Ammi. They share a relationship where one would find rivalry.",
+              "EventDuration": "140",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=8J8VWS3MC-0",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "2 hrs 20 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 80,
+          "totalVotes": 774
+        },
+        {
+          "EventGroup": "EG00047503",
+          "EventTitle": "GujjuBhai - Most Wanted",
+          "EventGrpDuration": "157",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|DRAMA|",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00067486",
+          "EventURLTitle": "gujjubhai-most-wanted",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00067486",
+              "EventImageCode": "gujjubhai-most-wanted-et00067486-18-12-2017-10-38-16",
+              "EventType": "MT",
+              "EventLanguage": "Gujarati",
+              "EventStatus": "NS",
+              "EventName": "GujjuBhai - Most Wanted",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "gujjubhai-most-wanted",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Comedy|Drama",
+              "Genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Arvind Divetia, a 56-year-old and his son Khagesh have an uncanny knack of getting into trouble, mostly because of their own wrongdoings. They live a happy life, until one day when they go on a road trip, which goes rogue and they unwittingly find themselves being perceived as secret agents. What follows is a series of comedic events and how they get out of the situation, forms the crux.",
+              "EventDuration": "157",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=VVYZneoP8O0&feature=youtu.be",
+              "EventLocalizeToLanguage": "|Gujarati|",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "2 hrs 37 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 80,
+          "totalVotes": 6053
+        },
+        {
+          "EventGroup": "EG00050192",
+          "EventTitle": "Veerey Ki Wedding",
+          "EventGrpDuration": "122",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|ROMANCE CO|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00070218",
+          "EventURLTitle": "veerey-ki-wedding",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00070218",
+              "EventImageCode": "veerey-ki-wedding-et00070218-01-02-2018-04-52-45",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Veerey Ki Wedding",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "veerey-ki-wedding",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Romance"
+                ]
+              },
+              "EventGenre": "Comedy|Romance",
+              "Genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Veerey Ki Wedding is a Hindi movie starring Pulkit Samrat, Kriti Kharbanda and Jimmy Shergill in prominent roles. The cast also includes Satish Kaushik, Supriya Karnik, Rajesh Bakshi and Yuvika Chaudhary. It is a drama directed by Asshu Trikha, with Dilip Shukla as the writer, forming part of the crew.<br\/><br\/>If you are a representative of the production house, please share the details of the film with synopsis@bookmyshow.com",
+              "EventDuration": "122",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=ytsHyHD_vWs",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "2 hrs 2 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00041266",
+          "EventTitle": "Death Wish",
+          "EventGrpDuration": "108",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ACTION|CRIME-TRL|THRILLER|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00060584",
+          "EventURLTitle": "death-wish",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00060584",
+              "EventImageCode": "death-wish-et00060584-04-08-2017-04-03-34",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Death Wish",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "death-wish",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Action",
+                  "Crime",
+                  "Thriller"
+                ]
+              },
+              "EventGenre": "Action|Crime|Thriller",
+              "Genre": [
+                "Action",
+                "Crime",
+                "Thriller"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Metro-Goldwyn-Mayer Pictures presents director Eli Roth's reimagining of the classic 1974 revenge thriller Death Wish. Dr. Paul Kersey is a surgeon who only sees the aftermath of Chicago violence as it's rushed into his ER - until his wife and college-age daughter are viciously attacked in their suburban home. <br\/><br\/>With the police overloaded with crimes, Paul, burning for revenge, hunts for his family's assailants to deliver justice. As the anonymous slayings of criminals grabs the media's attention, the city wonders if this deadly avenger is a guardian angel... or a grim reaper. Fury and fate collide in the intense, action-thriller Death Wish.",
+              "EventDuration": "108",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=HzILu6yyA20",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "1 hr 48 mins",
+              "EventSearchTags": ""
+            },
+            {
+              "EventCode": "ET00068717",
+              "EventImageCode": "death-wish-et00068717-05-01-2018-02-41-08",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Death Wish (Hindi)",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-02",
+              "EventRating": "0",
+              "EventURL": "death-wish-hindi",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Action",
+                  "Crime",
+                  "Thriller"
+                ]
+              },
+              "EventGenre": "Action|Crime|Thriller",
+              "Genre": [
+                "Action",
+                "Crime",
+                "Thriller"
+              ],
+              "isDefault": "N",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Metro-Goldwyn-Mayer Pictures presents director Eli Roth's reimagining of the classic 1974 revenge thriller Death Wish. Dr. Paul Kersey is a surgeon who only sees the aftermath of Chicago violence as it's rushed into his ER - until his wife and college-age daughter are viciously attacked in their suburban home. With the police overloaded with crimes, Paul, burning for revenge, hunts for his family's assailants to deliver justice. As the anonymous slayings of criminals grabs the media's attention, the city wonders if this deadly avenger is a guardian angel...or a grim reaper. Fury and fate collide in the intense, action-thriller Death Wish.",
+              "EventDuration": "108",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=HzILu6yyA20",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Feb, 2018",
+              "Duration": "1 hr 48 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00036864",
+          "EventTitle": "Aiyaary",
+          "EventGrpDuration": "160",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ACTION|DRAMA|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00055890",
+          "EventURLTitle": "aiyaary",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00055890",
+              "EventImageCode": "aiyaary-et00055890-10-04-2017-06-10-19",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Aiyaary",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-16",
+              "EventRating": "0",
+              "EventURL": "aiyaary",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Action",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Action|Drama",
+              "Genre": [
+                "Action",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Based on the true story of a mentor and student duo, Aiyaary tells the tale of two strong-minded Army officers, who face clashes owing to their difference in opinion. While Manoj Bajpayee plays the mentor, Sidharth Malhotra plays his protege and Rakul Preet Singh is Sidharth's love interest in the movie, playing the role of an IT professional.",
+              "EventDuration": "160",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=KcWXKmnZZVo",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "16 Feb, 2018",
+              "Duration": "2 hrs 40 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00050284",
+          "EventTitle": "Lady Bird",
+          "EventGrpDuration": "96",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|DRAMA|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00070287",
+          "EventURLTitle": "lady-bird",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00070287",
+              "EventImageCode": "lady-bird-et00070287-02-02-2018-05-39-11",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Lady Bird",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "lady-bird",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Comedy|Drama",
+              "Genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Greta Gerwig reveals herself to be a bold new cinematic voice with her directorial debut, excavating both the humor and pathos in the turbulent bond between a mother and her teenage daughter. <br\/><br\/>Christine Lady Bird McPherson fights against but is exactly like her wildly loving, deeply opinionated and strong-willed mom, a nurse working tirelessly to keep her family afloat after Lady Bird's father loses his job. Set in Sacramento, California in 2002, amidst a rapidly shifting American economic landscape, Lady Bird is an affecting look at the relationships that shape us, the beliefs that define us, and the unmatched beauty of a place called home.",
+              "EventDuration": "96",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=GwuVX8PNtsc&t=16s",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "1 hr 36 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00036303",
+          "EventTitle": "Three Billboards Outside Ebbing, Missouri",
+          "EventGrpDuration": "117",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|CRIME-TRL|DRAMA|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00055187",
+          "EventURLTitle": "three-billboards-outside-ebbing-missouri",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00055187",
+              "EventImageCode": "three-billboards-outside-ebbing,-missouri-et00055187-25-03-2017-12-15-34",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Three Billboards Outside Ebbing, Missouri",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "three-billboards-outside-ebbing-missouri",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Crime",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Crime|Drama",
+              "Genre": [
+                "Crime",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "N",
+              "EventSynopsis": "THREE BILLBOARDS OUTSIDE EBBING, MISSOURI is a darkly comic drama from Academy Award winner Martin McDonagh (In Bruges). After months have passed without a culprit in her daughters murder case, Mildred Hayes (Academy Award winner Frances McDormand) makes a bold move, painting three signs leading into her town with a controversial message directed at William Willoughby (Academy Award nominee Woody Harrelson), the town's revered chief of police. <br\/><br\/>When his second-in-command Officer Dixon (Sam Rockwell), an immature mothers boy with a penchant for violence, gets involved, the battle between Mildred and Ebbing's law enforcement is only exacerbated.",
+              "EventDuration": "117",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=Jit3YhGx5pU",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "1 hr 57 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 85,
+          "totalVotes": 2168
+        },
+        {
+          "EventGroup": "EG00045048",
+          "EventTitle": "The Post",
+          "EventGrpDuration": "115",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|BIOPIC|DRAMA|HISTORY|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00064848",
+          "EventURLTitle": "the-post",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00064848",
+              "EventImageCode": "the-post-et00064848-08-11-2017-01-56-37",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "The Post",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-01-12",
+              "EventRating": "0",
+              "EventURL": "the-post",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Biography": [],
+                "History": [],
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Biography|Drama|History",
+              "Genre": [
+                "Biography",
+                "Drama",
+                "History"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "In the early 1970s, U.S. strategic analyst and anti-war activist Daniel Ellsberg leaks classified documents pertaining to the real nature and extent of America's involvement in the Vietnam War to several leading newspapers. The publication of these documents, known as The Pentagon Papers, creates a furore and triggers an unprecedented battle between journalists and the government. At the forefront of this crusade against political hypocrisy are The Washington Post's first female publisher Kay Graham and its firebrand editor Ben Bradlee, and they must risk their careers and personal freedom to bring the truth to light and uphold the spirit of fearless journalism.",
+              "EventDuration": "115",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=nrXlY6gzTTM",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "12 Jan, 2018",
+              "Duration": "1 hr 55 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 84,
+          "totalVotes": 11795
+        },
+        {
+          "EventGroup": "EG00044656",
+          "EventTitle": "Billu Ustaad",
+          "EventGrpDuration": "135",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|THRILLER|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00064473",
+          "EventURLTitle": "billu-ustaad",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00064473",
+              "EventImageCode": "billu-ustaad-et00064473-01-11-2017-02-41-36",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Billu Ustaad",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "billu-ustaad",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama",
+                  "Thriller"
+                ]
+              },
+              "EventGenre": "Drama|Thriller",
+              "Genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Billu Ustaad is the story of a brave, courageous and a supremely confident boy named Billu who grows up in an orphanage. All is well in Billu's life until his three friends from the orphanage are kidnapped by a group of terrorists and are brainwashed to indulge in terrorist activities. Determined to save his friends, Billu seeks the help of an ATS officer named Siraj and Ajay, an IAS officer. How he saves them and how he gives the terrorists a harrowing time, forms the crux.",
+              "EventDuration": "135",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=XOoy-uG33TU&feature=youtu.be",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "2 hrs 15 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00038568",
+          "EventTitle": "Wonder",
+          "EventGrpDuration": "113",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00057695",
+          "EventURLTitle": "wonder",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00057695",
+              "EventImageCode": "wonder-et00057695-26-05-2017-10-46-41",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Wonder",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2017-12-01",
+              "EventRating": "0",
+              "EventURL": "wonder",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama",
+              "Genre": [
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Based on the New York Times bestseller, Wonder tells the incredibly inspiring and heartwarming story of August Pullman. Born with facial differences that, up until now, have prevented him from going to a mainstream school, Auggie becomes the most unlikely of heroes when he enters the local fifth grade. As his family, his new classmates, and the larger community all struggle to discover their compassion and acceptance, Auggie's extraordinary journey will unite them all and prove you can't blend in when you were born to stand out.",
+              "EventDuration": "113",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=ngiK1gQKgK8",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "1 Dec, 2017",
+              "Duration": "1 hr 53 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 90,
+          "totalVotes": 16715
+        },
+        {
+          "EventGroup": "EG00046666",
+          "EventTitle": "Chal Man Jeetva Jaiye",
+          "EventGrpDuration": "123",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00066642",
+          "EventURLTitle": "chal-man-jeetva-jaiye",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00066642",
+              "EventImageCode": "chal-man-jeetva-jaiye-et00066642-06-12-2017-10-36-18",
+              "EventType": "MT",
+              "EventLanguage": "Gujarati",
+              "EventStatus": "NS",
+              "EventName": "Chal Man Jeetva Jaiye",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2017-12-29",
+              "EventRating": "0",
+              "EventURL": "chal-man-jeetva-jaiye",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama",
+              "Genre": [
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Chal Man Jeetva Jaiye recounts the riveting saga of a business family which finds itself at the crossroads, where one wrong decision could end up costing them everything. Through a host of interesting characters and situations, the film gives an insight into what it takes to be resilient in the face of adversity and eventually prevail over them.",
+              "EventDuration": "123",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=7aAmU3JabiU",
+              "EventLocalizeToLanguage": "|Gujarati|",
+              "RegCode": "PUNE",
+              "ShowDate": "29 Dec, 2017",
+              "Duration": "2 hrs 3 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 89,
+          "totalVotes": 18733
+        },
+        {
+          "EventGroup": "EG00049633",
+          "EventTitle": "Inttelligent",
+          "EventGrpDuration": "130",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ACTION|DRAMA|ROMANCE CO|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00069614",
+          "EventURLTitle": "inttelligent",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00069614",
+              "EventImageCode": "intelligent-et00069614-22-01-2018-06-07-24",
+              "EventType": "MT",
+              "EventLanguage": "Telugu",
+              "EventStatus": "NS",
+              "EventName": "Inttelligent",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-09",
+              "EventRating": "0",
+              "EventURL": "inttelligent",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Action",
+                  "Drama",
+                  "Romance"
+                ]
+              },
+              "EventGenre": "Action|Drama|Romance",
+              "Genre": [
+                "Action",
+                "Drama",
+                "Romance"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Inspired by real-life incidents that took place in 2014 at Kukapally, Hyderabad, the movie is about a quick-witted software engineer named Teja who decides to face off the corrupt people. Will he manage to bring down the villain through his intelligent strategies?",
+              "EventDuration": "130",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=P6TwTyE3dW8",
+              "EventLocalizeToLanguage": "|Telugu|",
+              "RegCode": "PUNE",
+              "ShowDate": "9 Feb, 2018",
+              "Duration": "2 hrs 10 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00044225",
+          "EventTitle": "The Shape of Water",
+          "EventGrpDuration": "124",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ADVN|DRAMA|FANTASY|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00063946",
+          "EventURLTitle": "the-shape-of-water",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00063946",
+              "EventImageCode": "the-shape-of-water-et00063946-23-10-2017-04-45-56",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "The Shape of Water",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-16",
+              "EventRating": "0",
+              "EventURL": "the-shape-of-water",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Fantasy": [],
+                "Plays": [
+                  "Adventure",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Adventure|Drama|Fantasy",
+              "Genre": [
+                "Adventure",
+                "Drama",
+                "Fantasy"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "N",
+              "EventSynopsis": "Circa 1962, amidst the cold war era in America, Elisa, a mute worker in the classified high-security government laboratory lives a lonely life. However, her life changes completely when she and her co-worker, Zelda discover the dark truth about a secret experiment.",
+              "EventDuration": "124",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=XFYWazblaUA",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "16 Feb, 2018",
+              "Duration": "2 hrs 4 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 79,
+          "totalVotes": 3715
+        },
+        {
+          "EventGroup": "EG00048575",
+          "EventTitle": "Looose Control",
+          "EventGrpDuration": "147",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|DRAMA|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00068492",
+          "EventURLTitle": "looose-control",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00068492",
+              "EventImageCode": "looose-control-et00068492-02-01-2018-01-45-40",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Looose Control",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "looose-control",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Comedy|Drama",
+              "Genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "N",
+              "EventSynopsis": "Driven by a misguided notion, three engineering students devise a plan to make their New Year eve memorable. Little do they realise that their seemingly brilliant idea is about to turn into a colossal mess and chaos is right around the corner. What ensues is a bizarre chain of events that's funny and terrifying in equal parts, and eventually teaches the trio a thing or two about life, love and friendship.",
+              "EventDuration": "147",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=erEk4NfXwgQ",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "2 hrs 27 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00011908",
+          "EventTitle": "Memory Card",
+          "EventGrpDuration": "107",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00069977",
+          "EventURLTitle": "memory-card",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00069977",
+              "EventImageCode": "memory-card-et00069977-29-01-2018-02-40-42",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Memory Card",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "memory-card",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama",
+              "Genre": [
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Memory card is a Marathi movie starring Sanjay Khapre and Sunil Tawade in prominent roles. It is a drama directed by Mitesh Chindarkar.<br><br\/><br\/>If you are a representative of the production house, please share the details of the film with <br\/><a href=\"mailto:synopsis@bookmyshow.com \">synopsis@bookmyshow.com <\/a>",
+              "EventDuration": "107",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=VUJEHCV4uW0",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "1 hr 47 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00013158",
+          "EventTitle": "Bhay",
+          "EventGrpDuration": "129",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|THRILLER|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00032040",
+          "EventURLTitle": "bhay",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00032040",
+              "EventImageCode": "bhay-et00032040-01-02-2018-12-45-06",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Bhay",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-03-02",
+              "EventRating": "0",
+              "EventURL": "bhay",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama",
+                  "Thriller"
+                ]
+              },
+              "EventGenre": "Drama|Thriller",
+              "Genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "Y",
+              "EventSynopsis": "Gokul Joshi migrates from a small and peaceful town of Pune to the bustling metropolis of Mumbai with a hope for a better life. However, the fast-paced life of Mumbai, its sea of people, the vastness of its space - everything about the city begins to overwhelm Gokul. <br\/><br\/>He is weak, vulnerable and susceptible to the smallest of things. The only thing he believes to be safe is the security chain of his tiny home and lives locked in the house for the most time of the day. Until one day, when life decides to shake things up a little bit...",
+              "EventDuration": "129",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=5Hgs-uuJwoQ",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "2 Mar, 2018",
+              "Duration": "2 hrs 9 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00041509",
+          "EventTitle": "Ye Re Ye Re Paisa",
+          "EventGrpDuration": "142",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|DRAMA|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00060886",
+          "EventURLTitle": "ye-re-ye-re-paisa",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00060886",
+              "EventImageCode": "ye-re-ye-re-paisa-et00060886-11-08-2017-02-02-40",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Ye Re Ye Re Paisa",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-01-05",
+              "EventRating": "0",
+              "EventURL": "ye-re-ye-re-paisa",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Comedy|Drama",
+              "Genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Ye Re Ye Re Paisa is a tale of mad and fun-filled misunderstandings, which revolves around the life of five individuals  Aditya, Sunny, Bubbly, Anna, and Janhavi. Each one of them is trying to reach the respective ends in their life personally and professionally, however, fate has other plans for them. They all get into a trouble. Will they be able to get out of it, forms the crux.",
+              "EventDuration": "142",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=3nKoiodWbhU",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "5 Jan, 2018",
+              "Duration": "2 hrs 22 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00043179",
+          "EventTitle": "Darkest Hour",
+          "EventGrpDuration": "128",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|BIOPIC|DRAMA|WAR|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00062636",
+          "EventURLTitle": "darkest-hour",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00062636",
+              "EventImageCode": "darkest-hour-et00062636-27-09-2017-12-38-58",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Darkest Hour",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-01-19",
+              "EventRating": "0",
+              "EventURL": "darkest-hour",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Biography": [],
+                "Plays": [
+                  "Drama"
+                ],
+                "War": []
+              },
+              "EventGenre": "Biography|Drama|War",
+              "Genre": [
+                "Biography",
+                "Drama",
+                "War"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "In the early days of the World War II, as the threat of invasion by the rampaging German Nazi forces led by Hitler is imminent, the fate of Western Europe hangs in the hands of the newly-appointed British Prime Minister, Winston Churchill. He must decide whether to negotiate terms with the German dictator or fight against all odds. Whatever he decides will change the course of world history.",
+              "EventDuration": "128",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=LtJ60u7SUSw",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "19 Jan, 2018",
+              "Duration": "2 hrs 8 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 79,
+          "totalVotes": 2908
+        },
+        {
+          "EventGroup": "EG00042779",
+          "EventTitle": "All the Money in the World",
+          "EventGrpDuration": "136",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|CRIME-TRL|HISTORY|MYSTERY|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00062203",
+          "EventURLTitle": "all-the-money-in-the-world",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00062203",
+              "EventImageCode": "all-the-money-in-the-world-et00062203-16-09-2017-12-43-20",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "All the Money in the World",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-01-05",
+              "EventRating": "0",
+              "EventURL": "all-the-money-in-the-world",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "History": [],
+                "Mystery": [],
+                "Plays": [
+                  "Crime"
+                ]
+              },
+              "EventGenre": "Crime|History|Mystery",
+              "Genre": [
+                "Crime",
+                "History",
+                "Mystery"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "Gail, a devout mother, after failing to convince her estranged father to pay the ransom money demanded by the kidnappers of her 16-year-old son, John Paul Getty III, tries to sway him. In her desperate attempt to save the life of her child, she finds an unlikely ally in Getty's advisor, but they have to race against time.",
+              "EventDuration": "136",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=KXHrCBkIxQQ",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "5 Jan, 2018",
+              "Duration": "2 hrs 16 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00051162",
+          "EventTitle": "Atrocity",
+          "EventGrpDuration": "128",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00071172",
+          "EventURLTitle": "atrocity",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00071172",
+              "EventImageCode": "atrocity-et00071172-19-02-2018-10-04-51",
+              "EventType": "MT",
+              "EventLanguage": "Marathi",
+              "EventStatus": "NS",
+              "EventName": "Atrocity",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "atrocity",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama",
+              "Genre": [
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "If you are a representative of the production house, please share the details of the film with <br\/><a href=\"synopsis@bookmyshow.com\">synopsis@bookmyshow.com <\/a>",
+              "EventDuration": "128",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=Sp4nxBlKQFE&feature=youtu.be",
+              "EventLocalizeToLanguage": "|Marathi|",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "2 hrs 8 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00039352",
+          "EventTitle": "Amar Akbar Anthony (1977)",
+          "EventGrpDuration": "184",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ACTION|CLASSIC|COMEDY|DRAMA|",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "Y",
+          "EventCode": "ET00058522",
+          "EventURLTitle": "amar-akbar-anthony",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00058522",
+              "EventImageCode": "amar-akbar-anthonyhindi-et00058522-16-06-2017-09-36-25",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Amar Akbar Anthony",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "1977-06-27",
+              "EventRating": "0",
+              "EventURL": "amar-akbar-anthony",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "Y",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Classic": [],
+                "Plays": [
+                  "Action",
+                  "Comedy",
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Action|Classic|Comedy|Drama",
+              "Genre": [
+                "Action",
+                "Classic",
+                "Comedy",
+                "Drama"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Three brothers, who are separated during their childhood, reunite after many years and take revenge against the heinous criminals responsible for their family's separation.",
+              "EventDuration": "184",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=Ee275ya4JMI",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "27 Jun, 1977",
+              "Duration": "3 hrs 4 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00039386",
+          "EventTitle": "The Big Sick",
+          "EventGrpDuration": "124",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|COMEDY|ROMANCE CO|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00058562",
+          "EventURLTitle": "the-big-sick",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00058562",
+              "EventImageCode": "the-big-sick-et00058562-16-06-2017-07-39-00",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "The Big Sick",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2017-06-30",
+              "EventRating": "0",
+              "EventURL": "the-big-sick",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Comedy",
+                  "Romance"
+                ]
+              },
+              "EventGenre": "Comedy|Romance",
+              "Genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "N",
+              "EventSynopsis": "The Big Sick tells the story of Pakistan-born aspiring comedian, who connects with grad student Emily after one of his stand-up sets. However, what they thought would be just a one-night stand blossoms into the real thing, which complicates the life that is expected of Kumail by his traditional Muslim parents.<br\/><br\/>Then Emily is beset with a mystery illness forcing Kumail to navigate the medical crisis with her parents, Beth and Terry who hes never met, while dealing with the emotional tug-of-war between his family and his heart.",
+              "EventDuration": "124",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=jcD0Daqc3Yw",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "30 Jun, 2017",
+              "Duration": "2 hrs 4 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 77,
+          "totalVotes": 887
+        },
+        {
+          "EventGroup": "EG00033599",
+          "EventTitle": "Coco",
+          "EventGrpDuration": "109",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ADVN|ANIMATION|FAMILY|",
+          "EventGrpCensor": "UA",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00052365",
+          "EventURLTitle": "coco",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00052365",
+              "EventImageCode": "coco-et00052365-18-01-2017-12-00-38",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Coco",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2017-11-24",
+              "EventRating": "0",
+              "EventURL": "coco",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Animation": [],
+                "New Year Parties": [
+                  "Family"
+                ],
+                "Plays": [
+                  "Adventure"
+                ]
+              },
+              "EventGenre": "Adventure|Animation|Family",
+              "Genre": [
+                "Adventure",
+                "Animation",
+                "Family"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "UA",
+              "isNewEvent": "N",
+              "EventSynopsis": "For generations, the Riveras have banned music because they believe they have been cursed by it. As their family history goes, Miguel's great-grandfather abandoned his wife Imelda, decades earlier to follow his own dreams of performing, leaving Imelda to take control as the matriarch of the now-thriving Rivera line and declare music dead to the family forever.<br\/><br\/>But Miguel harbors a secret desire to seize his musical moment, inspired by his favorite singer of all time, the late Ernesto de la Cruz. It is only after Miguel discovers an amazing link between himself and De la Cruz that he takes action to emulate the famous singer and, in doing so, accidentally enters the Land of the Dead.<br\/><br\/>In the beautiful underworld, its not long until Miguel encounters the souls of his own family  generations' worth of long-dead but no less vivacious Rivera ancestors, including great-grandmother Imelda. Still, given the opportunity to roam around the Land of the Dead, Miguel decides to track down De la Cruz himself. He teams up with another friendly (and skeletal) spirit  a trickster named Hector, voiced by Bernal  to find De la Cruz, earn his familys blessing to perform, and return to the Land of the Living before time runs out.",
+              "EventDuration": "109",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=Rvr68u6k5sI",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "24 Nov, 2017",
+              "Duration": "1 hr 49 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 89,
+          "totalVotes": 33058
+        },
+        {
+          "EventGroup": "EG00022417",
+          "EventTitle": "Baby Driver",
+          "EventGrpDuration": "113",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ACTION|CRIME-TRL|MUSICAL|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00040794",
+          "EventURLTitle": "baby-driver",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00040794",
+              "EventImageCode": "baby-driver-et00040794-14-03-2017-09-05-24",
+              "EventType": "MT",
+              "EventLanguage": "English",
+              "EventStatus": "NS",
+              "EventName": "Baby Driver",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2017-06-30",
+              "EventRating": "0",
+              "EventURL": "baby-driver",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Action",
+                  "Crime",
+                  "Musical"
+                ]
+              },
+              "EventGenre": "Action|Crime|Musical",
+              "Genre": [
+                "Action",
+                "Crime",
+                "Musical"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "N",
+              "EventSynopsis": "After being coerced into working for a crime boss, a young getaway driver finds himself taking part in a heist doomed to fail.",
+              "EventDuration": "113",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=zclDC3xt5AA",
+              "EventLocalizeToLanguage": "",
+              "RegCode": "PUNE",
+              "ShowDate": "30 Jun, 2017",
+              "Duration": "1 hr 53 mins",
+              "EventSearchTags": ""
+            }
+          ],
+          "avgRating": 82,
+          "totalVotes": 8684
+        },
+        {
+          "EventGroup": "EG00050791",
+          "EventTitle": "RAMBO - Straight Forward",
+          "EventGrpDuration": "159",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|ACTION|DRAMA|ROMANCE CO|",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00070818",
+          "EventURLTitle": "rambo-straight-forward",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00070818",
+              "EventImageCode": "rambo-straight-forward-et00070818-12-02-2018-11-41-04",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "RAMBO - Straight Forward",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "rambo-straight-forward",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Action",
+                  "Drama",
+                  "Romance"
+                ]
+              },
+              "EventGenre": "Action|Drama|Romance",
+              "Genre": [
+                "Action",
+                "Drama",
+                "Romance"
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Rambo is a down-to-earth good samaritan, who also has a mean streak which is hidden until provoked. He falls for college student, Ananya. One thing leads to another and before long, they are in love. But then enters the dreaded Don and Ananya's fiance, Deva. Rambo's dreams are shattered when he finds Ananya and himself in an unlikely love triangle.",
+              "EventDuration": "159",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?v=BgtSzcI_xss&feature=youtu.be",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "2 hrs 39 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00051166",
+          "EventTitle": "Hamne Gandhi Ko Maar Diya",
+          "EventGrpDuration": "107",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|PERIOD |",
+          "EventGrpCensor": "U",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00071180",
+          "EventURLTitle": "hamne-gandhi-ko-maar-diya",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00071180",
+              "EventImageCode": "hey-ram-hamne-gandhi-ko-maar-diya-et00071180-19-02-2018-10-58-43",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Hamne Gandhi Ko Maar Diya",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2018-02-23",
+              "EventRating": "0",
+              "EventURL": "hamne-gandhi-ko-maar-diya",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Period ": [],
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama|Period ",
+              "Genre": [
+                "Drama",
+                "Period "
+              ],
+              "isDefault": "Y",
+              "CanUserRate": "Y",
+              "EventCensor": "U",
+              "isNewEvent": "N",
+              "EventSynopsis": "Set against the backdrop of the turbulent times that followed partition, the film recounts the story two men who meet on a train journey, two days prior to Gandhi's assassination. Their experiences have led these men to embrace two different ideologies, and as the journey progresses, they spar over the merits of their respective worldviews. Certain events during this fateful train ride will have a long-lasting influence on both these men, and at the end of it, a tragic news awaits them.",
+              "EventDuration": "107",
+              "EventTrailerURL": "https:\/\/www.youtube.com\/watch?time_continue=2&v=UcTjBlz2-SY",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "23 Feb, 2018",
+              "Duration": "1 hr 47 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        },
+        {
+          "EventGroup": "EG00007947",
+          "EventTitle": "Heart Attack ",
+          "EventGrpDuration": "148",
+          "EventGrpSequence": "50",
+          "EventGrpGenre": "|DRAMA|",
+          "EventGrpCensor": "A",
+          "EventGrpIsWebView": "false",
+          "EventGrpWebViewURL": "",
+          "IsMovieClubEnabled": "N",
+          "EventCode": "ET00019523",
+          "EventURLTitle": "heart-attack-telugu",
+          "IsPremiere": "N",
+          "ChildEvents": [
+            {
+              "EventCode": "ET00051871",
+              "EventImageCode": "heart-attack-et00051871-21-02-2017-10-05-47",
+              "EventType": "MT",
+              "EventLanguage": "Hindi",
+              "EventStatus": "NS",
+              "EventName": "Heart Attack (Hindi)",
+              "EventDimension": "2D",
+              "EventProducerCode": "",
+              "EventDate": "2016-11-25",
+              "EventRating": "0",
+              "EventURL": "heart-attack-hindi",
+              "EventIsAtmosEnabled": "N",
+              "IsMovieClubEnabled": "N",
+              "SuperstarBannerImageURL": "",
+              "JsonGenre": {
+                "Plays": [
+                  "Drama"
+                ]
+              },
+              "EventGenre": "Drama",
+              "Genre": [
+                "Drama"
+              ],
+              "isDefault": "N",
+              "CanUserRate": "Y",
+              "EventCensor": "A",
+              "isNewEvent": "N",
+              "EventSynopsis": "A romantic drama which aims to allure the urban crowd, stars Nithiin Reddy and Adah Sharma. With a tagline 'I need one hour kiss to burn 300 calories' - that suggests the film is high on romantic quotient.",
+              "EventDuration": "148",
+              "EventTrailerURL": "",
+              "EventLocalizeToLanguage": "|Hindi|",
+              "RegCode": "PUNE",
+              "ShowDate": "25 Nov, 2016",
+              "Duration": "2 hrs 28 mins",
+              "EventSearchTags": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "preferredLanguages": null,
+  "cinemas": {
+    "BookMyShow": {
+      "aiVN": [
+        {
+          "VenueCode": "CPAR",
+          "CompanyCode": "CTPD",
+          "VenueName": "Abhiruchi City Pride: Sinhagad Road",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.4631",
+          "VenueLongitude": "73.8168",
+          "VenueAddress": "Near Flyover, Sinhagad Road, Vadgaon Budruk, Pune, Maharashtra 411041, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "2 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "AICE",
+          "CompanyCode": "CTPD",
+          "VenueName": "Abhiruchi City Pride: Sinhagad Road (Eleganza)",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.4631",
+          "VenueLongitude": "73.8168",
+          "VenueAddress": "Near Flyover, Sinhagad Road, Vadgaon Budruk, Pune, Maharashtra 411041, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ALKA",
+          "CompanyCode": "AKCM",
+          "VenueName": "Alka Cinema: Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5123",
+          "VenueLongitude": "73.8434",
+          "VenueAddress": "Survey No 8\/1, LAL Bahadur Shastri Road, Navi Peth-Sadashiv Peth, Pune, Maharashtra 411030, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ATSS",
+          "CompanyCode": "ASSC",
+          "VenueName": "Apollo Theatre: Rasta Peth",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5197",
+          "VenueLongitude": "73.8644",
+          "VenueAddress": "549, Pune Station Road, Near KEM Hospital, Pune, Maharashtra 411011, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ASHC",
+          "CompanyCode": "ASHC",
+          "VenueName": "Ashok Theatre: Pimpri",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.6244",
+          "VenueLongitude": "73.8119",
+          "VenueAddress": "Survey No 229\/1, Pimpri Waghere Power House Road, Pimpri, Near Sanjivani Medical, Pune, Maharashtra 411017, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ESBW",
+          "CompanyCode": "ESQR",
+          "VenueName": "Bollywood Multiplex: Kharadi",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5471",
+          "VenueLongitude": "73.9294",
+          "VenueAddress": "Old Mundhwa Road, Kharadi, Wadgaon Sheri Bypass, Pune, Maharashtra 411014, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ADGL",
+          "CompanyCode": "ADLB",
+          "VenueName": "Carnival : Kalyaninagar (Gold)",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5456",
+          "VenueLongitude": "73.9064",
+          "VenueAddress": "Mariplex Mall, Kalyani Nagar, Opposite IndusInd Bank, Pune, Maharashtra 411014, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";WC;CAR;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "1 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ADCW",
+          "CompanyCode": "ADLB",
+          "VenueName": "Carnival: Premier Plaza, Chinchwad",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.6298",
+          "VenueLongitude": "73.7997",
+          "VenueAddress": "Premier Plaza, Old Mumbai Pune Highway, Chinchwad, Near Cosmos Bank, Pune, Maharashtra 411049, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";GAM;WC;REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "1 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PUNB",
+          "CompanyCode": "CNPL",
+          "VenueName": "Cinepolis: Seasons Mall, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5192",
+          "VenueLongitude": "73.9297",
+          "VenueAddress": "Magarpatta Police Station Road, Hadapsar, Pune, Maharashtra 411028, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "1 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PUVB",
+          "CompanyCode": "CNPL",
+          "VenueName": "Cinepolis: VIP Seasons Mall, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5192",
+          "VenueLongitude": "73.9297",
+          "VenueAddress": "Magarpatta Police Station Road, Hadapsar, Pune, Maharashtra 411028, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "1 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "1 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CNWE",
+          "CompanyCode": "CNPL",
+          "VenueName": "Cinepolis: WESTEND Mall Aundh, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5625",
+          "VenueLongitude": "73.8072",
+          "VenueAddress": "5, Gurukul Park Road, Ward No. 8, Wireless Colony, Aundh, Pune, Maharashtra 411007, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";WC;CAR;FOD;KTP;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CPRP",
+          "CompanyCode": "CTPD",
+          "VenueName": "City Pride Royal Cinemas: Rahatani",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5933",
+          "VenueLongitude": "73.7864",
+          "VenueAddress": "Spot-18 Mall, 3rd Floor, Rahatani Rd, Pimpri Chinchwad, Pune, Maharashtra 411017, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "2 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CPKT",
+          "CompanyCode": "CTPD",
+          "VenueName": "City Pride: Kothrud",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.4997",
+          "VenueLongitude": "73.821",
+          "VenueAddress": "Survey No.20\/1,2, Kothrud, Near Tara Residency, Pune, Maharashtra 411038, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "2 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CTMP",
+          "CompanyCode": "CTPD",
+          "VenueName": "City Pride: Mangala Cinema",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5247",
+          "VenueLongitude": "73.8546",
+          "VenueAddress": "111, Behind Pune Muncipal Corporation Building, Shivaji Road, Shivaji Nagar, Pune, Maharashtra 411005, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "2 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CTRD",
+          "CompanyCode": "CTPD",
+          "VenueName": "City Pride: R Deccan",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5165",
+          "VenueLongitude": "73.8423",
+          "VenueAddress": "2nd Floor, R Deccan Mall, Jangli Maharaj Road, Opp Deccan Bus Stand, Pune, Maharashtra 411004, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "2 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CTSR",
+          "CompanyCode": "CTPD",
+          "VenueName": "City Pride: Satara Road",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.4887",
+          "VenueLongitude": "73.8579",
+          "VenueAddress": "Market Yard, Pune Satara Road, Pune, Maharashtra 411037, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "2 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "2 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ESPM",
+          "CompanyCode": "ESQR",
+          "VenueName": "E-SQUARE Vishal: Pimpri",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.626",
+          "VenueLongitude": "73.8041",
+          "VenueAddress": "Opp Pcmc Bldg, Mumbai Pune Road, Pimpri, Near HDFC Bank, Pune, Maharashtra 411018, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ESCH",
+          "CompanyCode": "ESQR",
+          "VenueName": "E-SQUARE Xion: Hinjawadi",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5925",
+          "VenueLongitude": "73.745",
+          "VenueAddress": "Xion Mall, 1st Floor, Next To Gateway Hotel, Hinjawadi, Pune, Maharashtra 411057, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ESPN",
+          "CompanyCode": "ESQR",
+          "VenueName": "E-SQUARE: University Road",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.538",
+          "VenueLongitude": "73.8356",
+          "VenueAddress": "132 A, University Road, Ganesh Khind, Near Reserve Bank Of India, Pune, Maharashtra 411007, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CPFT",
+          "CompanyCode": "CTPD",
+          "VenueName": "Fun Time Multiplex: Sinhagad Road",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.4686",
+          "VenueLongitude": "73.8198",
+          "VenueAddress": "Near Manik Baug Petrol Pump, Sinhagad Road, Pune, Maharashtra 411041, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "GUNJ",
+          "CompanyCode": "GCSR",
+          "VenueName": "Gunjan Cinema: Nhavare",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.6596",
+          "VenueLongitude": "74.3711",
+          "VenueAddress": "Gunjan Complex, Shirur-Satara Road, Nhavare, Near Swami Hospital, Pune, Maharashtra 412211, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "Y",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "INPA",
+          "CompanyCode": "INOX",
+          "VenueName": "INOX: Amanora Town Centre",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5188",
+          "VenueLongitude": "73.9365",
+          "VenueAddress": "Kharadi Bypass, Hadapsar, Near Innovera School, Pune, Maharashtra 411028, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";REC;CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [
+            {
+              "Day": "Sun",
+              "CutOff": "4 hrs"
+            },
+            {
+              "Day": "Mon",
+              "CutOff": "4 hrs"
+            },
+            {
+              "Day": "Tue",
+              "CutOff": "4 hrs"
+            },
+            {
+              "Day": "Wed",
+              "CutOff": "4 hrs"
+            },
+            {
+              "Day": "Thu",
+              "CutOff": "4 hrs"
+            },
+            {
+              "Day": "Fri",
+              "CutOff": "4 hrs"
+            },
+            {
+              "Day": "Sat",
+              "CutOff": "4 hrs"
+            }
+          ],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "INPN",
+          "CompanyCode": "INOX",
+          "VenueName": "INOX: Bund Garden Road",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5268",
+          "VenueLongitude": "73.8779",
+          "VenueAddress": "Plot No.D, Bund Garden Road, Near Hotel Central Park, Near Central Park Hotel, Pune, Maharashtra 411001, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";GAM;WC;CAR;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "INGB",
+          "CompanyCode": "INOX",
+          "VenueName": "INOX: Bund Garden Road (Insignia)",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5268",
+          "VenueLongitude": "73.8779",
+          "VenueAddress": "Plot No.D, Bund Garden Road, Near Hotel Central Park, Near Central Park Hotel, Pune, Maharashtra 411001, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";GAM;WC;CAR;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "RHMN",
+          "CompanyCode": "INOX",
+          "VenueName": "INOX: Dorabjees Royale Heritage Mall",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.4672",
+          "VenueLongitude": "73.9062",
+          "VenueAddress": "Dorabjees Royale Heritage Mall, Dorabjee Paradise, NIBM Ext., Next to Vibgyor International School, Pune, Maharashtra 411060, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "FMFP",
+          "CompanyCode": "INOX",
+          "VenueName": "INOX: Fun N Shop, Fatima Nagar",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5057",
+          "VenueLongitude": "73.9013",
+          "VenueAddress": "Pune Solapur Road, Fatima Nagar-Wanwadi, Near Big Bazaar, Pune, Maharashtra 411040, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";WC;CAR;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "FMJP",
+          "CompanyCode": "INOX",
+          "VenueName": "INOX: Jai Ganesh, Akurdi",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.6481",
+          "VenueLongitude": "73.7846",
+          "VenueAddress": "Behind Greaves Company, Akurdi, Near Olympia Service Station, Pune, Maharashtra 411035, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";WC;CAR;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "KIBE",
+          "CompanyCode": "KIBL",
+          "VenueName": "Kibe Laxmi Cinema: Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5169",
+          "VenueLongitude": "73.8542",
+          "VenueAddress": "682, Narasinha Chimtamani Kalker Road, Narayan Peth, Appa Balwant Chowk, Opposite Naralikar Institute, Pune, Maharashtra 411002, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "LNPN",
+          "CompanyCode": "LNPN",
+          "VenueName": "Laxmi Narayan Cinema: Satara Road",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.4966",
+          "VenueLongitude": "73.8577",
+          "VenueAddress": "Volga Chowk Near Swargate Bus Depot, Satara Road, Pune, Maharashtra 411038, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "NTSP",
+          "CompanyCode": "NTSP",
+          "VenueName": "Neelayam Theatre: Sadashiv Peth",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5028",
+          "VenueLongitude": "73.8504",
+          "VenueAddress": "Behind Peshwe Park, Sane Guruji Road, Sadashiv Peth, Pune, Maharashtra 411030, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PVRM",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR ICON: The Pavillion Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5339",
+          "VenueLongitude": "73.83",
+          "VenueAddress": "Pavillion Mall, 3rd floor, Senapati Bapat Road No.30, Laxmi Society, Model Colony, Shivajinagar, Pune, Maharashtra 411016, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PCOP",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR: City One Mall, Pimpri",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.6328",
+          "VenueLongitude": "73.8008",
+          "VenueAddress": "3rd Floor, Finolex Chowk, Pimpri Old Mumbai Pune Highway, Pimpri - Chinchwad, Pune, Maharashtra 411018, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "CXPN",
+          "CompanyCode": "CMAX",
+          "VenueName": "PVR: Inorbit Mall, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5613",
+          "VenueLongitude": "73.9203",
+          "VenueAddress": "2nd Floor, Wadgaon Seri, Opposite Hotel Park Estiqe, Pune, Maharashtra 411014, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PPKP",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR: Kumar Pacific, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5013",
+          "VenueLongitude": "73.873",
+          "VenueAddress": "PVR Kumar Pacific Mall, 4th Floor S-42\/43, Plot No. 387, NR7 LOV Shankar Seth Road, Swar Gate, Pune, Maharashtra 411002, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PNHP",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR: Nitesh Hub Gold Class, Koregaon",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5388",
+          "VenueLongitude": "73.9075",
+          "VenueAddress": "North Main Road, Koregaon Park Annexe, Mundhwa, Near Westin Hotel, Pune, Maharashtra 411001, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PVKP",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR: Nitesh Hub Premier, Koregaon",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5388",
+          "VenueLongitude": "73.9075",
+          "VenueAddress": "North Main Road, Koregaon Park Annexe, Mundhwa, Near Westin Hotel, Pune, Maharashtra 411001, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PVPN",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR: Phoenix Market City, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5613",
+          "VenueLongitude": "73.917",
+          "VenueAddress": "2nd Floor, Phoenix Market City, Nagar Road, Viman Nagar, Near Baker Gauges, Pune, Maharashtra 411014, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PPRR",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR: Phoenix Market City, Pune (4DX)",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5613",
+          "VenueLongitude": "73.9163",
+          "VenueAddress": "2nd Floor, Phoenix Market City, Nagar Road, Viman Nagar, Near Baker Gauges, Pune, Maharashtra 411014, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "PVGP",
+          "CompanyCode": "PVR",
+          "VenueName": "PVR: Phoenix Market City, Pune (Gold)",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5628",
+          "VenueLongitude": "73.9163",
+          "VenueAddress": "2nd Floor, Phoenix Market City, Nagar Road, Viman Nagar, Near Baker Gauges, Pune, Maharashtra 411014, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "RAHU",
+          "CompanyCode": "RAHL",
+          "VenueName": "Rahul 70 MM: Shivajinagar, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5313",
+          "VenueLongitude": "73.8464",
+          "VenueAddress": "Ganeshkhind Road, Shivaji Nagar, Narveer Tanaji Wadi, Pune, Maharashtra 411004, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "SHEV",
+          "CompanyCode": "SHJU",
+          "VenueName": "Shevanta Cinema: Junnar",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "19.207",
+          "VenueLongitude": "73.8823",
+          "VenueAddress": "Bhanwar Niwas, Narayangaon Junnar Ozar Road, Near Shewanta Tours and Travels, Pune, Maharashtra 410502, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "Y",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "STTG",
+          "CompanyCode": "STTG",
+          "VenueName": "Shri Shivaji Talkies: Talegaon",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.721",
+          "VenueLongitude": "73.6873",
+          "VenueAddress": "820, Somwar Peth,Talegaon Dabhade, Near Sursangam Electronics, Pune, Maharashtra 410506, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "VBCT",
+          "CompanyCode": "VBCT",
+          "VenueName": "Vaibhav Chitramandir: Hadapsar",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5014",
+          "VenueLongitude": "73.93",
+          "VenueAddress": "No 21, Hadapsar, Pune Solapur Road, Near Canara Bank, Pune, Maharashtra 411028, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "VSCN",
+          "CompanyCode": "VSCN",
+          "VenueName": "Vasant Cinema: Budhwar Peth",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5178",
+          "VenueLongitude": "73.8558",
+          "VenueAddress": "S No 598, Budhwar Peth, Shivaji Road, Near Nanawada, Opp Prakash Dept Store, Pune, Maharashtra 411002, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "ESVP",
+          "CompanyCode": "ESQR",
+          "VenueName": "Victory Theatre: Camp, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.511",
+          "VenueLongitude": "73.8801",
+          "VenueAddress": "2429, Gen Thimayya Road, Camp, opposite Kayani Bakery, Pune, Maharashtra 411001, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "VJNP",
+          "CompanyCode": "VCNP",
+          "VenueName": "Vijay Cinema: Narayan Peth",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5142",
+          "VenueLongitude": "73.8476",
+          "VenueAddress": "310, Laxmi Road, Narayan Peth, Pune, Maharashtra 411030, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "VCMP",
+          "CompanyCode": "VCMP",
+          "VenueName": "Vikas Cinema: Manchar, Pune",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "19.003",
+          "VenueLongitude": "73.9435",
+          "VenueAddress": "Tal: Ambegaon, At Post Manchar, Pune, Maharashtra 410503, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";CAR;FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        },
+        {
+          "VenueCode": "VLCX",
+          "CompanyCode": "VLXC",
+          "VenueName": "Vilux Talkies: Khadki",
+          "IsATMOSEnabled": "N",
+          "VenueLatitude": "18.5651",
+          "VenueLongitude": "73.8504",
+          "VenueAddress": "New Excelsior Complex, Elphinston Road, Khadki Bazar, Khadki, Pune, Maharashtra 411003, India",
+          "VenueSubRegionCode": "PUNE",
+          "VenueSubRegionName": "Pune",
+          "CinemaUnpaidFlag": "N",
+          "VenueLegends": ";FOD;",
+          "UnpaidReleaseCutOffJson": [],
+          "CinemaIsNew": "N",
+          "CinemaCodFlag": "N",
+          "CinemaCopFlag": "N"
+        }
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-package com.moviebooking
+package com.moviebooking.apps
 
 import akka.NotUsed
 import akka.persistence.cassandra.query.scaladsl.CassandraReadJournal
@@ -7,7 +7,7 @@ import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.Source
 import com.moviebooking.common.ClusterSettings
 
-object PersistentView extends App {
+object EventReader extends App {
   private val settings = new ClusterSettings(2556)
   implicit val system = settings.system
   implicit val materializer: ActorMaterializer = ActorMaterializer()

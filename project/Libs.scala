@@ -44,6 +44,7 @@ object Neo4JDriver {
 
 object Kafka {
   val akkaStreamKafka = "com.typesafe.akka" %% "akka-stream-kafka" % "0.19"
+  val `scalatest-embedded-kafka`     = "net.manub"              %% "scalatest-embedded-kafka"     % "1.0.0"
 }
 
 object Alpakka {

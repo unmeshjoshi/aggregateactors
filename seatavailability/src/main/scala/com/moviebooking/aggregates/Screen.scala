@@ -3,7 +3,6 @@ package com.moviebooking.aggregates
 import akka.event.Logging
 import akka.persistence.PersistentActor
 import com.moviebooking.aggregates.messages.Command
-import com.moviebooking.common.{ClusterSettings, ClusterShard}
 
 case class SeatNumber(row: String, value: Int)
 
@@ -34,7 +33,7 @@ object Screen {
   val shardName: String = "Screen"
 }
 
-class Screen() extends PersistentActor {
+class Screen extends PersistentActor {
   val log = Logging(context.system, this)
   var seatAvailability: SeatAvailability = SeatAvailability(List())
 
@@ -69,48 +68,9 @@ class Screen() extends PersistentActor {
 
   }
 
-  override def persistenceId: String =
-    self.path.parent.name + "-" + self.path.name
-}
-
-object ScreenMain extends App {
-  //create the actor system
-  implicit val system = new ClusterSettings(2553).system
-  Thread.sleep(5000)
-
-  ClusterShard.start()
-
-  val screenShard = ClusterShard.shardRegion(Screen.shardName)
-  val paymentShard = ClusterShard.shardRegion(Payment.shardName)
-  val orderShard = ClusterShard.shardRegion(Order.shardName)
-
-  private val screenName = "demo-screen-actor-"
-
-  println("sending messages to actor")
-
-  screenShard ! InitializeAvailability(
-    screenName + 1,
-    List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-  screenShard ! InitializeAvailability(
-    screenName + 2,
-    List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-  screenShard ! InitializeAvailability(
-    screenName + 3,
-    List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-  screenShard ! InitializeAvailability(
-    screenName + 4,
-    List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-
-  screenShard ! ReserveSeats(screenName + 1, List(SeatNumber("A", 1)))
-
-  paymentShard ! SubmitPayment("payment1", 100)
-
-  orderShard ! SubmitOder(
-    "order1",
-    OrderDetails("order1",
-                 BigDecimal(100),
-                 "10",
-                 "Justice League",
-                 List(SeatNumber("A", 1)),
-                 User("scott", "davis", "scott@st.com", "12882882828")))
+  override def persistenceId: String = {
+    val id = self.path.parent.name + "-" + self.path.name
+    println(s"ID IS ${id}")
+    id
+  }
 }

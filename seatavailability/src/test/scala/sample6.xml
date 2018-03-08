@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <strGetDataForJSONResponse xmlns="http://www.bookmyshow.com/">
+            <strGetDataForJSONResult>{"BookMyShow":
+                {"Summary":[{"Booking_strId":"","Booking_lngId":"0","Order_lngId":"2222635894","Order_intSequence":"1","App_strCode":"WEB","Event_strType":"MT","Order_dtmBookingStamp":"Sat,
+                3 Mar, 2018 @ 3:05pm","Order_dtmBookingDate":"Sat, 3 Mar,
+                2018","Order_dtmBookingTime":"3:05pm","Order_mnyTicketsTotal":"840","Order_mnyTicketsBookingFee":"99.12","Order_mnyTicketsDeliveryFee":"0","Order_mnyInventoryTotal":"0","Order_mnyInventoryBookingFeeTotal":"0","Order_mnyInventoryDeliveryFeeTotal":"0","Order_mnyDiscount":"0","Order_mnyTotal":"939.12","Order_mnyTicketsTax":"0","Order_mnyTicketNett":"840","Order_strTicketsTotal":"Rs.840","Order_strTicketsBookingFee":"Rs.99.12","Order_strTicketsDeliveryFee":"Rs.0","Order_strInventoryTotal":"Rs.0","Order_strInventoryBookingFeeTotal":"Rs.0","Order_strInventoryDeliveryFeeTotal":"Rs.0","Order_strDiscount":"Rs.0","Order_strTotal":"Rs.939.12","Order_strTicketsTax":"Rs.0","Order_strTicketNett":"Rs.840","Order_intTicketsQuantity":"4","Order_strMobileNo":"","Order_strMail":"","Order_strPaymentReceived":"N","Order_strBarCode":"-0","Order_strMessage1":"&lt;p&gt;*
+                To collect your tickets from the INOX Box Office, it is mandatory to present the debit/credit card used
+                by you to book tickets along with the booking confirmation (SMS/Computer printout). Amex cards are also
+                valid.&lt;br&gt;* To counter unforeseen delays, please collect your tickets half an hour before
+                showtime.&lt;br&gt;* Kindly collect your tickets prior to showtime.&lt;br&gt;* Tickets purchased for a
+                particular multiplex are valid for that multiplex only.&lt;br&gt;* Rights of admission reserved. &lt;br&gt;&lt;br&gt;*
+                Entry is allowed only for valid ticket holders.&lt;br&gt;* In case a ticket is lost or misplaced, a
+                duplicate ticket cannot be issued.&lt;br&gt;* The holder of a physical ticket is deemed to be the owner
+                of the ticket.&lt;br&gt;* Tickets purchased online are not eligible for discounts, schemes or promotions
+                of any kind.&lt;br&gt;* Individuals below the age of 18 years cannot be admitted for movies certified
+                ``A``. Please carry proof of age for movies certified (A).&lt;br&gt;* Children aged 3 years and above
+                will require a separate ticket.&lt;br&gt;* Outside eatables, beverages, chewing gum, cameras, electronic
+                items, weapons, cigarettes, lighters, matchsticks, gutkha, pets, laptop bags are strictly prohibited.&lt;br&gt;*
+                Ticket holders are required to abide by the policies laid down by the INOX Management.&lt;br&gt;*
+                Decision(s) taken by INOX shall be final and binding. &lt;br&gt;* 3D Glasses are chargeable
+                (refundable/non-refundable) as per individual cinema policies. Some locations 3D charges may be
+                separately collected at Cinema.&lt;br&gt;&lt;/p&gt;","Order_strMessage2":"","Order_strMessage3":"","Orders_strShowBanner":"N","Order_strBannerImage":"","Order_strBannerURL":"","Order_strPaymentMode":"","Order_strDiscountText":"","Order_strCurrency":"Rs.","Session_dtmRealShow":"04-03-2018
+                17:30:00","Order_strAllowDelivery":"N","Order_mnyAdditionalCharges":"0","Order_strAdditionalCharges":"Rs.0","Order_strData":"|BOOKINGFEE=NA|REGIONGROUPCODE=1|CINEMABOOKINGFEE=72|BFSOURCE=NOSQL|","Order_strCanRetryPayment":"N","Order_strPickup":"N","Order_strAllowCOD":"N","Order_strIsPayPalAvailable":"N","Order_strIsEMIAvailable":"N","Booking_strType":"","UPCutOffShowTime":"Sun,
+                4 Mar, 2018 1:30pm","UnpaidReleaseCutOff":"240","UPCancelCutoffTime":"Sun, 4 Mar, 2018
+                5:30pm","intCancelCutoffTimeWithoutPenalty":"0","Order_strTicketBFBaseAmount":"Rs.84.00","Order_mnyTicketBFBaseAmount":"84.00","Order_strTicketBFTax1":"","Order_strTicketBFTax1Desc":"","Order_strTicketBFTax2":"Rs.7.56","Order_strTicketBFTax2Desc":"Central
+                GST (CGST) @
+                9%","Order_strInvBFBaseAmount":"","Order_mnyInvBFBaseAmount":"0","Order_strInvBFTax1":"","Order_strInvBFTax1Desc":"","Order_strInvBFTax2":"","Order_strInvBFTax2Desc":"Central
+                GST (CGST) @
+                9%","Order_mnyCouponTotal":"0","Order_mnyCouponBookingFee":"0","Order_strCouponTotal":"Rs.0","Order_strCouponBookingFee":"Rs.0","Order_strUserAddress":"","Order_strTempCodAmount":"115","Order_strTempTotalAmountWithCod":"1054.12","Order_mnyTempCodBF":"99.12","Order_strTempCodDesc":"|Booking
+                Fees=84.00|=|Central GST (CGST) @ 9%=Rs.7.56|State GST (SGST) @
+                9%=Rs.7.56|","Order_strCombo":"N","Combo_strValue":"","Order_strTicketBFTax3":"Rs.7.56","Order_strTicketBFTax3Desc":"State
+                GST (SGST) @ 9%","Order_strInvBFTax3":"","Order_strInvBFTax3Desc":"State GST (SGST) @
+                9%","Order_strIsSIMPLAvailable":"Y","Order_mnyFnBDiscount":"0","UPReleaseCutOffTime":"04:00","Order_mnySubTotal":"939.12","Order_strSubTotal":"Rs.939.12","Order_mnyTxnAmount":"939.12","Order_strToStateCode":"MH","Order_strToStateName":"Maharashtra","Order_strGetCustomerData":"N","Order_strHasCodBooking":"N","Order_intCodQuota":0,"Order_strHasCopBooking":"N","Order_intCopQuota":0}],"SessionOrder":[{"Venue_strCode":"INPA","Session_lngSessionId":"75180","Venue_strName":"INOX:
+                Amanora Town Centre (SCREEN 8)","Venue_strLocation":"Pune, Pune","Event_strName":"Black Panther (3D)
+                (U/A)","Event_strShortName":"Black Panther (3D)","Order_dtmShowStamp":"Sun, 4 Mar, 2018 @
+                5:30pm","Order_dtmShowDate":"Sun, 4 Mar,
+                2018","Order_dtmShowTime":"5:30pm","Order_strSeatInfo":"CL-D13,D14,D15,D16","Order_strSeatData":"4 X
+                CLUB","Event_strSKUCode":"","Order_intQuantity":"4","Order_mnyTicketsTotal":"840","Order_strTicketsTotal":"Rs.840","Event_strCode":"ET00046523","Ticket_strType":"CL","Ticket_mnyPrice":"840","Price_curPrice":"210","Venue_strShortName":"INOX:
+                Amanora Town Centre","Screen_strName":"SCREEN 8 ","EventGroup_strTitle":"Black
+                Panther","Event_strLanguage":"English","Event_strEventDimension":"3D","Event_strCensor":"UA","Venue_strHasMTicket":"Y","Venue_strHasMTicketSplit":"N","TType_strDescription":"CLUB","Event_xmlGenre":"&lt;Genre&gt;&lt;code&gt;ACTION&lt;/code&gt;&lt;code&gt;ADVN&lt;/code&gt;&lt;code&gt;FANTASY&lt;/code&gt;&lt;/Genre&gt;","TType_strDescriptionEx":"","Venue_strPickupDetails":"","Order_mnyTicketsTaxTotal":"0","Order_mnyTicketBasePriceTotal":"840","Order_strImageCode":"black-panther-et00046523-16-09-2016-12-06-19","Order_strShowTicketTaxSplitup":"N","Order_strTicketTax1Desc":"CGST","Order_mnyTicketTax1":"0","Order_strTicketTax1":"Rs.0","Order_strTicketTax2Desc":"SGST","Order_mnyTicketTax2":"0","Order_strTicketTax2":"Rs.0","Order_strTicketTax3Desc":"TMC","Order_mnyTicketTax3":"0","Order_strTicketTax3":"Rs.0","Order_strTicketTax4Desc":"GST
+                for
+                TMC","Order_mnyTicketTax4":"0","Order_strTicketTax4":"Rs.0","Cinema_strCompanyCode":"INOX"}],"Inventory":[],"SeatInfo":[],"AddChgs":[],"OrderCash":[],"CouponDetails":[],"CancellationPolicy":[]}}
+            </strGetDataForJSONResult>
+        </strGetDataForJSONResponse>
+    </soap:Body>
+</soap:Envelope>
