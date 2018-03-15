@@ -19,6 +19,9 @@ object Dependencies {
   )
 
   val Aggregates = Seq(
+    Libs.`play-json`,
+    Libs.`play-json-extensions`,
+    Libs.`akka-http-play-json`,
     AkkaHttp.`akka-http`,
     Akka.`akka-actor`,
     Akka.`akka-remote`,

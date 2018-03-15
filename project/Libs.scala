@@ -2,7 +2,7 @@ import sbt._
 import scalapb.compiler.Version.scalapbVersion
 
 object Libs {
-  val ScalaVersion = "2.11.8"
+  val ScalaVersion = "2.12.4"
 
   val `scalatest`                    = "org.scalatest"          %% "scalatest"                    % "3.0.4" //Apache License 2.0
   val `scala-java8-compat`           = "org.scala-lang.modules" %% "scala-java8-compat"           % "0.8.0" //BSD 3-clause "New" or "Revised" License
@@ -20,7 +20,7 @@ object Libs {
   val `joda-time`                    = "joda-time"              % "joda-time"                     % "2.9.9" //Apache 2.0
   val `scala-reflect`                = "org.scala-lang"         % "scala-reflect"                 % ScalaVersion //BSD-3
   val `gson`                         = "com.google.code.gson"   % "gson"                          % "2.8.2" //Apache 2.0
-  val `play-json`                    = "com.typesafe.play"      %% "play-json"                    % "2.6.7" //Apache 2.0
+  val `play-json`                    = "com.typesafe.play"      %% "play-json"                    % "2.6.8" //Apache 2.0
   val `play-json-extensions`         = "ai.x"                   %% "play-json-extensions"         % "0.10.0" //Simplified BSD License
   val `akka-http-play-json`          = "de.heikoseeberger"      %% "akka-http-play-json"          % "1.18.1" //Apache 2.0
   val `scalapb-runtime`              = "com.trueaccord.scalapb" %% "scalapb-runtime"              % scalapbVersion % "protobuf"

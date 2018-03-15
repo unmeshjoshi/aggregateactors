@@ -25,9 +25,9 @@ case class InitializeAvailability(id: String, seats: List[Seat]) extends Command
 
 case class ReserveSeats(id: String, seats: List[SeatNumber]) extends Command
 
-case class SeatsReserved(seats: List[SeatNumber])
+case class SeatsReserved(id:String, seats: List[SeatNumber])
 
-case class Initialized(seats: List[Seat])
+case class Initialized(id:String, seats: List[Seat])
 
 object Screen {
   val shardName: String = "Screen"
@@ -47,20 +47,20 @@ class Screen extends PersistentActor {
   }
 
   val receiveRecover: Receive = {
-    case evt @ Initialized(availableSeats) ⇒ initializeState(evt)
-    case evt @ SeatsReserved(count) => updateState(evt)
+    case evt @ Initialized(id, availableSeats) ⇒ initializeState(evt)
+    case evt @ SeatsReserved(id, count) => updateState(evt)
   }
 
   override def receiveCommand: Receive = {
     case InitializeAvailability(id, availableSeats) ⇒ {
       log.info("Initializing seat availability")
-      persist(Initialized(availableSeats)) { event ⇒
+      persist(Initialized(id, availableSeats)) { event ⇒
         initializeState(event)
       }
     }
     case ReserveSeats(id, count) ⇒ {
       log.info(s"Received reserve seats event for ${count}")
-      persist(SeatsReserved(count)) { event ⇒
+      persist(SeatsReserved(id, count)) { event ⇒
         updateState(event)
         context.system.eventStream.publish(event)
       }

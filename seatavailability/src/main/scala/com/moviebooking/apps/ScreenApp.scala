@@ -2,6 +2,7 @@ package com.moviebooking.apps
 
 import com.moviebooking.aggregates._
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
+import com.moviebooking.generator.Generators
 
 object ScreenMain extends App {
   //create the actor system
@@ -13,11 +14,9 @@ object ScreenMain extends App {
   val paymentShard = ClusterShard.shardRegion(Payment.shardName)
   val orderShard = ClusterShard.shardRegion(Order.shardName)
 
-  val screenName = "demo-screen-actor1"
+  initializeScreens()
 
-  initializeScreens(screenName)
-
-  sendTestMessages(screenName)
+//  sendTestMessages("Screen1")
 
   private def sendTestMessages(screenName: String) = {
 
@@ -35,18 +34,10 @@ object ScreenMain extends App {
                    User("scott", "davis", "scott@st.com", "12882882828")))
   }
 
-  private def initializeScreens(screenName: String) = {
-    screenShard ! InitializeAvailability(
-      screenName + 1,
-      List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-    screenShard ! InitializeAvailability(
-      screenName + 2,
-      List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-    screenShard ! InitializeAvailability(
-      screenName + 3,
-      List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
-    screenShard ! InitializeAvailability(
-      screenName + 4,
-      List(Seat(SeatNumber("A", 1)), Seat(SeatNumber("B", 2))))
+  private def initializeScreens() = {
+    val screenIds = Generators.generateScreenIds
+    screenIds.foreach(screenId ⇒
+      screenShard ! InitializeAvailability(screenId, Generators.generateSeatMap)
+    )
   }
 }

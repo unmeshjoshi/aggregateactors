@@ -1,5 +1,7 @@
 {
-  "popular": {
+  "movieCode": "ET00058565",
+  "movieTitle": "Sonu Ke Titu Ki Sweety",
+  "screens": {
     "ESCH": {
       "venueCode": "ESCH",
       "venueName": "E-SQUARE Xion: Hinjawadi",
