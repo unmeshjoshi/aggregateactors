@@ -33,17 +33,17 @@ object SeatAvailabilityService extends App {
             HttpEntity(ContentTypes.`application/json`, "available-seats\r\n"))
       }
 
-    case HttpRequest(POST, Uri.Path("/reserve-seats"), _, _, _) =>
-      implicit val timeout: Timeout = 5.seconds
+    case request @ HttpRequest(POST, Uri.Path("/reserve-seats"), _, _, _) =>
+      implicit val timeout: Timeout = 15.seconds
       val screenShard = ClusterShard.shardRegion(Screen.shardName)
-
+      val screenId = request.getUri().query().get("screenId")
       val response: Future[Any] = screenShard ? ReserveSeats(
-        "demo-screen-actor",
+        screenId.get(),
         List(SeatNumber("A", 1)))
       val mapFuture: Future[HttpResponse] = response.map(
         any ⇒
           HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-                                           "seats-reserved"),
+                                           any.asInstanceOf[String]),
                        status = StatusCodes.Created))
       mapFuture
   }

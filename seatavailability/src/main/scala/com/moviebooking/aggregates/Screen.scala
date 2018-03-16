@@ -13,9 +13,18 @@ case class Seat(seatNumber: SeatNumber, isReserved: Boolean = false) {
 }
 
 case class SeatAvailability(seats: List[Seat]) {
+  def areAvailable(seatNumbers: List[SeatNumber]) = {
+    val seatsToBeReserved =
+      seats.filter(seat ⇒ seatNumbers.contains(seat.seatNumber))
+    val availableSeats = seatsToBeReserved.filter(seat ⇒ !seat.isReserved)
+    !availableSeats.isEmpty
+  }
+
   def reserve(seatsToReserve: SeatsReserved): SeatAvailability = {
-    val seatsWithReservations = seats.map(
-      seat ⇒ seat.reserve() //TODO reserving all the seats as of now.
+    val seatsToBeReserved =
+      seats.filter(seat ⇒ seatsToReserve.seats.contains(seat.seatNumber))
+    val seatsWithReservations = seatsToBeReserved.map(
+      seat ⇒ seat.reserve()
     )
     copy(seatsWithReservations)
   }
@@ -25,9 +34,9 @@ case class InitializeAvailability(id: String, seats: List[Seat]) extends Command
 
 case class ReserveSeats(id: String, seats: List[SeatNumber]) extends Command
 
-case class SeatsReserved(id:String, seats: List[SeatNumber])
+case class SeatsReserved(id: String, seats: List[SeatNumber])
 
-case class Initialized(id:String, seats: List[Seat])
+case class Initialized(id: String, seats: List[Seat])
 
 object Screen {
   val shardName: String = "Screen"
@@ -58,14 +67,19 @@ class Screen extends PersistentActor {
         initializeState(event)
       }
     }
-    case ReserveSeats(id, count) ⇒ {
-      log.info(s"Received reserve seats event for ${count}")
-      persist(SeatsReserved(id, count)) { event ⇒
-        updateState(event)
-        context.system.eventStream.publish(event)
+    case ReserveSeats(id, seatNumbers) ⇒ {
+      log.info(s"Received reserve seats event for ${seatNumbers}")
+      println(s"Current state is ${seatAvailability}")
+      if (seatAvailability.areAvailable(seatNumbers)) {
+        persist(SeatsReserved(id, seatNumbers)) { event ⇒
+          println("Updating reservations")
+          updateState(event)
+          sender() ! "Seats Accepted"
+        }
+      } else {
+        sender() ! "Seats Rejected"
       }
     }
-
   }
 
   override def persistenceId: String = {

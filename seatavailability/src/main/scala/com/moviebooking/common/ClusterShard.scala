@@ -12,6 +12,16 @@ object ClusterShard {
     ClusterSharding.get(system).shardRegion(name)
   }
 
+  def startProxy()(implicit system: ActorSystem) = {
+    val screenShard: ActorRef = ClusterSharding(system).start(
+      typeName = Screen.shardName,
+      entityProps = Props[Screen],
+      settings = ClusterShardingSettings(system),
+      extractEntityId = Command.idExtractor,
+      extractShardId = Command.shardResolver
+    )
+  }
+
   def start()(implicit system: ActorSystem) = {
     val screenShard: ActorRef = ClusterSharding(system).start(
       typeName = Screen.shardName,
