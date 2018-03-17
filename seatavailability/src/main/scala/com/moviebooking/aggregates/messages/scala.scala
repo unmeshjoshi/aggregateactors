@@ -8,7 +8,7 @@ object Command {
     case s: Command => (s.id, s)
   }
 
-  val numberOfShards = 2
+  val numberOfShards = 3
   val shardResolver: ShardRegion.ExtractShardId = msg =>
     msg match {
       case s: Command => (math.abs(s.id.hashCode) % numberOfShards).toString
