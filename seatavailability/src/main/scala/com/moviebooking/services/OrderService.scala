@@ -1,21 +1,27 @@
 package com.moviebooking.services
 
-import akka.http.scaladsl.model.HttpMethods.{GET, POST}
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.model.HttpMethods.POST
 import akka.http.scaladsl.model._
+import akka.pattern.ask
 import akka.stream.ActorMaterializer
 import akka.stream.javadsl.Source
 import akka.util.{ByteString, Timeout}
 import com.moviebooking.aggregates.{ReserveSeats, Screen, SeatNumber}
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
-import play.api.libs.json.{Json, OFormat}
+import com.moviebooking.services.ScreenAdminService.{requestHandler, settings}
+import play.api.libs.json.Json
 
-import scala.concurrent.duration._
 import scala.concurrent.Future
-import akka.pattern.ask
+import scala.concurrent.duration._
 
-class OrderService extends JsonSupport {
-  case class Order(screenId: String, seatNumbers: List[SeatNumber])
-  implicit val orderFormat: OFormat[Order] = Json.format[Order]
+case class Order(screenId: String, seatNumbers: List[SeatNumber])
+//
+object Main extends App with JsonSupport {
+  println(Json.toJson(Order("Screen1", List(SeatNumber("A", 1), SeatNumber("A", 2)))))
+}
+
+object OrderService extends App with JsonSupport {
 
   //GET seat-availability json
   //POST reserve seats
@@ -30,23 +36,29 @@ class OrderService extends JsonSupport {
   ClusterShard.start()
 
   val requestHandler: HttpRequest => Future[HttpResponse] = {
-    case request @ HttpRequest(POST, Uri.Path("/order"), _, _, _) =>
+    case request@HttpRequest(POST, Uri.Path("/order"), _, _, _) =>
+
       implicit val timeout: Timeout = 15.seconds
-      val requestBytes: Source[ByteString, AnyRef] =
-        request.entity.getDataBytes()
-//      Json.fromJson()
-      val screenShard = ClusterShard.shardRegion(Screen.shardName)
-      val screenId = request.getUri().query().get("screenId")
-      val response: Future[Any] = screenShard ? ReserveSeats(
-        screenId.get(),
-        List(SeatNumber("A", 1)))
-      val mapFuture: Future[HttpResponse] = response.map(
-        any ⇒
-          HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-                                           any.asInstanceOf[String]),
-                       status = StatusCodes.Created))
-      mapFuture
+      val requestBytes: Source[ByteString, AnyRef] = request.entity.getDataBytes()
+      val requestF: Future[ByteString] = request.entity.dataBytes.runFold(ByteString.empty)(_ ++ _)
+
+      val eventualEventualResponse = requestF.flatMap(request ⇒ {
+        val order = Json.parse(request.toArray).as[Order]
+        val screenShard = ClusterShard.shardRegion(Screen.shardName)
+        val response: Future[Any] = screenShard ? ReserveSeats(
+          order.screenId,
+          order.seatNumbers)
+        val mapFuture: Future[HttpResponse] = response.map(
+          any ⇒
+            HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
+              any.asInstanceOf[String]),
+              status = StatusCodes.Created))
+        mapFuture
+      })
+      eventualEventualResponse
   }
+
+  Http().bindAndHandleAsync(requestHandler, settings.hostname, 8083)
 
   //POST confirm booking
 

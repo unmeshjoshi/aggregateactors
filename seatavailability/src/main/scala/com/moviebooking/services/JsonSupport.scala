@@ -9,4 +9,6 @@ trait JsonSupport extends PlayJsonSupport {
   implicit val seatFormat: OFormat[Seat] = Json.format[Seat]
   implicit val seatAvailabilityFormat: OFormat[SeatAvailability] =
     Json.format[SeatAvailability]
+  implicit val orderFormat: OFormat[Order] = Json.format[Order]
+
 }

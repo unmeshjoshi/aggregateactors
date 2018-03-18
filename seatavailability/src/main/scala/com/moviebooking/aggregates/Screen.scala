@@ -17,16 +17,19 @@ case class SeatAvailability(seats: List[Seat]) {
     val seatsToBeReserved =
       seats.filter(seat ⇒ seatNumbers.contains(seat.seatNumber))
     val availableSeats = seatsToBeReserved.filter(seat ⇒ !seat.isReserved)
-    !availableSeats.isEmpty
+    availableSeats.size == seatNumbers.size
   }
 
   def reserve(seatsToReserve: SeatsReserved): SeatAvailability = {
     val seatsToBeReserved =
       seats.filter(seat ⇒ seatsToReserve.seats.contains(seat.seatNumber))
+    val remainingSeats =
+      seats.filter(seat ⇒ !seatsToReserve.seats.contains(seat.seatNumber))
+
     val seatsWithReservations = seatsToBeReserved.map(
       seat ⇒ seat.reserve()
     )
-    copy(seatsWithReservations)
+    copy(seatsWithReservations ++ remainingSeats)
   }
 }
 
@@ -65,6 +68,7 @@ class Screen extends PersistentActor {
       log.info("Initializing seat availability")
       persist(Initialized(id, availableSeats)) { event ⇒
         initializeState(event)
+        sender() ! "Seats Initialized"
       }
     }
     case ReserveSeats(id, seatNumbers) ⇒ {

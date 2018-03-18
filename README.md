@@ -18,3 +18,6 @@ sbt ";project seatavailability; runMain com.moviebooking.apps.ScreenApp"
 sbt ";project seatavailability; runMain com.moviebooking.services.SeatAvailabilityService"
 
 curl -i -X POST  http://192.168.43.138:8082/reserve-seats?screenId=Screen1
+curl -i -X POST  http://192.168.0.111:8082/init-screens
+
+curl -H "Content-Type: application/json" -X POST -d '{"screenId":"Screen1","seatNumbers":[{"row":"A","value":1},{"row":"A","value":2}]}' http://192.168.0.111:8082/order

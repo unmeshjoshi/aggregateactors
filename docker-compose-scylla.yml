@@ -1,0 +1,32 @@
+version: '2'
+services:
+
+###############################
+   scyall0:
+    image: scylladb/scylla
+    container_name: scyall0
+    ports:
+     - 9042:9042
+     - 7199:7199
+
+###############################
+   scyall1:
+    image: scylladb/scylla
+    container_name: scyall1
+    ports:
+     - 9142:9042
+    links:
+     - scyall0:seed
+    environment:
+     - CASSANDRA_SEEDS=seed
+#
+################################
+   scyall2:
+    image: scylladb/scylla
+    container_name: scyall2
+    ports:
+     - 9242:9042
+    links:
+     - scyall0:seed
+    environment:
+     - CASSANDRA_SEEDS=seed
