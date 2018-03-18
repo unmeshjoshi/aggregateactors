@@ -18,7 +18,8 @@ import scala.concurrent.duration._
 case class Order(screenId: String, seatNumbers: List[SeatNumber])
 //
 object Main extends App with JsonSupport {
-  println(Json.toJson(Order("Screen1", List(SeatNumber("A", 1), SeatNumber("A", 2)))))
+  println(
+    Json.toJson(Order("Screen1", List(SeatNumber("A", 1), SeatNumber("A", 2)))))
 }
 
 object OrderService extends App with JsonSupport {
@@ -36,11 +37,12 @@ object OrderService extends App with JsonSupport {
   ClusterShard.start()
 
   val requestHandler: HttpRequest => Future[HttpResponse] = {
-    case request@HttpRequest(POST, Uri.Path("/order"), _, _, _) =>
-
+    case request @ HttpRequest(POST, Uri.Path("/order"), _, _, _) =>
       implicit val timeout: Timeout = 15.seconds
-      val requestBytes: Source[ByteString, AnyRef] = request.entity.getDataBytes()
-      val requestF: Future[ByteString] = request.entity.dataBytes.runFold(ByteString.empty)(_ ++ _)
+      val requestBytes: Source[ByteString, AnyRef] =
+        request.entity.getDataBytes()
+      val requestF: Future[ByteString] =
+        request.entity.dataBytes.runFold(ByteString.empty)(_ ++ _)
 
       val eventualEventualResponse = requestF.flatMap(request ⇒ {
         val order = Json.parse(request.toArray).as[Order]
@@ -48,11 +50,11 @@ object OrderService extends App with JsonSupport {
         val response: Future[Any] = screenShard ? ReserveSeats(
           order.screenId,
           order.seatNumbers)
-        val mapFuture: Future[HttpResponse] = response.map(
-          any ⇒
-            HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-              any.asInstanceOf[String]),
-              status = StatusCodes.Created))
+        val mapFuture: Future[HttpResponse] = response.map(any ⇒ {
+          val entity = HttpEntity(ContentTypes.`application/json`,
+                                  any.asInstanceOf[String])
+          HttpResponse(entity = entity, status = StatusCodes.Created)
+        })
         mapFuture
       })
       eventualEventualResponse

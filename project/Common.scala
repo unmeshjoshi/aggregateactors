@@ -1,4 +1,5 @@
 import Libs._
+import com.typesafe.sbt.packager.archetypes.JavaAppPackaging
 import org.scalafmt.sbt.ScalafmtPlugin.autoImport.scalafmtOnCompile
 import sbt.Keys._
 import sbt._

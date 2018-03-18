@@ -11,11 +11,13 @@ lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
 
 val `aggregatesactors` = project
   .in(file("."))
+  .enablePlugins(DeployApp)
   .enablePlugins(DeployApp, DockerPlugin)
   .aggregate(aggregatedProjects: _*)
 
 
 lazy val `seatavailability` = project
+  .enablePlugins(DeployApp)
   .settings(
     libraryDependencies ++= Dependencies.Aggregates
   )
@@ -28,12 +30,14 @@ lazy val `payment` = project
 
 //Write side
 lazy val `booking` = project
+  .enablePlugins(DeployApp)
   .settings(
     libraryDependencies ++= Dependencies.Aggregates
   )
 
   //Read side
 lazy val `seatavailabilityview` = project
+  .enablePlugins(DeployApp)
   .settings(
     libraryDependencies ++= Dependencies.Aggregates
   )
@@ -41,7 +45,8 @@ lazy val `seatavailabilityview` = project
 
 //Read side
 lazy val `movierecommendationview` = project
-    .dependsOn(`seatavailability`)
+  .dependsOn(`seatavailability`)
+  .enablePlugins(DeployApp)
   .settings(
     libraryDependencies ++= Dependencies.MovieRecommendations
   )

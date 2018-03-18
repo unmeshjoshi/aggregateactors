@@ -1,5 +1,6 @@
 package com.moviebooking.services
 
+import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model._
@@ -23,28 +24,29 @@ object ScreenAdminService extends App with JsonSupport {
   ClusterShard.start()
 
   val requestHandler: HttpRequest => Future[HttpResponse] = {
-    case request@HttpRequest(POST, Uri.Path("/init-screens"), _, _, _) =>
-      new ScreenAdmin().initializeScreens()
+    case request @ HttpRequest(POST, Uri.Path("/init-screens"), _, _, _) =>
+      new ScreenAdmin()
+        .initializeScreens()
         .map(
           list ⇒
-            HttpResponse(
-              entity = HttpEntity(ContentTypes.`application/json`,
-                list.toString()),
-              status = StatusCodes.Created))
+            HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
+                                             list.toString()),
+                         status = StatusCodes.Created))
   }
 
   Http().bindAndHandleAsync(requestHandler, settings.hostname, 8082)
 }
 
 class ScreenAdmin {
-  def initializeScreens() = {
+  def initializeScreens()(implicit system: ActorSystem) = {
+    import scala.concurrent.ExecutionContext.Implicits.global
     implicit val timeout: Timeout = 5.seconds
     val screenShard = ClusterShard.shardRegion(Screen.shardName)
     val screenIds = Generators.generateScreenIds
     val futures = screenIds.map(
       screenId ⇒
         screenShard ? InitializeAvailability(screenId,
-          Generators.generateSeatMap))
+                                             Generators.generateSeatMap))
     Future
       .sequence(futures)
   }
