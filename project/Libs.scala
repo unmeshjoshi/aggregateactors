@@ -26,6 +26,7 @@ object Libs {
   val `scalapb-runtime`              = "com.trueaccord.scalapb" %% "scalapb-runtime"              % scalapbVersion % "protobuf"
   val `scalapb-json4s`               = "com.trueaccord.scalapb" %% "scalapb-json4s"               % "0.3.3"
   val `derby`                        = "org.apache.derby" % "derby" % "10.14.1.0"
+  val `scala-compiler`               = "org.scala-lang"         % "scala-compiler"                % ScalaVersion
 }
 
 object Messaging {
@@ -36,6 +37,9 @@ object Messaging {
   val `qpid-jms-client`              =  "org.apache.qpid" % "qpid-jms-client" % "0.28.0"
   val `rabbitmq-aqmp-client`         =  "com.rabbitmq" % "amqp-client" % "4.1.1"
   val `jedis`                        =  "redis.clients" % "jedis" % "2.9.0"
+  val `lettuce`                      = "io.lettuce"             % "lettuce-core"                  % "5.0.2.RELEASE"
+  val `embedded-redis`               = "com.github.sebruck"     %% "scalatest-embedded-redis"     % "0.3.0"
+  val `scalatest-embedded-kafka`     = "net.manub"              %% "scalatest-embedded-kafka"     % "1.0.0"
 }
 
 object Neo4JDriver {

@@ -39,7 +39,7 @@ lazy val `booking` = project
 lazy val `seatavailabilityview` = project
   .enablePlugins(DeployApp)
   .settings(
-    libraryDependencies ++= Dependencies.Aggregates
+    libraryDependencies ++= Dependencies.ViewService
   )
 
 

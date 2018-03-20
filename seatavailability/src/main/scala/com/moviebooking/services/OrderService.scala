@@ -58,6 +58,11 @@ object OrderService extends App with JsonSupport {
         mapFuture
       })
       eventualEventualResponse
+    case any @ _ ⇒
+      Future {
+        println(any)
+        HttpResponse(status = StatusCodes.OK)
+      }
   }
 
   Http().bindAndHandleAsync(requestHandler, settings.hostname, 8083)

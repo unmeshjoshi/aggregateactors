@@ -48,8 +48,22 @@ object Dependencies {
     Neo4J.`neo4j-test` % Test,
     Libs.`scalatest` % Test,
     Kafka.akkaStreamKafka,
-    Kafka.`scalatest-embedded-kafka`,
+    Kafka.`scalatest-embedded-kafka` % Test,
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`
   )
+
+  val ViewService = Seq(
+    Kafka.akkaStreamKafka,
+    Libs.`play-json`,
+    Libs.`play-json-extensions`,
+    Libs.`akka-http-play-json`,
+    AkkaHttp.`akka-http`,
+    Enumeratum.`enumeratum`,
+    Enumeratum.`enumeratum-play`,
+    Libs.`scalatest` % Test,
+    Messaging.`lettuce`,
+    Messaging.`embedded-redis` % Test
+  )
+
 }

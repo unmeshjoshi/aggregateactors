@@ -33,13 +33,17 @@ case class SeatAvailability(seats: List[Seat]) {
   }
 }
 
+sealed trait Event {
+  def id: String
+}
+
 case class InitializeAvailability(id: String, seats: List[Seat]) extends Command
 
 case class ReserveSeats(id: String, seats: List[SeatNumber]) extends Command
 
-case class SeatsReserved(id: String, seats: List[SeatNumber])
+case class SeatsReserved(id: String, seats: List[SeatNumber]) extends Event
 
-case class Initialized(id: String, seats: List[Seat])
+case class Initialized(id: String, seats: List[Seat]) extends Event
 
 object Screen {
   val shardName: String = "Screen"
