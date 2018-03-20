@@ -29,11 +29,11 @@ echo "Starting event reader to publish to kafka"
 echo "Waiting for event reader to start"
 sleep $STEP
 
-#
-#echo "Starting Kafka subscriber for Redis"
-#./target/universal/stage/bin/kafka-subscriber 2>&1 > kafka-subscriber.log &
-#echo "Waiting for Kafka subscriber for Redis to start"
-#sleep $STEP
+
+echo "Starting Kafka subscriber for Redis"
+./target/universal/stage/bin/kafka-subscriber 2>&1 > kafka-subscriber.log &
+echo "Waiting for Kafka subscriber for Redis to start"
+sleep $STEP
 
 echo "Starting seat-availability-service"
 ./target/universal/stage/bin/seat-availability-service 2>&1 > seat-availability-service.log &
