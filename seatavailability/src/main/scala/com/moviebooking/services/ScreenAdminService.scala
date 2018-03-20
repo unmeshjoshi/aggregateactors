@@ -13,6 +13,7 @@ import com.moviebooking.generator.Generators
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
+import scala.util.Random
 
 object ScreenAdminService extends App with JsonSupport {
   private val settings = new ClusterSettings(8080)
@@ -45,8 +46,10 @@ class ScreenAdmin {
     val screenIds = Generators.generateScreenIds
     val futures = screenIds.map(
       screenId ⇒
-        screenShard ? InitializeAvailability(screenId,
-                                             Generators.generateSeatMap))
+        screenShard ? InitializeAvailability(
+          screenId,
+          Generators.movies(new Random().nextInt(Generators.movies.size)),
+          Generators.generateSeatMap))
     Future
       .sequence(futures)
   }

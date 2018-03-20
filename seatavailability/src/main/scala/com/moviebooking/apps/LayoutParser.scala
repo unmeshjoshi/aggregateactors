@@ -1,6 +1,6 @@
 package com.moviebooking.apps
 
-import com.moviebooking.aggregates.{Seat, SeatAvailability, SeatNumber}
+import com.moviebooking.aggregates.{Movie, Seat, SeatAvailability, SeatNumber}
 import com.moviebooking.services.JsonSupport
 import play.api.libs.json._
 
@@ -28,5 +28,7 @@ object LayoutParser extends App with JsonSupport {
   println(Json.toJson(Map("seats" → seats)))
   println(Json.toJson(SeatNumber("B", 2)))
   println(Json.toJson(Seat(SeatNumber("A", 2))))
-  println(Json.toJson(SeatAvailability(List(Seat(SeatNumber("A", 2))))))
+  println(
+    Json.toJson(SeatAvailability(Movie("test", List("test")),
+                                 List(Seat(SeatNumber("A", 2))))))
 }

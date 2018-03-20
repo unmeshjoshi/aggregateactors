@@ -4,6 +4,8 @@ import com.moviebooking.aggregates._
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
 import com.moviebooking.generator.Generators
 
+import scala.util.Random
+
 object ScreenApp extends App {
   //create the actor system
   implicit val system = new ClusterSettings(2553).system
@@ -38,7 +40,9 @@ object ScreenApp extends App {
     val screenIds = Generators.generateScreenIds
     screenIds.foreach(
       screenId ⇒
-        screenShard ! InitializeAvailability(screenId,
-                                             Generators.generateSeatMap))
+        screenShard ! InitializeAvailability(
+          screenId,
+          Generators.movies(new Random().nextInt(Generators.movies.size)),
+          Generators.generateSeatMap))
   }
 }

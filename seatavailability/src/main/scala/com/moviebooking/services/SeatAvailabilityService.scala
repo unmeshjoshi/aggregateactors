@@ -22,14 +22,16 @@ object SeatAvailabilityService extends App with JsonSupport {
   val client = RedisClient.create("redis://localhost")
   val redisConnection: StatefulRedisConnection[String, String] = client.connect
 
-
   val requestHandler: HttpRequest => Future[HttpResponse] = {
-    case request@HttpRequest(GET, Uri.Path("/available-seats"), _, _, _) => Future {
-      val screenId: Optional[String] = request.getUri().query().get("screenId")
-      val seatAvailabilityJson = redisConnection.sync().get(screenId.get())
-      HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-        seatAvailabilityJson), status = StatusCodes.OK)
-    }
+    case request @ HttpRequest(GET, Uri.Path("/available-seats"), _, _, _) =>
+      Future {
+        val screenId: Optional[String] =
+          request.getUri().query().get("screenId")
+        val seatAvailabilityJson = redisConnection.sync().get(screenId.get())
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
+                                         seatAvailabilityJson),
+                     status = StatusCodes.OK)
+      }
   }
   Http().bindAndHandleAsync(requestHandler, new Networks("").hostname(), 8085)
 }

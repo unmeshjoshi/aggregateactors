@@ -5,6 +5,7 @@ import de.heikoseeberger.akkahttpplayjson.PlayJsonSupport
 import play.api.libs.json._
 
 trait JsonSupport extends PlayJsonSupport {
+  implicit val movieFormat: OFormat[Movie] = Json.format[Movie]
   implicit val seatNumberFormat: OFormat[SeatNumber] = Json.format[SeatNumber]
   implicit val seatFormat: OFormat[Seat] = Json.format[Seat]
   implicit val seatAvailabilityFormat: OFormat[SeatAvailability] =
