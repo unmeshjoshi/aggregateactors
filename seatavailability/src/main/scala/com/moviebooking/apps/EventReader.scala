@@ -27,7 +27,7 @@ object EventReader extends App with JsonSupport {
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   val producerSettings: ProducerSettings[String, String] =
-    producerSettings("localhost", 19092)
+    producerSettings("localhost", 29092)
 
   val kafkaProducer: KafkaProducer[String, String] =
     producerSettings.createKafkaProducer()
@@ -57,8 +57,8 @@ object EventReader extends App with JsonSupport {
           event
         })
 
-//    eventSource.map(convert).to(kafkaProducerSink).run()
-    eventSource.map(convert).to(Sink.ignore).run()
+    eventSource.map(convert).to(kafkaProducerSink).run()
+//    eventSource.map(convert).to(Sink.ignore).run()
     //    value.map(f ⇒ println(f))
   })
 

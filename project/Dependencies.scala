@@ -36,6 +36,7 @@ object Dependencies {
     Akka.`akka-multi-node-testkit` % Test,
     Kafka.akkaStreamKafka,
     Kafka.`scalatest-embedded-kafka`,
+    Messaging.`lettuce`,
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`
   )

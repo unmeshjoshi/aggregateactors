@@ -23,3 +23,5 @@ curl -i -X POST  http://192.168.0.111:8082/init-screens
 docker run --name redis redis
 
 curl -H "Content-Type: application/json" -X POST -d '{"screenId":"Screen1","seatNumbers":[{"row":"A","value":1},{"row":"A","value":2}]}' http://192.168.0.111:8082/order
+
+docker run -p 6379:6379 --rm --name redis-cache redis
