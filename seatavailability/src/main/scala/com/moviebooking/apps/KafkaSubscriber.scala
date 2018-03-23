@@ -6,15 +6,10 @@ import akka.kafka.scaladsl.Consumer
 import akka.kafka.{ConsumerSettings, Subscriptions}
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.Sink
-import com.moviebooking.aggregates.messages.Event
-import com.moviebooking.aggregates.{Initialized, Show, SeatsReserved}
+import com.moviebooking.aggregates.{Event, Initialized, SeatsReserved, Show}
 import com.moviebooking.services.JsonSupport
 import io.lettuce.core.RedisClient
-import org.apache.kafka.clients.consumer.{
-  ConsumerConfig,
-  ConsumerRecord,
-  KafkaConsumer
-}
+import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord, KafkaConsumer}
 import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import play.api.libs.json.Json

@@ -9,7 +9,6 @@ import akka.stream.javadsl.Source
 import akka.util.{ByteString, Timeout}
 import com.moviebooking.aggregates.{ReserveSeats, Screen, SeatNumber, ShowId}
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
-import com.moviebooking.services.ScreenAdminService.{requestHandler, settings}
 import play.api.libs.json.Json
 
 import scala.concurrent.Future

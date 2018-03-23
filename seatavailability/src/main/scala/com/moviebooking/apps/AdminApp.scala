@@ -10,17 +10,19 @@ import akka.http.scaladsl.model._
 import akka.pattern.ask
 import akka.stream.ActorMaterializer
 import akka.util.Timeout
+import com.google.common.util.concurrent.Futures
 import com.moviebooking.aggregates._
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
 import com.moviebooking.generator.Generators
 
+import scala.collection.immutable
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.Random
-import scala.concurrent.ExecutionContext.Implicits.global
 
 
-object ScreenApp extends App {
+object AdminApp extends App {
   private val settings = new ClusterSettings(2553)
   implicit val system = settings.system
 
@@ -32,17 +34,22 @@ object ScreenApp extends App {
 
   val paymentShard = ClusterShard.shardRegion(Payment.shardName)
   val orderShard = ClusterShard.shardRegion(Order.shardName)
+
+
   val requestHandler: HttpRequest => Future[HttpResponse] = {
-    case request@HttpRequest(POST, Uri.Path("/init-screens"), _, _, _) =>
-      initializeScreens()
+    case request@HttpRequest(POST, Uri.Path("/init"), _, _, _) =>
+      val screenFutures: Future[List[Any]] = initializeScreens()
+      val theatreFutures = initializeTheatres()
+      val movieFutures = initializeMovies()
+      val seq = Seq(screenFutures, theatreFutures, movieFutures)
+      Future.sequence(seq)
         .map(
           list ⇒
             HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
               list.toString()),
               status = StatusCodes.Created))
-  }
 
-  initializeScreens()
+  }
 
   Http().bindAndHandleAsync(requestHandler, settings.hostname, 8082)
 
@@ -62,4 +69,23 @@ object ScreenApp extends App {
         ))
     Future.sequence(futures)
   }
+
+  def initializeTheatres()(implicit system:ActorSystem) = {
+    implicit val timeout: Timeout = 5.seconds
+    val theatreShard = ClusterShard.shardRegion(Theatre.shardName)
+    val futures: immutable.Seq[Future[Any]] = Generators.theatres.map(tuple ⇒
+      theatreShard ? InitialiseTheatre(tuple._1, tuple._2)
+    )
+    Future.sequence(futures)
+  }
+
+  def initializeMovies()(implicit system:ActorSystem) = {
+    implicit val timeout: Timeout = 5.seconds
+    val movieShard = ClusterShard.shardRegion(MovieActor.shardName)
+    val futures = Generators.movies.map(movie ⇒
+      movieShard ? InitializeMovie(movie.name, movie.cast, movie.synopsis, movie.genre, movie.metadata)
+    )
+    Future.sequence(futures)
+  }
+
 }

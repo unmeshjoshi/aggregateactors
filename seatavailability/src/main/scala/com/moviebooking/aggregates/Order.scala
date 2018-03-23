@@ -1,7 +1,6 @@
 package com.moviebooking.aggregates
 
 import akka.persistence.PersistentActor
-import com.moviebooking.aggregates.messages.Command
 import enumeratum.{Enum, EnumEntry}
 
 sealed trait OrderStatus extends EnumEntry

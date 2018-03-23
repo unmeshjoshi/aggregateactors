@@ -1,12 +1,13 @@
 package com.moviebooking.services
 
-import com.moviebooking.aggregates._
-import com.moviebooking.aggregates.messages.Event
+import com.moviebooking.aggregates.{Event, _}
 import de.heikoseeberger.akkahttpplayjson.PlayJsonSupport
 import play.api.libs.json._
 
 trait JsonSupport extends PlayJsonSupport {
-  implicit val movieFormat: OFormat[Movie] = Json.format[Movie]
+  implicit val addressFormat: OFormat[Address] = Json.format[Address]
+  implicit val theatreFormat: OFormat[TheatreInitialized] = Json.format[TheatreInitialized]
+  implicit val movieFormat: OFormat[MovieInitiazed] = Json.format[MovieInitiazed]
   implicit val showIdFormat: OFormat[ShowId] = Json.format[ShowId]
   implicit val seatNumberFormat: OFormat[SeatNumber] = Json.format[SeatNumber]
   implicit val seatFormat: OFormat[Seat] = Json.format[Seat]
@@ -22,12 +23,18 @@ trait JsonSupport extends PlayJsonSupport {
   implicit val eventReads =
     __.read[Initialized].map(x => x: Event) orElse __
       .read[SeatsReserved]
+      .map(x => x: Event) orElse __
+      .read[TheatreInitialized]
+      .map(x => x: Event) orElse __
+      .read[MovieInitiazed]
       .map(x => x: Event)
 
   implicit val eventWrites: Writes[Event] = new Writes[Event] {
     def writes(ins: Event): JsValue = ins match {
       case l: Initialized   => Json.toJson(l)(Json.writes[Initialized])
       case s: SeatsReserved => Json.toJson(s)(Json.writes[SeatsReserved])
+      case s: TheatreInitialized => Json.toJson(s)(Json.writes[TheatreInitialized])
+      case s: MovieInitiazed => Json.toJson(s)(Json.writes[MovieInitiazed])
     }
   }
 }

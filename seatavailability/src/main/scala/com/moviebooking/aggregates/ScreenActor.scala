@@ -1,16 +1,9 @@
 package com.moviebooking.aggregates
 
-import java.time.{Instant, LocalTime}
+import java.time.LocalTime
 
 import akka.event.Logging
 import akka.persistence.PersistentActor
-import com.moviebooking.aggregates.messages.{Command, Event}
-
-case class Movie(name: String = "",
-                 actors: List[String] = List(),
-                 synopsis: String,
-                 genre: String,
-                 metadata: Map[String, String] = Map())
 
 case class SeatNumber(row: String, value: Int)
 

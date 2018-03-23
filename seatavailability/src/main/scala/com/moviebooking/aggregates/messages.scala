@@ -1,4 +1,4 @@
-package com.moviebooking.aggregates.messages
+package com.moviebooking.aggregates
 
 import akka.cluster.sharding.ShardRegion
 
@@ -12,7 +12,7 @@ object Command {
   val shardResolver: ShardRegion.ExtractShardId = msg =>
     msg match {
       case s: Command => (math.abs(s.id.hashCode) % numberOfShards).toString
-  }
+    }
 
 }
 
