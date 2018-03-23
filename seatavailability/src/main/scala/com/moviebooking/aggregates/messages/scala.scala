@@ -5,7 +5,7 @@ import akka.cluster.sharding.ShardRegion
 object Command {
 
   val idExtractor: ShardRegion.ExtractEntityId = {
-    case s: Command => (s.id, s)
+    case s: Command => (s.id.toString, s)
   }
 
   val numberOfShards = 3
@@ -14,6 +14,10 @@ object Command {
       case s: Command => (math.abs(s.id.hashCode) % numberOfShards).toString
   }
 
+}
+
+trait Event {
+  def id: String
 }
 
 trait Command {

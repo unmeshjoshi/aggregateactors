@@ -8,7 +8,7 @@ import akka.persistence.query.{EventEnvelope, PersistenceQuery}
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{Sink, Source}
 import akka.{Done, NotUsed}
-import com.moviebooking.aggregates.Event
+import com.moviebooking.aggregates.messages.Event
 import com.moviebooking.common.ClusterSettings
 import com.moviebooking.services.JsonSupport
 import org.apache.kafka.clients.producer.{
@@ -24,21 +24,17 @@ import scala.concurrent.{Future, Promise}
 object EventReader extends App with JsonSupport {
   private val settings = new ClusterSettings(2556)
   implicit val system = settings.system
-  implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   val producerSettings: ProducerSettings[String, String] =
     producerSettings("localhost", 29092)
-
   val kafkaProducer: KafkaProducer[String, String] =
     producerSettings.createKafkaProducer()
-
+  implicit val materializer: ActorMaterializer = ActorMaterializer()
   val kafkaProducerSink: Sink[ProducerRecord[String, String], Future[Done]] =
     Producer.plainSink(producerSettings, kafkaProducer)
-
   val readJournal =
     PersistenceQuery(system)
       .readJournalFor[CassandraReadJournal](CassandraReadJournal.Identifier)
-
   val persistentIds: Source[String, NotUsed] =
     readJournal.persistenceIds()
 
@@ -58,9 +54,13 @@ object EventReader extends App with JsonSupport {
         })
 
     eventSource.map(convert).to(kafkaProducerSink).run()
-//    eventSource.map(convert).to(Sink.ignore).run()
+    //    eventSource.map(convert).to(Sink.ignore).run()
     //    value.map(f ⇒ println(f))
   })
+
+  def producerRecord(event: Event) = {
+    new ProducerRecord("seatAvailability", event.id, event)
+  }
 
   private def convert(event: Event): ProducerRecord[String, String] = {
     try {
@@ -74,10 +74,6 @@ object EventReader extends App with JsonSupport {
         throw any
       }
     }
-  }
-
-  def producerRecord(event: Event) = {
-    new ProducerRecord("seatAvailability", event.id, event)
   }
 
   private def producerSettings(host: String, port: Int)(

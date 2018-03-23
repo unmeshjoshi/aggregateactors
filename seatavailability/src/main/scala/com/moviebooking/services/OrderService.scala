@@ -7,7 +7,7 @@ import akka.pattern.ask
 import akka.stream.ActorMaterializer
 import akka.stream.javadsl.Source
 import akka.util.{ByteString, Timeout}
-import com.moviebooking.aggregates.{ReserveSeats, Screen, SeatNumber}
+import com.moviebooking.aggregates.{ReserveSeats, Screen, SeatNumber, ShowId}
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
 import com.moviebooking.services.ScreenAdminService.{requestHandler, settings}
 import play.api.libs.json.Json
@@ -15,11 +15,12 @@ import play.api.libs.json.Json
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-case class Order(screenId: String, seatNumbers: List[SeatNumber])
+case class Order(screenId: ShowId, seatNumbers: List[SeatNumber])
 //
 object Main extends App with JsonSupport {
   println(
-    Json.toJson(Order("Screen1", List(SeatNumber("A", 1), SeatNumber("A", 2)))))
+    Json.toJson(Order(ShowId("Screen1", "11:20", "City Pride"),
+                      List(SeatNumber("A", 1), SeatNumber("A", 2)))))
 }
 
 object OrderService extends App with JsonSupport {
@@ -47,6 +48,7 @@ object OrderService extends App with JsonSupport {
       val eventualEventualResponse = requestF.flatMap(request ⇒ {
         val order = Json.parse(request.toArray).as[Order]
         val screenShard = ClusterShard.shardRegion(Screen.shardName)
+        println(s"Reserving seats for ${order}")
         val response: Future[Any] = screenShard ? ReserveSeats(
           order.screenId,
           order.seatNumbers)
