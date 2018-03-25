@@ -18,7 +18,6 @@ import scala.collection.immutable
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.concurrent.duration._
-import scala.util.Random
 
 
 object AdminApp extends App {
@@ -32,9 +31,11 @@ object AdminApp extends App {
   val orderShard = ClusterShard.shardRegion(Order.shardName)
   val requestHandler: HttpRequest => Future[HttpResponse] = {
     case request@HttpRequest(POST, Uri.Path("/init"), _, _, _) =>
-      val screenFutures: Future[List[Any]] = initializeScreens()
-      val theatreFutures = initializeTheatres()
-      val movieFutures = initializeMovies()
+      val theatres: Seq[(String, Address)] = Generators.theatres
+      val movies = Generators.movies
+      val theatreFutures: Future[Seq[Any]] = initializeTheatres(theatres)
+      val movieFutures: Future[List[Any]] = initializeMovies(movies)
+      val screenFutures: Future[immutable.Seq[Any]] = initializeScreens(movies, theatres)
       val seq = Seq(screenFutures, theatreFutures, movieFutures)
       Future.sequence(seq)
         .map(
@@ -47,36 +48,51 @@ object AdminApp extends App {
 
   Http().bindAndHandleAsync(requestHandler, settings.hostname, 8082)
 
-  def initializeScreens()(implicit system: ActorSystem) = {
+  def initializeScreens(movies:List[MovieState], theatres:Seq[(String, Address)])(implicit system: ActorSystem) = {
     implicit val timeout: Timeout = 5.seconds
-    val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
-    val showIds = Generators.generateShowIds
-    val futures = showIds.map(
-      showId ⇒
-        screenShard ? InitializeShow(
-          showId,
-          LocalTime.parse(showId.showTimeSlot,
+    val showTimeTheatres: immutable.Seq[(String, (String, Address))] = Generators.showTimes.flatMap(showTime ⇒  {
+      theatres.map(theatre ⇒ (showTime, theatre))
+    })
+
+    val tuples: immutable.Seq[((String, (String, Address)), MovieState)] = showTimeTheatres.flatMap(show ⇒ {
+      movies.map(movie ⇒ (show, movie))
+    })
+    //val tuples: immutable.Seq[((String, (String, Address)), MovieState)] = Generators.showTimes.zip(theatres).zip(movies)
+    println(s"Tuples ${tuples}")
+    val seq: immutable.Seq[Future[Any]] = tuples.flatMap(tuple ⇒ {
+      val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
+      val showIds = Generators.screenIds
+      val futures = showIds.map(showId ⇒ {
+        val future: Future[Any] = screenShard ? InitializeShow(
+          ShowId(showId, tuple._1._1, tuple._1._2._1),
+          LocalTime.parse(tuple._1._1,
             DateTimeFormatter
               .ofPattern("HH:mm")),
-          Generators.movies(new Random().nextInt(Generators.movies.size)).name,
+          tuple._2.name,
           Generators.generateSeatMap
-        ))
-    Future.sequence(futures)
+        )
+        future
+        }
+      )
+      futures
+    })
+
+    Future.sequence(seq)
   }
 
-  def initializeTheatres()(implicit system: ActorSystem) = {
-    implicit val timeout: Timeout = 5.seconds
+  def initializeTheatres(theatres: Seq[(String, Address)])(implicit system: ActorSystem) = {
+    implicit val timeout: Timeout = 20.seconds
     val theatreShard = ClusterShard.shardRegion(Theatre.shardName)
-    val futures: immutable.Seq[Future[Any]] = Generators.theatres.map(tuple ⇒
+    val futures = theatres.map(tuple ⇒
       theatreShard ? InitialiseTheatre(tuple._1, tuple._2)
     )
     Future.sequence(futures)
   }
 
-  def initializeMovies()(implicit system: ActorSystem) = {
+  def initializeMovies(movies: List[MovieState])(implicit system: ActorSystem) = {
     implicit val timeout: Timeout = 5.seconds
     val movieShard = ClusterShard.shardRegion(MovieActor.shardName)
-    val futures = Generators.movies.map(movie ⇒
+    val futures = movies.map(movie ⇒
       movieShard ? InitializeMovie(movie.name, movie.cast, movie.synopsis, movie.genre, movie.metadata)
     )
     Future.sequence(futures)

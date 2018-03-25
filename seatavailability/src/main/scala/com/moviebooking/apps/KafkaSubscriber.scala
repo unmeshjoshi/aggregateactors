@@ -14,7 +14,6 @@ import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import play.api.libs.json.Json
 
-import scala.collection.immutable
 import scala.concurrent.Future
 
 object KafkaSubscriber extends App with JsonSupport {
@@ -82,7 +81,8 @@ object KafkaSubscriber extends App with JsonSupport {
       movieList = Json.parse(movieListJson).as[List[String]]
     }
     val newList = movieList :+ m.id
-    redisCommand.set("movies", Json.toJson(newList).toString())
+    println(s"++++++++++++++++++++++++++New list is ${newList}")
+    redisCommand.set("movies", Json.toJson(newList.distinct).toString())
 
   }
 
@@ -96,10 +96,11 @@ object KafkaSubscriber extends App with JsonSupport {
     if (Option(theatreListJson) == None) {
       theatreList = List()
     } else {
-      theatreList= Json.parse(theatreListJson).as[List[String]]
+      theatreList = Json.parse(theatreListJson).as[List[String]]
     }
     val newList = theatreList :+ t.id
-    redisCommand.set("theatres", Json.toJson(newList).toString())
+    println(s"++++++++++++++++++++++++++++++++++++++++++++New list is ${newList}")
+    redisCommand.set("theatres", Json.toJson(newList.distinct).toString())
   }
 
   private def markReservedSeats(reserved: SeatsReserved) = {
@@ -132,8 +133,8 @@ object KafkaSubscriber extends App with JsonSupport {
       val showIds: Seq[String] = map(theatreMapKey)
       val shows: Seq[String] = showIds :+ init.showId.toString()
       val newMap = Map(theatreMapKey → shows)
-      println(s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${map}")
-      redisCommand.set(theatreMapKey, Json.toJson(map).toString())
+      println(s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${newMap}")
+      redisCommand.set(theatreMapKey, Json.toJson(newMap).toString())
     }
   }
 
@@ -150,7 +151,7 @@ object KafkaSubscriber extends App with JsonSupport {
       val showIds: Seq[String] = map(movieMapKey)
       val serializables: Seq[String] = showIds :+ init.showId.toString()
       val newMap = Map(movieMapKey → serializables)
-      redisCommand.set(movieMapKey, Json.toJson(map).toString())
+      redisCommand.set(movieMapKey, Json.toJson(newMap).toString())
     }
   }
 

@@ -26,13 +26,24 @@ object Generators {
         "After the events of Captain America: Civil War, King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. \n\nWhen two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.",
         "Adventure",
         Map("image" → "", "video" → "https://www.youtube.com/embed/8BAhwgjMvnM")
+      ),
+      MovieState(
+        "Bahubali: The Beginning",
+        List("Prabhas", "Anushka Shetty"),
+        "In the kingdom of Mahishmati, while pursuing his love, Shivudu learns about the conflict-ridden past of his family and his legacy. He must now prepare himself to face his new-found archenemy.",
+        "Adventure",
+        Map("image" → "", "video" → "https://www.youtube.com/watch?v=3NQRhE772b0")
       )
     )
 
   def generateShowIds = {
-    val screenIds = (1 to 5).map(n ⇒ s"Screen${n}").toList
     screenIds.map(id ⇒
       ShowId(id, getRandom(showTimes), getRandom(theatreNames)))
+  }
+
+  def screenIds = {
+    val screenIds = (1 to 5).map(n ⇒ s"Screen${n}").toList
+    screenIds
   }
 
   private def theatreNames = {
