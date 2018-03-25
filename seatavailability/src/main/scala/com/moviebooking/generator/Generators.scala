@@ -40,7 +40,7 @@ object Generators {
   }
 
   def getRandom(list: List[String]) = {
-    val randomIndex = new Random().nextInt(list.size)
+    val randomIndex = new Random(10).nextInt(list.size)
     list(randomIndex)
   }
 

@@ -31,7 +31,7 @@ object LayoutParser extends App with JsonSupport {
   println(Json.parse("""{"id":"id","movieName":"name","seats":[]}"""))
   println(
     Json.toJson(
-      Initialized(ShowId("screen1", "12-30", "city pride"),
+      ShowInitialized(ShowId("screen1", "12-30", "city pride"),
                   LocalTime.now(),
                   "movieName",
                   List()))(initializedFormat))

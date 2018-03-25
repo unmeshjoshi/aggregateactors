@@ -44,10 +44,10 @@ case class Show(showId: ShowId,
   }
 }
 
-case class InitializeAvailability(showId: ShowId,
-                                  showTime: LocalTime,
-                                  movieName: String,
-                                  seats: List[Seat])
+case class InitializeShow(showId: ShowId,
+                          showTime: LocalTime,
+                          movieName: String,
+                          seats: List[Seat])
     extends Command {
   def id = showId.toString
 
@@ -65,32 +65,32 @@ case class SeatsReserved(showId: ShowId, seats: List[SeatNumber])
 
 }
 
-case class Initialized(showId: ShowId,
-                       showTime: LocalTime,
-                       movieName: String,
-                       seats: List[Seat])
+case class ShowInitialized(showId: ShowId,
+                           showTime: LocalTime,
+                           movieName: String,
+                           seats: List[Seat])
     extends Event {
   def id = showId.toString
 
 }
 
-object Screen {
+object ShowActor {
   val shardName: String = "Screen"
 }
 
-class Screen extends PersistentActor {
+class ShowActor extends PersistentActor {
   val log = Logging(context.system, this)
   val receiveRecover: Receive = {
-    case evt @ Initialized(id, showTime, movie, availableSeats) ⇒
+    case evt @ ShowInitialized(id, showTime, movie, availableSeats) ⇒
       initializeState(evt)
     case evt @ SeatsReserved(id, count) => updateState(evt)
   }
   var seatAvailability: Option[Show] = None
 
   override def receiveCommand: Receive = {
-    case InitializeAvailability(id, showTime, movie, availableSeats) ⇒ {
+    case InitializeShow(id, showTime, movie, availableSeats) ⇒ {
       log.info("Initializing seat availability")
-      persist(Initialized(id, showTime, movie, availableSeats)) { event ⇒
+      persist(ShowInitialized(id, showTime, movie, availableSeats)) { event ⇒
         initializeState(event)
         sender() ! "Seats Initialized"
       }
@@ -110,7 +110,7 @@ class Screen extends PersistentActor {
     }
   }
 
-  def initializeState(event: Initialized): Unit = {
+  def initializeState(event: ShowInitialized): Unit = {
     seatAvailability = Some(
       Show(event.showId, event.showTime, event.movieName, event.seats))
   }

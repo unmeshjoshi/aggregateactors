@@ -10,7 +10,6 @@ import akka.http.scaladsl.model._
 import akka.pattern.ask
 import akka.stream.ActorMaterializer
 import akka.util.Timeout
-import com.google.common.util.concurrent.Futures
 import com.moviebooking.aggregates._
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
 import com.moviebooking.generator.Generators
@@ -23,19 +22,14 @@ import scala.util.Random
 
 
 object AdminApp extends App {
-  private val settings = new ClusterSettings(2553)
+  val settings = new ClusterSettings(2553)
   implicit val system = settings.system
-
-  implicit val materializer: ActorMaterializer = ActorMaterializer()
   ClusterShard.start()
-
-  val screenShard = ClusterShard.shardRegion(Screen.shardName)
-  //create the actor system
-
+  val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
+  implicit val materializer: ActorMaterializer = ActorMaterializer()
   val paymentShard = ClusterShard.shardRegion(Payment.shardName)
+  //create the actor system
   val orderShard = ClusterShard.shardRegion(Order.shardName)
-
-
   val requestHandler: HttpRequest => Future[HttpResponse] = {
     case request@HttpRequest(POST, Uri.Path("/init"), _, _, _) =>
       val screenFutures: Future[List[Any]] = initializeScreens()
@@ -55,11 +49,11 @@ object AdminApp extends App {
 
   def initializeScreens()(implicit system: ActorSystem) = {
     implicit val timeout: Timeout = 5.seconds
-    val screenShard = ClusterShard.shardRegion(Screen.shardName)
+    val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
     val showIds = Generators.generateShowIds
     val futures = showIds.map(
       showId ⇒
-        screenShard ? InitializeAvailability(
+        screenShard ? InitializeShow(
           showId,
           LocalTime.parse(showId.showTimeSlot,
             DateTimeFormatter
@@ -70,7 +64,7 @@ object AdminApp extends App {
     Future.sequence(futures)
   }
 
-  def initializeTheatres()(implicit system:ActorSystem) = {
+  def initializeTheatres()(implicit system: ActorSystem) = {
     implicit val timeout: Timeout = 5.seconds
     val theatreShard = ClusterShard.shardRegion(Theatre.shardName)
     val futures: immutable.Seq[Future[Any]] = Generators.theatres.map(tuple ⇒
@@ -79,7 +73,7 @@ object AdminApp extends App {
     Future.sequence(futures)
   }
 
-  def initializeMovies()(implicit system:ActorSystem) = {
+  def initializeMovies()(implicit system: ActorSystem) = {
     implicit val timeout: Timeout = 5.seconds
     val movieShard = ClusterShard.shardRegion(MovieActor.shardName)
     val futures = Generators.movies.map(movie ⇒

@@ -12,8 +12,8 @@ object ClusterShard {
 
   def start()(implicit system: ActorSystem) = {
     val screenShard: ActorRef = ClusterSharding(system).start(
-      typeName = Screen.shardName,
-      entityProps = Props[Screen],
+      typeName = ShowActor.shardName,
+      entityProps = Props[ShowActor],
       settings = ClusterShardingSettings(system),
       extractEntityId = Command.idExtractor,
       extractShardId = Command.shardResolver

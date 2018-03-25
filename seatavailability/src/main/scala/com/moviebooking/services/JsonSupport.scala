@@ -15,13 +15,13 @@ trait JsonSupport extends PlayJsonSupport {
     Json.format[Show]
   implicit val orderFormat: OFormat[Order] = Json.format[Order]
 
-  implicit val initializedFormat: OFormat[Initialized] =
-    Json.format[Initialized]
+  implicit val initializedFormat: OFormat[ShowInitialized] =
+    Json.format[ShowInitialized]
   implicit val seatsReservedFormat: OFormat[SeatsReserved] =
     Json.format[SeatsReserved]
 
   implicit val eventReads =
-    __.read[Initialized].map(x => x: Event) orElse __
+    __.read[ShowInitialized].map(x => x: Event) orElse __
       .read[SeatsReserved]
       .map(x => x: Event) orElse __
       .read[TheatreInitialized]
@@ -31,7 +31,7 @@ trait JsonSupport extends PlayJsonSupport {
 
   implicit val eventWrites: Writes[Event] = new Writes[Event] {
     def writes(ins: Event): JsValue = ins match {
-      case l: Initialized   => Json.toJson(l)(Json.writes[Initialized])
+      case l: ShowInitialized   => Json.toJson(l)(Json.writes[ShowInitialized])
       case s: SeatsReserved => Json.toJson(s)(Json.writes[SeatsReserved])
       case s: TheatreInitialized => Json.toJson(s)(Json.writes[TheatreInitialized])
       case s: MovieInitiazed => Json.toJson(s)(Json.writes[MovieInitiazed])

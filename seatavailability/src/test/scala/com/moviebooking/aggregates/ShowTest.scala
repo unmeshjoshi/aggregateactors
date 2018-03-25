@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter
 
 import org.scalatest.FunSuite
 
-class ScreenTest extends FunSuite {
+class ShowActorTest extends FunSuite {
 
   def showTime =
   LocalTime.parse("11:30", DateTimeFormatter

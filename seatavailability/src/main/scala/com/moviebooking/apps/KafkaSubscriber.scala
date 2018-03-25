@@ -6,7 +6,7 @@ import akka.kafka.scaladsl.Consumer
 import akka.kafka.{ConsumerSettings, Subscriptions}
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.Sink
-import com.moviebooking.aggregates.{Event, Initialized, SeatsReserved, Show}
+import com.moviebooking.aggregates._
 import com.moviebooking.services.JsonSupport
 import io.lettuce.core.RedisClient
 import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord, KafkaConsumer}
@@ -14,6 +14,7 @@ import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import play.api.libs.json.Json
 
+import scala.collection.immutable
 import scala.concurrent.Future
 
 object KafkaSubscriber extends App with JsonSupport {
@@ -50,30 +51,117 @@ object KafkaSubscriber extends App with JsonSupport {
       println(s"Parsed json ${event}")
 
       event match {
-        case init: Initialized ⇒
-          println(s"Initializing screen ${init}")
-          redisConnection
-            .sync()
-            .set(
-              init.showId.showKey(),
-              Json
-                .toJson(
-                  Show(init.showId, init.showTime, init.movieName, init.seats))
-                .toString())
+        case m: MovieInitiazed ⇒ {
+          setMovie(m)
+        }
+        case t: TheatreInitialized ⇒ {
+          setTheatre(t)
+        }
+        case init: ShowInitialized ⇒
+          setShow(init)
         case reserved: SeatsReserved ⇒
-          println(s"Reserving seats ${reserved}")
-          val seatJson = redisConnection.sync().get(reserved.id.toString)
-          val seatAvailability = Json.parse(seatJson).as[Show]
-          val availability = seatAvailability.reserve(reserved)
-          redisConnection
-            .sync()
-            .set(reserved.id.toString, Json.toJson(availability).toString())
+          markReservedSeats(reserved)
       }
     } catch {
-      case any @ _ ⇒ {
+      case any@_ ⇒ {
         any.printStackTrace()
       }
     }
     Done
+  }
+
+  private def setMovie(m: MovieInitiazed) = {
+    val redisCommand = redisConnection
+      .sync()
+    redisCommand.set(m.id, Json.toJson(m)(movieFormat).toString())
+    var movieList = List[String]()
+    val movieListJson = redisCommand.get("movies")
+    if (Option(movieListJson) == None) {
+      movieList = List()
+    } else {
+      movieList = Json.parse(movieListJson).as[List[String]]
+    }
+    val newList = movieList :+ m.id
+    redisCommand.set("movies", Json.toJson(newList).toString())
+
+  }
+
+  private def setTheatre(t: TheatreInitialized) = {
+    val redisCommand = redisConnection
+      .sync()
+    redisCommand.set(t.id, Json.toJson(t)(theatreFormat).toString())
+
+    var theatreList = List[String]()
+    val theatreListJson = redisCommand.get("theatres")
+    if (Option(theatreListJson) == None) {
+      theatreList = List()
+    } else {
+      theatreList= Json.parse(theatreListJson).as[List[String]]
+    }
+    val newList = theatreList :+ t.id
+    redisCommand.set("theatres", Json.toJson(newList).toString())
+  }
+
+  private def markReservedSeats(reserved: SeatsReserved) = {
+    println(s"Reserving seats ${reserved}")
+    val seatJson = redisConnection.sync().get(reserved.id.toString)
+    val seatAvailability = Json.parse(seatJson).as[Show]
+    val availability = seatAvailability.reserve(reserved)
+    redisConnection
+      .sync()
+      .set(reserved.id.toString, Json.toJson(availability).toString())
+  }
+
+  private def setShow(init: ShowInitialized) = {
+    println(s"Initializing screen ${init}")
+    setMovie2ShowMap(init)
+    setTheatre2ShowMap(init)
+    setShowDetails(init)
+  }
+
+  private def setTheatre2ShowMap(init: ShowInitialized) = {
+    val redisCommand = redisConnection
+      .sync()
+    val theatreMapKey = s"${init.showId.theatreName}_show"
+    val showMap: String = redisCommand.get(theatreMapKey)
+    if (Option(showMap) == None) {
+      val map = Map(theatreMapKey → List(init.showId.showKey()))
+      redisCommand.set(theatreMapKey, Json.toJson(map).toString())
+    } else {
+      val map = Json.parse(showMap).as[Map[String, Seq[String]]]
+      val showIds: Seq[String] = map(theatreMapKey)
+      val shows: Seq[String] = showIds :+ init.showId.toString()
+      val newMap = Map(theatreMapKey → shows)
+      println(s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${map}")
+      redisCommand.set(theatreMapKey, Json.toJson(map).toString())
+    }
+  }
+
+  private def setMovie2ShowMap(init: ShowInitialized) = {
+    val redisCommand = redisConnection
+      .sync()
+    val movieMapKey = s"${init.movieName}_show"
+    val showMap: String = redisCommand.get(movieMapKey)
+    if (Option(showMap) == None) {
+      val map = Map(movieMapKey → List(init.showId.showKey()))
+      redisCommand.set(movieMapKey, Json.toJson(map).toString())
+    } else {
+      val map = Json.parse(showMap).as[Map[String, Seq[String]]]
+      val showIds: Seq[String] = map(movieMapKey)
+      val serializables: Seq[String] = showIds :+ init.showId.toString()
+      val newMap = Map(movieMapKey → serializables)
+      redisCommand.set(movieMapKey, Json.toJson(map).toString())
+    }
+  }
+
+  private def setShowDetails(init: ShowInitialized) = {
+    redisConnection
+      .sync()
+      .set(
+        init.showId.showKey(),
+        Json
+          .toJson(
+            Show(init.showId, init.showTime, init.movieName, init.seats))
+          .toString())
   }
 }
