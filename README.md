@@ -22,6 +22,5 @@ curl -i -X POST  http://192.168.0.111:8082/init-screens
 
 docker run --name redis redis
 
-curl -H "Content-Type: application/json" -X POST -d '{"screenId":{"screenName":"Screen5","showTimeSlot":"11:30","theatreName":"City Pride"},"seatNumbers":[{"row":"A","value":1},{"row":"A","value":2}]}' http://192.168.0.111:8083/order
-
+curl -H "Content-Type: application/json" -X POST -d '{"screenId":{"screenName":"Screen5","showTimeSlot":"18:30","theatreName":"PVR Cinemas"},"seatNumbers":[{"row":"B","value":1},{"row":"B","value":2}]}' http://192.168.0.111:8083/order
 docker run -p 6379:6379 --rm --name redis-cache redis
