@@ -5,8 +5,7 @@ lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `seatavailability`,
   `payment`,
   `booking`,
-  `seatavailabilityview`,
-  `movierecommendationview`)
+  `moviebookingapp`)
 
 
 val `aggregatesactors` = project
@@ -36,11 +35,11 @@ lazy val `booking` = project
   )
 
   //Read side
-lazy val `seatavailabilityview` = project
-  .enablePlugins(DeployApp)
+lazy val `moviebookingapp` = project
+  .enablePlugins(DeployApp,PlayScala)
   .settings(
-    libraryDependencies ++= Dependencies.ViewService
-  )
+    libraryDependencies ++= Dependencies.ViewService :+ guice)
+
 
 
 //Read side

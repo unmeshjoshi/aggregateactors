@@ -23,27 +23,29 @@ object SeatAvailabilityService extends App with JsonSupport {
   val redisConnection: StatefulRedisConnection[String, String] = client.connect
 
   val requestHandler: HttpRequest => Future[HttpResponse] = {
-    case request @ HttpRequest(GET, Uri.Path("/theatres-shows"), _, _, _) =>  Future {
-      val theatreName: Optional[String] =
-        request.getUri().query().get("theatreName")
-      println(s"Getting shows for ${theatreName}")
-      val shows = redisConnection.sync().get(s"${theatreName.get()}_show")
-      HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-        shows),
-        status = StatusCodes.OK)
-    }
-    case request @ HttpRequest(GET, Uri.Path("/theatres"), _, _, _) =>  Future {
-      val seatAvailabilityJson = redisConnection.sync().get("theatres")
-      HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-        seatAvailabilityJson),
-        status = StatusCodes.OK)
-    }
+    case request @ HttpRequest(GET, Uri.Path("/theatres-shows"), _, _, _) =>
+      Future {
+        val theatreName: Optional[String] =
+          request.getUri().query().get("theatreName")
+        println(s"Getting shows for ${theatreName}")
+        val shows = redisConnection.sync().get(s"${theatreName.get()}_show")
+        HttpResponse(
+          entity = HttpEntity(ContentTypes.`application/json`, shows),
+          status = StatusCodes.OK)
+      }
+    case request @ HttpRequest(GET, Uri.Path("/theatres"), _, _, _) =>
+      Future {
+        val seatAvailabilityJson = redisConnection.sync().get("theatres")
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
+                                         seatAvailabilityJson),
+                     status = StatusCodes.OK)
+      }
     case request @ HttpRequest(GET, Uri.Path("/movies"), _, _, _) => {
       Future {
         val seatAvailabilityJson = redisConnection.sync().get("movies")
         HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-          seatAvailabilityJson),
-          status = StatusCodes.OK)
+                                         seatAvailabilityJson),
+                     status = StatusCodes.OK)
       }
     }
     case request @ HttpRequest(GET, Uri.Path("/available-seats"), _, _, _) =>

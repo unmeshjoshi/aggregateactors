@@ -6,8 +6,10 @@ import play.api.libs.json._
 
 trait JsonSupport extends PlayJsonSupport {
   implicit val addressFormat: OFormat[Address] = Json.format[Address]
-  implicit val theatreFormat: OFormat[TheatreInitialized] = Json.format[TheatreInitialized]
-  implicit val movieFormat: OFormat[MovieInitiazed] = Json.format[MovieInitiazed]
+  implicit val theatreFormat: OFormat[TheatreInitialized] =
+    Json.format[TheatreInitialized]
+  implicit val movieFormat: OFormat[MovieInitiazed] =
+    Json.format[MovieInitiazed]
   implicit val showIdFormat: OFormat[ShowId] = Json.format[ShowId]
   implicit val seatNumberFormat: OFormat[SeatNumber] = Json.format[SeatNumber]
   implicit val seatFormat: OFormat[Seat] = Json.format[Seat]
@@ -31,9 +33,10 @@ trait JsonSupport extends PlayJsonSupport {
 
   implicit val eventWrites: Writes[Event] = new Writes[Event] {
     def writes(ins: Event): JsValue = ins match {
-      case l: ShowInitialized   => Json.toJson(l)(Json.writes[ShowInitialized])
-      case s: SeatsReserved => Json.toJson(s)(Json.writes[SeatsReserved])
-      case s: TheatreInitialized => Json.toJson(s)(Json.writes[TheatreInitialized])
+      case l: ShowInitialized => Json.toJson(l)(Json.writes[ShowInitialized])
+      case s: SeatsReserved   => Json.toJson(s)(Json.writes[SeatsReserved])
+      case s: TheatreInitialized =>
+        Json.toJson(s)(Json.writes[TheatreInitialized])
       case s: MovieInitiazed => Json.toJson(s)(Json.writes[MovieInitiazed])
     }
   }

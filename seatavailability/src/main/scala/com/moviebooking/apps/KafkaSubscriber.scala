@@ -9,7 +9,11 @@ import akka.stream.scaladsl.Sink
 import com.moviebooking.aggregates._
 import com.moviebooking.services.JsonSupport
 import io.lettuce.core.RedisClient
-import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord, KafkaConsumer}
+import org.apache.kafka.clients.consumer.{
+  ConsumerConfig,
+  ConsumerRecord,
+  KafkaConsumer
+}
 import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import play.api.libs.json.Json
@@ -62,7 +66,7 @@ object KafkaSubscriber extends App with JsonSupport {
           markReservedSeats(reserved)
       }
     } catch {
-      case any@_ ⇒ {
+      case any @ _ ⇒ {
         any.printStackTrace()
       }
     }
@@ -99,7 +103,8 @@ object KafkaSubscriber extends App with JsonSupport {
       theatreList = Json.parse(theatreListJson).as[List[String]]
     }
     val newList = theatreList :+ t.id
-    println(s"++++++++++++++++++++++++++++++++++++++++++++New list is ${newList}")
+    println(
+      s"++++++++++++++++++++++++++++++++++++++++++++New list is ${newList}")
     redisCommand.set("theatres", Json.toJson(newList.distinct).toString())
   }
 
@@ -133,7 +138,8 @@ object KafkaSubscriber extends App with JsonSupport {
       val showIds: Seq[String] = map(theatreMapKey)
       val shows: Seq[String] = showIds :+ init.showId.toString()
       val newMap = Map(theatreMapKey → shows)
-      println(s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${newMap}")
+      println(
+        s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${newMap}")
       redisCommand.set(theatreMapKey, Json.toJson(newMap).toString())
     }
   }
@@ -161,8 +167,7 @@ object KafkaSubscriber extends App with JsonSupport {
       .set(
         init.showId.showKey(),
         Json
-          .toJson(
-            Show(init.showId, init.showTime, init.movieName, init.seats))
+          .toJson(Show(init.showId, init.showTime, init.movieName, init.seats))
           .toString())
   }
 }

@@ -1,0 +1,61 @@
+@(message: String)(implicit assetsFinder: AssetsFinder)
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../../../favicon.ico">
+
+        <title>Carousel Template for Bootstrap</title>
+
+            <!-- Bootstrap core CSS -->
+        <link href=@assetsFinder.path("stylesheets/bootstrap.min.css") rel="stylesheet">
+        <link href=@assetsFinder.path("stylesheets/carousel.css") rel="stylesheet">
+        <script src=@assetsFinder.path("javascripts/jquery-3.3.1.min.js")></script>
+        <script src=@assetsFinder.path("javascripts/bootstrap.js")></script>
+    </head>
+    <body>
+        <main role="main">
+            <div class="container">
+            <div id="movieDetails" >
+                <img src="assets/images/Black Panther.jpg" alt="New York" class="w-100 h-25">
+            </div>
+            <div id="shows">
+                <div id="theatreshows" style="background-color:lightgray !important">
+                    <h2>
+                    <div id="theatre1" class="title">City Pride</div>
+                    </h2>
+                    <h3>
+                    <span class="badge badge-light">
+                    <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
+                    </a>
+                    </span>
+                    <span class="badge badge-light">
+                        <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
+                        </a>
+                    </span>
+                    <span class="badge badge-light">
+                        <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
+                        </a>
+                    </span>
+                    <span class="badge badge-light">
+                        <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
+                        </a>
+                    </span>
+                    </h3>
+                </div>
+                <div id="theatreshows">
+                    <div id="theatre1"></div>
+                    <div id="show1" data-value="screen1">9:10</div>
+                </div>
+                <div id="theatreshows">
+                    <div id="theatre1"></div>
+                    <div id="show1" data-value="screen1">9:10</div>
+                </div>
+            </div>
+            </div>
+        </main>
+    </body>
+</html>

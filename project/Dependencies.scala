@@ -64,7 +64,8 @@ object Dependencies {
     Enumeratum.`enumeratum-play`,
     Libs.`scalatest` % Test,
     Messaging.`lettuce`,
-    Messaging.`embedded-redis` % Test
+    Messaging.`embedded-redis` % Test,
+    Libs.`guice`
   )
 
 }

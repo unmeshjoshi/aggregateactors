@@ -27,6 +27,7 @@ object Libs {
   val `scalapb-json4s`               = "com.trueaccord.scalapb" %% "scalapb-json4s"               % "0.3.3"
   val `derby`                        = "org.apache.derby" % "derby" % "10.14.1.0"
   val `scala-compiler`               = "org.scala-lang"         % "scala-compiler"                % ScalaVersion
+  val `guice`                          = "com.google.inject" % "guice" % "4.2.0"
 }
 
 object Messaging {

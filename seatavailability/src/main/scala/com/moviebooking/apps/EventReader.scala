@@ -11,7 +11,11 @@ import akka.{Done, NotUsed}
 import com.moviebooking.aggregates.Event
 import com.moviebooking.common.ClusterSettings
 import com.moviebooking.services.JsonSupport
-import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord}
+import org.apache.kafka.clients.producer.{
+  Callback,
+  KafkaProducer,
+  ProducerRecord
+}
 import org.apache.kafka.common.serialization.StringSerializer
 import play.api.libs.json._
 

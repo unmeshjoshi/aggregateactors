@@ -13,7 +13,10 @@ addSbtPlugin("com.typesafe.sbt"                  % "sbt-native-packager"    % "1
 addSbtPlugin("com.typesafe.sbt"                  % "sbt-multi-jvm"          % "0.4.0")
 addSbtPlugin("com.eed3si9n"                      % "sbt-buildinfo"          % "0.7.0")
 addSbtPlugin("pl.project13.scala"                % "sbt-jmh"                % "0.3.0")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.6.12")
+// Use the Play sbt plugin for Play projects
 
+resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 resolvers += "Jenkins repo" at "http://repo.jenkins-ci.org/public/"
 addSbtPlugin("ohnosequences" % "sbt-github-release" % "0.5.0")
 

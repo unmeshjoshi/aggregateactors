@@ -25,7 +25,7 @@ case class SubmitPayment(id: String, amount: BigDecimal) extends Command
 case class PaymentSubmited(id: String, amount: BigDecimal) extends PaymentEvent
 
 case class PaymentSuccessful(id: String, amount: BigDecimal)
-  extends PaymentEvent
+    extends PaymentEvent
 
 case class PaymentDeclined(id: String) extends PaymentEvent
 
@@ -59,7 +59,7 @@ class Payment() extends PersistentActor {
   }
 
   override def receiveCommand: Receive = {
-    case sbt@SubmitPayment(id, amount) ⇒
+    case sbt @ SubmitPayment(id, amount) ⇒
       persist(PaymentSuccessful(id, amount))(updateState)
   }
 

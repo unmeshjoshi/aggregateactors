@@ -32,7 +32,8 @@ object Generators {
         List("Prabhas", "Anushka Shetty"),
         "In the kingdom of Mahishmati, while pursuing his love, Shivudu learns about the conflict-ridden past of his family and his legacy. He must now prepare himself to face his new-found archenemy.",
         "Adventure",
-        Map("image" → "", "video" → "https://www.youtube.com/watch?v=3NQRhE772b0")
+        Map("image" → "",
+            "video" → "https://www.youtube.com/watch?v=3NQRhE772b0")
       )
     )
 
