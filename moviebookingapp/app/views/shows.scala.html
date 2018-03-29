@@ -1,5 +1,5 @@
-@import com.moviebooking.aggregates.{MovieState, ShowId}
-@(showIds: Seq[ShowId], movie: MovieState)(implicit assetsFinder: AssetsFinder)
+@import com.moviebooking.aggregates.MovieState
+@(showMap: Map[String, Map[String, List[String]]], movie: MovieState)( implicit assetsFinder: AssetsFinder)
 <!doctype html>
 <html lang="en">
     <head>
@@ -24,19 +24,32 @@
                     <img src='assets/images/@movie.metadata("image")' alt="New York" class="w-100 h-25">
                 </div>
                 <div id="shows">
-                @for(showId ← showIds) {
-                    <div id="theatreshows" style="background-color: lightgray !important">
-                        <h2>
-                            <div id="theatre1" class="title">City Pride</div>
-                        </h2>
-                        <h3>
-                            <span class="badge badge-light">
-                                <a href="/book-seats?showId=@showId.showKey()"><span class="badge badge-pill badge-light">@showId.showTimeSlot</span>
-                                </a>
-                            </span>
-                        </h3>
-                    </div>
-                }
+                    @*Map[String, Map[String, List[String]]]*@
+
+                    @for(theatreScreensShows ← showMap) {
+                        <div id="theatreshows" style="background-color: lightgray !important">
+
+                            <h2>
+                                <div id="theatre1" class="title">@theatreScreensShows._1</div>
+                            </h2>
+
+
+                            @for(screenShows ← theatreScreensShows._2) {
+                                <h3>@screenShows._1</h3>
+                                <h4>
+
+                                @for(shows ← screenShows._2) {
+                                        <span class="badge badge-light">
+                                            <a href="/book-seats/@(screenShows._1 + "_" + shows + "_" + theatreScreensShows._1)">
+                                            <span class="badge badge-pill badge-light">@shows</span>
+                                            </a>
+                                        </span>
+                                }
+                            </h4>
+
+                            }
+                        </div>
+                    }
                 </div>
             </div>
         </main>

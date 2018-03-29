@@ -4,8 +4,10 @@
 
 # Home page
 GET     /                           controllers.MovieController.index()
-GET     /shows/:movieName                 controllers.MovieController.shows(movieName:String)
-GET     /book-seats/:showId                 controllers.MovieController.bookSeats(showId:String)
+GET     /shows/:movieName           controllers.MovieController.shows(movieName:String)
+GET     /book-seats/:showId         controllers.MovieController.bookSeats(showId:String)
 
++ nocsrf
+POST   /confirm-booking             controllers.MovieController.confirmBooking()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

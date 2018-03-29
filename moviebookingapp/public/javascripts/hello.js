@@ -1,20 +1,54 @@
-$(document).ready(function ($) {
-    $('#myCarousel').carousel({
-        interval: 4000
-    })
-    $('.carousel .carousel-item').each(function () {
-        var next = $(this).next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-        for (var i = 0; i < 2; i++) {
-            next = next.next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
+$(function(){
+
+    $('#btnSeating').on('click', createseating);
+
+    $(function(){
+        $('.seat').on('click',function(){
+            $("#tickets").val($(this).attr("data-value"))
+            if($(this).hasClass( "selected" )){
+                $( this ).removeClass( "selected" );
+            }else{
+                $( this ).addClass( "selected" );
             }
-            next.children(':first-child').clone().appendTo($(this));
-        }
+
+        });
+
+        $('.seat').mouseenter(function(){
+            $( this ).addClass( "hovering" );
+
+            $('.seat').mouseleave(function(){
+                $( this ).removeClass( "hovering" );
+
+            });
+        });
+
+
     });
 
 });
+//Note:In js the outer loop runs first then the inner loop runs completely so it goes o.l. then i.l. i.l .i.l .i.l. i.l etc and repeat
+
+function createseating(){
+
+    var seatingValue = [];
+    for ( var i = 0; i < 10; i++){
+
+        for (var j=0; j<10; j++){
+            var seatingStyle = "<div class='seat available'></div>";
+            seatingValue.push(seatingStyle);
+
+            if ( j === 9){
+                console.log("hi");
+                var seatingStyle = "<div class='clearfix'></div>";
+                seatingValue.push(seatingStyle);
+
+
+
+            }
+        }
+    }
+
+    $('#messagePanel').html(seatingValue);
+
+
+};

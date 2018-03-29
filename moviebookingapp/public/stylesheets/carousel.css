@@ -84,6 +84,30 @@ body {
     }
 }
 
+messagePanel { border: solid 1px black; width: 320px; height: 330px; }
+
+.seat {
+    width: 50px;
+    height: 20px;
+    margin: 5px;
+    border: solid 1px black;
+    float: left;
+    font-weight: bold;
+}
+
+.clearfix { clear: both;}
+.available {
+    background-color: #96c131;
+}
+
+.hovering{
+    background-color: #ae59b3;
+}
+.selected{
+    background-color: red;
+}
+
+
 @media (min-width: 62em) {
     .featurette-heading {
         margin-top: 7rem;

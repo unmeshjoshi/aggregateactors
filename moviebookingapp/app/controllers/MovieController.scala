@@ -2,16 +2,16 @@ package controllers
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
+import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
 import akka.util.ByteString
-import com.moviebooking.aggregates.{MovieState, Show, ShowId}
-import com.moviebooking.services.JsonSupport
+import com.moviebooking.aggregates.{MovieState, SeatNumber, Show, ShowId}
+import com.moviebooking.services.{JsonSupport, Order}
 import javax.inject.Inject
-import play.api.libs.json.Json
+import play.api.data.Form
+import play.api.libs.json.{JsValue, Json}
 import play.api.mvc._
 
-import scala.collection.mutable
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
@@ -21,9 +21,12 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
   implicit val system                          = ActorSystem("moviebookingactorsystem")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-  def index() =
+  private val hostIp = "192.168.0.111"
+//  private val hostIp = "10.131.20.143"
+
+  def index(): Action[AnyContent] =
     Action.async({
-      val eventualResponse = getResponse("http://192.168.0.111:8085/movies")
+      val eventualResponse = getResponse("http://" + hostIp + ":8085/movies")
       println(eventualResponse)
       val eventualString = eventualResponse.flatMap(response ⇒ {
         readResponse(response)
@@ -34,22 +37,12 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
       })
     })
 
-  def getResponse(url: String): Future[HttpResponse] = {
-    implicit val system       = ActorSystem()
-    implicit val materializer = ActorMaterializer()
-    // needed for the future flatMap/onComplete in the end
-    implicit val executionContext = system.dispatcher
-
-    val responseFuture: Future[HttpResponse] = Http().singleRequest(HttpRequest(uri = url))
-    responseFuture
-  }
-
   def shows(movieName: String): Action[AnyContent] =
     Action.async({
       val eventualResponse =
-        getResponse(s"http://192.168.0.111:8085/screens?movieName=${java.net.URLEncoder.encode(movieName, "UTF-8")}")
+        getResponse(s"http://$hostIp:8085/screens?movieName=${java.net.URLEncoder.encode(movieName, "UTF-8")}")
       val futureMovieResponse =
-        getResponse(s"http://192.168.0.111:8085/movie?movieName=${java.net.URLEncoder.encode(movieName, "UTF-8")}")
+        getResponse(s"http://$hostIp:8085/movie?movieName=${java.net.URLEncoder.encode(movieName, "UTF-8")}")
       val eventualString = eventualResponse.flatMap(response ⇒ {
         readResponse(response)
       })
@@ -63,7 +56,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
             val movie   = Json.parse(response.toArray).as[MovieState]
             val showIds = showId.map(idString ⇒ ShowId.fromKey(idString))
 
-//            theatre -> (screens -> List[ShowId])
+            //            theatre -> (screens -> List[ShowId])
             var theatreMap = Map[String, Map[String, List[String]]]()
             for (showId ← showIds) {
               if (!theatreMap.exists(_._1 == showId.theatreName)) {
@@ -83,14 +76,21 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
               theatreMap = theatreMap + (showId.theatreName → showMap)
             }
             println(theatreMap)
-            Ok(views.html.shows(showIds, movie))
+            Ok(views.html.shows(theatreMap, movie))
           })
         })
       })
     })
 
-  case class TheatreShows(theatreName: String, screenShows: List[ScreenShows])
-  case class ScreenShows(screenName: String, shows: List[ShowId])
+  def getResponse(url: String): Future[HttpResponse] = {
+    implicit val system       = ActorSystem()
+    implicit val materializer = ActorMaterializer()
+    // needed for the future flatMap/onComplete in the end
+    implicit val executionContext = system.dispatcher
+
+    val responseFuture: Future[HttpResponse] = Http().singleRequest(HttpRequest(uri = url))
+    responseFuture
+  }
 
   private def readResponse(response: HttpResponse) = {
     val requestF: Future[ByteString] =
@@ -98,8 +98,54 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
     requestF
   }
 
-  def bookSeats(showId: String): Action[AnyContent] = Action {
-    Ok(views.html.bookseats())
-  }
+  def bookSeats(showId: String): Action[AnyContent] =
+    Action.async({
+      val eventualResponse =
+        getResponse(s"http://${hostIp}:8085/available-seats?screenId=${java.net.URLEncoder.encode(showId, "UTF-8")}")
+      println(eventualResponse)
+      val eventualString = eventualResponse.flatMap(response ⇒ {
+        readResponse(response)
+      })
+      eventualString.map((response: ByteString) ⇒ {
+        val show = Json.parse(response.toArray).as[Show]
+        Ok(views.html.bookseats(show))
+      })
+    })
 
+  case class TheatreShows(theatreName: String, screenShows: List[ScreenShows])
+
+  case class ScreenShows(screenName: String, shows: List[ShowId])
+
+  import play.api.data.format.Formats._
+  import play.api.data.Forms._
+  import play.api.data._
+
+  def confirmBooking(): Action[AnyContent] =
+    Action.async({ implicit request ⇒
+      val value = Form(tuple("showId" → of[String], "tickets" → of[String])).bindFromRequest()
+      println(value.data)
+      val seatNumber: Option[String] = value("tickets").value
+      val strings                    = seatNumber.get.split("_")
+
+      val orderRequest: JsValue =
+        Json.toJson(Order(ShowId.fromKey(value("showId").value.get), List(SeatNumber(strings(0), strings(1).toInt))))
+
+      println(orderRequest)
+
+      val url = s"http://${hostIp}:8083/order"
+
+      implicit val system       = ActorSystem()
+      implicit val materializer = ActorMaterializer()
+      // needed for the future flatMap/onComplete in the end
+      implicit val executionContext = system.dispatcher
+
+      val orderResponse: Future[HttpResponse] = Http(system).singleRequest(
+        HttpRequest(
+          HttpMethods.POST,
+          url,
+          entity = HttpEntity(ContentTypes.`application/json`, orderRequest.toString())
+        )
+      )
+      orderResponse.map(r ⇒ Ok(views.html.confirm()))
+    })
 }

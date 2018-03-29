@@ -1,1 +1,36 @@
-<h1>HELLO WORLD</h1>
+@import com.moviebooking.aggregates.Show
+@(show: Show)(implicit assetsFinder: AssetsFinder)
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery Seat Charts Plugin Demo</title>
+        <link rel="stylesheet" type="text/css" href=@assetsFinder.path("stylesheets/carousel.css")>
+        <script src=@assetsFinder.path("javascripts/jquery-3.3.1.min.js")></script>
+        <script src=@assetsFinder.path("javascripts/hello.js")></script>
+    </head>
+
+    <body>
+        <h2>@show.showId.screenName</h2>
+        <form id="ticket-form" style="display:none" action="@routes.MovieController.confirmBooking()" method="POST">
+            <input name="showId" value="@show.showId.showKey()"/>
+            <input name="tickets" id="tickets" value=""/>
+            <button type="submit">Confirm Booking</button>
+        </form>
+        <div class="container">
+            <div id="messagePanel" class="messagePanel">
+            @for(seat ← show.seats) {
+                @if(seat.isReserved) {
+                    <div class='seat selected' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.row @seat.seatNumber.value</div>
+
+                } else {
+                    <div class='seat available' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.row @seat.seatNumber.value</div>
+
+                }
+            }
+            </div>
+        </div>
+    </body>
+</html>
