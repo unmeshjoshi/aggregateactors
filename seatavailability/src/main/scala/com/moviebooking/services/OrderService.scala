@@ -7,7 +7,7 @@ import akka.pattern.ask
 import akka.stream.ActorMaterializer
 import akka.stream.javadsl.Source
 import akka.util.{ByteString, Timeout}
-import com.moviebooking.aggregates.{ReserveSeats, ShowActor, SeatNumber, ShowId}
+import com.moviebooking.aggregates.{ReserveSeats, SeatNumber, ShowActor, ShowId}
 import com.moviebooking.common.{ClusterSettings, ClusterShard}
 import play.api.libs.json.Json
 
@@ -17,9 +17,7 @@ import scala.concurrent.duration._
 case class Order(screenId: ShowId, seatNumbers: List[SeatNumber])
 //
 object Main extends App with JsonSupport {
-  println(
-    Json.toJson(Order(ShowId("Screen1", "11:20", "City Pride"),
-                      List(SeatNumber("A", 1), SeatNumber("A", 2)))))
+  println(Json.toJson(Order(ShowId("Screen1", "11:20", "City Pride"), List(SeatNumber("A", 1), SeatNumber("A", 2)))))
 }
 
 object OrderService extends App with JsonSupport {
@@ -28,8 +26,8 @@ object OrderService extends App with JsonSupport {
   //POST reserve seats
   // reserve-seats command
   //handle seats reserved
-  private val settings = new ClusterSettings(8081)
-  implicit val system = settings.system
+  private val settings                         = new ClusterSettings(8081)
+  implicit val system                          = settings.system
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   import scala.concurrent.ExecutionContext.Implicits.global
@@ -45,15 +43,12 @@ object OrderService extends App with JsonSupport {
         request.entity.dataBytes.runFold(ByteString.empty)(_ ++ _)
 
       val eventualEventualResponse = requestF.flatMap(request ⇒ {
-        val order = Json.parse(request.toArray).as[Order]
+        val order       = Json.parse(request.toArray).as[Order]
         val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
         println(s"Reserving seats for ${order}")
-        val response: Future[Any] = screenShard ? ReserveSeats(
-          order.screenId,
-          order.seatNumbers)
+        val response: Future[Any] = screenShard ? ReserveSeats(order.screenId, order.seatNumbers)
         val mapFuture: Future[HttpResponse] = response.map(any ⇒ {
-          val entity = HttpEntity(ContentTypes.`application/json`,
-                                  any.asInstanceOf[String])
+          val entity = HttpEntity(ContentTypes.`application/json`, any.asInstanceOf[String])
           HttpResponse(entity = entity, status = StatusCodes.Created)
         })
         mapFuture

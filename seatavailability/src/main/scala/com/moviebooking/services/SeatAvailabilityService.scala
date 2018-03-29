@@ -7,19 +7,22 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpMethods.GET
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
+import com.moviebooking.aggregates.MovieState
 import com.moviebooking.common.Networks
 import io.lettuce.core.RedisClient
 import io.lettuce.core.api.StatefulRedisConnection
+import play.api.libs.json.Json
 
+import scala.collection.immutable
 import scala.concurrent.Future
 
 object SeatAvailabilityService extends App with JsonSupport {
-  implicit val system = ActorSystem("SeatAvailability")
+  implicit val system                          = ActorSystem("SeatAvailability")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   import scala.concurrent.ExecutionContext.Implicits.global
 
-  val client = RedisClient.create("redis://localhost")
+  val client                                                   = RedisClient.create("redis://localhost")
   val redisConnection: StatefulRedisConnection[String, String] = client.connect
 
   val requestHandler: HttpRequest => Future[HttpResponse] = {
@@ -29,23 +32,45 @@ object SeatAvailabilityService extends App with JsonSupport {
           request.getUri().query().get("theatreName")
         println(s"Getting shows for ${theatreName}")
         val shows = redisConnection.sync().get(s"${theatreName.get()}_show")
-        HttpResponse(
-          entity = HttpEntity(ContentTypes.`application/json`, shows),
-          status = StatusCodes.OK)
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, shows), status = StatusCodes.OK)
       }
     case request @ HttpRequest(GET, Uri.Path("/theatres"), _, _, _) =>
       Future {
         val seatAvailabilityJson = redisConnection.sync().get("theatres")
-        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-                                         seatAvailabilityJson),
-                     status = StatusCodes.OK)
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, seatAvailabilityJson), status = StatusCodes.OK)
+      }
+    case request @ HttpRequest(GET, Uri.Path("/movie"), _, _, _) =>
+      Future {
+        val movieName: Optional[String] =
+          request.getUri().query().get("movieName")
+        val movieJson = redisConnection.sync().get(movieName.get())
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, movieJson), status = StatusCodes.OK)
       }
     case request @ HttpRequest(GET, Uri.Path("/movies"), _, _, _) => {
       Future {
-        val seatAvailabilityJson = redisConnection.sync().get("movies")
-        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-                                         seatAvailabilityJson),
-                     status = StatusCodes.OK)
+        val seatAvailabilityJson              = redisConnection.sync().get("movies")
+        val movieNames: immutable.Seq[String] = Json.parse(seatAvailabilityJson).as[List[String]]
+        val movies = movieNames.map(movieName ⇒ {
+          val movieJson = redisConnection.sync().get(movieName)
+          println(s"parsing ${movieJson}")
+          val movie = Json.parse(movieJson).as[MovieState]
+          movie
+        })
+        val moviesJson = Json.toJson(movies).toString()
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, moviesJson), status = StatusCodes.OK)
+      }
+    }
+    case request @ HttpRequest(GET, Uri.Path("/screens"), _, _, _) => {
+      Future {
+        val movieName: Optional[String] =
+          request.getUri().query().get("movieName")
+        val movieMapKey = s"${movieName.get()}_show"
+        println(s"checking ${movieMapKey}")
+        val showMapJson = redisConnection.sync().get(movieMapKey)
+        val movieShows  = Json.parse(showMapJson).as[Map[String, Seq[String]]]
+        val showIds     = movieShows(s"${movieName.get()}_show")
+        val value       = Json.toJson(showIds).toString()
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, value), status = StatusCodes.OK)
       }
     }
     case request @ HttpRequest(GET, Uri.Path("/available-seats"), _, _, _) =>
@@ -53,9 +78,7 @@ object SeatAvailabilityService extends App with JsonSupport {
         val screenId: Optional[String] =
           request.getUri().query().get("screenId")
         val seatAvailabilityJson = redisConnection.sync().get(screenId.get())
-        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`,
-                                         seatAvailabilityJson),
-                     status = StatusCodes.OK)
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, seatAvailabilityJson), status = StatusCodes.OK)
       }
   }
   Http().bindAndHandleAsync(requestHandler, new Networks("").hostname(), 8085)

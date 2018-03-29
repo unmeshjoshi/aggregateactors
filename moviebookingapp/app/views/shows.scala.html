@@ -1,4 +1,5 @@
-@(message: String)(implicit assetsFinder: AssetsFinder)
+@import com.moviebooking.aggregates.{MovieState, ShowId}
+@(showIds: Seq[ShowId], movie: MovieState)(implicit assetsFinder: AssetsFinder)
 <!doctype html>
 <html lang="en">
     <head>
@@ -19,42 +20,24 @@
     <body>
         <main role="main">
             <div class="container">
-            <div id="movieDetails" >
-                <img src="assets/images/Black Panther.jpg" alt="New York" class="w-100 h-25">
-            </div>
-            <div id="shows">
-                <div id="theatreshows" style="background-color:lightgray !important">
-                    <h2>
-                    <div id="theatre1" class="title">City Pride</div>
-                    </h2>
-                    <h3>
-                    <span class="badge badge-light">
-                    <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
-                    </a>
-                    </span>
-                    <span class="badge badge-light">
-                        <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
-                        </a>
-                    </span>
-                    <span class="badge badge-light">
-                        <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
-                        </a>
-                    </span>
-                    <span class="badge badge-light">
-                        <a id="show1" href="/book-seats?showId=show1"><span class="badge badge-pill badge-light">9:11</span>
-                        </a>
-                    </span>
-                    </h3>
+                <div id="movieDetails" >
+                    <img src='assets/images/@movie.metadata("image")' alt="New York" class="w-100 h-25">
                 </div>
-                <div id="theatreshows">
-                    <div id="theatre1"></div>
-                    <div id="show1" data-value="screen1">9:10</div>
+                <div id="shows">
+                @for(showId ← showIds) {
+                    <div id="theatreshows" style="background-color: lightgray !important">
+                        <h2>
+                            <div id="theatre1" class="title">City Pride</div>
+                        </h2>
+                        <h3>
+                            <span class="badge badge-light">
+                                <a href="/book-seats?showId=@showId.showKey()"><span class="badge badge-pill badge-light">@showId.showTimeSlot</span>
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                }
                 </div>
-                <div id="theatreshows">
-                    <div id="theatre1"></div>
-                    <div id="show1" data-value="screen1">9:10</div>
-                </div>
-            </div>
             </div>
         </main>
     </body>

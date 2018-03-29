@@ -9,11 +9,7 @@ import akka.stream.scaladsl.Sink
 import com.moviebooking.aggregates._
 import com.moviebooking.services.JsonSupport
 import io.lettuce.core.RedisClient
-import org.apache.kafka.clients.consumer.{
-  ConsumerConfig,
-  ConsumerRecord,
-  KafkaConsumer
-}
+import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord, KafkaConsumer}
 import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import play.api.libs.json.Json
@@ -21,10 +17,10 @@ import play.api.libs.json.Json
 import scala.concurrent.Future
 
 object KafkaSubscriber extends App with JsonSupport {
-  val client = RedisClient.create("redis://localhost")
+  val client          = RedisClient.create("redis://localhost")
   val redisConnection = client.connect
 
-  implicit val system = ActorSystem("KafkaSubscriber")
+  implicit val system                          = ActorSystem("KafkaSubscriber")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   import scala.concurrent.ExecutionContext.Implicits.global
@@ -34,10 +30,9 @@ object KafkaSubscriber extends App with JsonSupport {
       .withBootstrapServers("localhost:29092")
       .withGroupId("group1")
       .withProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
-  val partition = 0
-  val fromOffset = 0L
-  val subscription = Subscriptions.assignmentWithOffset(
-    new TopicPartition("seatAvailability", partition) → fromOffset)
+  val partition    = 0
+  val fromOffset   = 0L
+  val subscription = Subscriptions.assignmentWithOffset(new TopicPartition("seatAvailability", partition) → fromOffset)
   val done: Future[Done] =
     Consumer
       .plainSource(consumerSettings, subscription)
@@ -76,8 +71,9 @@ object KafkaSubscriber extends App with JsonSupport {
   private def setMovie(m: MovieInitiazed) = {
     val redisCommand = redisConnection
       .sync()
-    redisCommand.set(m.id, Json.toJson(m)(movieFormat).toString())
-    var movieList = List[String]()
+    val movieState = MovieState(m.id, m.cast, m.synopsis, m.genre, m.metadata)
+    redisCommand.set(m.id, Json.toJson(movieState)(movieStateFormat).toString())
+    var movieList     = List[String]()
     val movieListJson = redisCommand.get("movies")
     if (Option(movieListJson) == None) {
       movieList = List()
@@ -95,7 +91,7 @@ object KafkaSubscriber extends App with JsonSupport {
       .sync()
     redisCommand.set(t.id, Json.toJson(t)(theatreFormat).toString())
 
-    var theatreList = List[String]()
+    var theatreList     = List[String]()
     val theatreListJson = redisCommand.get("theatres")
     if (Option(theatreListJson) == None) {
       theatreList = List()
@@ -103,16 +99,15 @@ object KafkaSubscriber extends App with JsonSupport {
       theatreList = Json.parse(theatreListJson).as[List[String]]
     }
     val newList = theatreList :+ t.id
-    println(
-      s"++++++++++++++++++++++++++++++++++++++++++++New list is ${newList}")
+    println(s"++++++++++++++++++++++++++++++++++++++++++++New list is ${newList}")
     redisCommand.set("theatres", Json.toJson(newList.distinct).toString())
   }
 
   private def markReservedSeats(reserved: SeatsReserved) = {
     println(s"Reserving seats ${reserved}")
-    val seatJson = redisConnection.sync().get(reserved.id.toString)
+    val seatJson         = redisConnection.sync().get(reserved.id.toString)
     val seatAvailability = Json.parse(seatJson).as[Show]
-    val availability = seatAvailability.reserve(reserved)
+    val availability     = seatAvailability.reserve(reserved)
     redisConnection
       .sync()
       .set(reserved.id.toString, Json.toJson(availability).toString())
@@ -128,18 +123,17 @@ object KafkaSubscriber extends App with JsonSupport {
   private def setTheatre2ShowMap(init: ShowInitialized) = {
     val redisCommand = redisConnection
       .sync()
-    val theatreMapKey = s"${init.showId.theatreName}_show"
+    val theatreMapKey   = s"${init.showId.theatreName}_show"
     val showMap: String = redisCommand.get(theatreMapKey)
     if (Option(showMap) == None) {
       val map = Map(theatreMapKey → List(init.showId.showKey()))
       redisCommand.set(theatreMapKey, Json.toJson(map).toString())
     } else {
-      val map = Json.parse(showMap).as[Map[String, Seq[String]]]
+      val map                  = Json.parse(showMap).as[Map[String, Seq[String]]]
       val showIds: Seq[String] = map(theatreMapKey)
-      val shows: Seq[String] = showIds :+ init.showId.toString()
-      val newMap = Map(theatreMapKey → shows)
-      println(
-        s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${newMap}")
+      val shows: Seq[String]   = showIds :+ init.showId.toString()
+      val newMap               = Map(theatreMapKey → shows)
+      println(s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${newMap}")
       redisCommand.set(theatreMapKey, Json.toJson(newMap).toString())
     }
   }
@@ -147,16 +141,16 @@ object KafkaSubscriber extends App with JsonSupport {
   private def setMovie2ShowMap(init: ShowInitialized) = {
     val redisCommand = redisConnection
       .sync()
-    val movieMapKey = s"${init.movieName}_show"
+    val movieMapKey     = s"${init.movieName}_show"
     val showMap: String = redisCommand.get(movieMapKey)
     if (Option(showMap) == None) {
       val map = Map(movieMapKey → List(init.showId.showKey()))
       redisCommand.set(movieMapKey, Json.toJson(map).toString())
     } else {
-      val map = Json.parse(showMap).as[Map[String, Seq[String]]]
-      val showIds: Seq[String] = map(movieMapKey)
-      val serializables: Seq[String] = showIds :+ init.showId.toString()
-      val newMap = Map(movieMapKey → serializables)
+      val map                        = Json.parse(showMap).as[Map[String, Seq[String]]]
+      val showIds: Seq[String]       = map(movieMapKey)
+      val serializables: Seq[String] = showIds :+ init.showId.showKey()
+      val newMap                     = Map(movieMapKey → serializables.distinct)
       redisCommand.set(movieMapKey, Json.toJson(newMap).toString())
     }
   }
@@ -164,10 +158,9 @@ object KafkaSubscriber extends App with JsonSupport {
   private def setShowDetails(init: ShowInitialized) = {
     redisConnection
       .sync()
-      .set(
-        init.showId.showKey(),
-        Json
-          .toJson(Show(init.showId, init.showTime, init.movieName, init.seats))
-          .toString())
+      .set(init.showId.showKey(),
+           Json
+             .toJson(Show(init.showId, init.showTime, init.movieName, init.seats))
+             .toString())
   }
 }

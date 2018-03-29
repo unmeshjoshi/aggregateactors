@@ -10,8 +10,8 @@ import scala.concurrent.Future
 
 object MovieService extends App {
 
-  private val settings = new ClusterSettings(8080)
-  implicit val system = settings.system
+  private val settings                         = new ClusterSettings(8080)
+  implicit val system                          = settings.system
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   import scala.concurrent.ExecutionContext.Implicits.global
@@ -25,9 +25,7 @@ object MovieService extends App {
   val requestHandler: HttpRequest => Future[HttpResponse] = {
     case HttpRequest(GET, Uri.Path("/movies"), _, _, _) =>
       Future {
-        HttpResponse(
-          entity =
-            HttpEntity(ContentTypes.`application/json`, "available-seats\r\n"))
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, "available-seats\r\n"))
       }
   }
 

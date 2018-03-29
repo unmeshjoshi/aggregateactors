@@ -24,26 +24,21 @@ object LayoutParser extends App with JsonSupport {
 //  }
 
   val rows: immutable.Seq[Char] = 'A' to 'M'
-  val nos = 1 to 22
+  val nos                       = 1 to 22
   private val seatNumbers: immutable.Seq[SeatNumber] =
     rows.flatMap(row ⇒ nos.map(no ⇒ SeatNumber(s"${row}", no)))
   private val seats: immutable.Seq[Seat] = seatNumbers.map(no ⇒ Seat(no))
   println(Json.parse("""{"id":"id","movieName":"name","seats":[]}"""))
   println(
-    Json.toJson(
-      ShowInitialized(ShowId("screen1", "12-30", "city pride"),
-                      LocalTime.now(),
-                      "movieName",
-                      List()))(initializedFormat))
+    Json
+      .toJson(ShowInitialized(ShowId("screen1", "12-30", "city pride"), LocalTime.now(), "movieName", List()))(initializedFormat)
+  )
   println(Json.toJson(Map("seats" → seats)))
   println(Json.toJson(SeatNumber("B", 2)))
   println(Json.toJson(Seat(SeatNumber("A", 2))))
   println(
-    Json.toJson(
-      Show(ShowId("screen1", "12-30", "city pride"),
-           LocalTime.now(),
-           "movieName",
-           List(Seat(SeatNumber("A", 2))))))
+    Json.toJson(Show(ShowId("screen1", "12-30", "city pride"), LocalTime.now(), "movieName", List(Seat(SeatNumber("A", 2)))))
+  )
 
   val screenIds = Generators.generateShowIds
   screenIds.foreach(

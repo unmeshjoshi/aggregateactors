@@ -24,14 +24,11 @@ case class SubmitPayment(id: String, amount: BigDecimal) extends Command
 
 case class PaymentSubmited(id: String, amount: BigDecimal) extends PaymentEvent
 
-case class PaymentSuccessful(id: String, amount: BigDecimal)
-    extends PaymentEvent
+case class PaymentSuccessful(id: String, amount: BigDecimal) extends PaymentEvent
 
 case class PaymentDeclined(id: String) extends PaymentEvent
 
-case class PaymentState(id: String,
-                        amount: BigDecimal,
-                        status: PaymentStatus = PaymentStatus.UnInitialized) {
+case class PaymentState(id: String, amount: BigDecimal, status: PaymentStatus = PaymentStatus.UnInitialized) {
   def updateStatus(status: PaymentStatus): PaymentState = {
     copy(id, amount, status)
   }

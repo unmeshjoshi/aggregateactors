@@ -11,11 +11,7 @@ import akka.{Done, NotUsed}
 import com.moviebooking.aggregates.Event
 import com.moviebooking.common.ClusterSettings
 import com.moviebooking.services.JsonSupport
-import org.apache.kafka.clients.producer.{
-  Callback,
-  KafkaProducer,
-  ProducerRecord
-}
+import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord}
 import org.apache.kafka.common.serialization.StringSerializer
 import play.api.libs.json._
 
@@ -23,7 +19,7 @@ import scala.concurrent.{Future, Promise}
 
 object EventReader extends App with JsonSupport {
   private val settings = new ClusterSettings(2556)
-  implicit val system = settings.system
+  implicit val system  = settings.system
 
   val producerSettings: ProducerSettings[String, String] =
     producerSettings("localhost", 29092)
@@ -65,7 +61,7 @@ object EventReader extends App with JsonSupport {
   private def convert(event: Event): ProducerRecord[String, String] = {
     try {
       val node = Json.toJson(event)
-      val str = node.toString()
+      val str  = node.toString()
       println(s"json event is ${str}")
       new ProducerRecord("seatAvailability", event.id, str)
     } catch {
@@ -76,13 +72,12 @@ object EventReader extends App with JsonSupport {
     }
   }
 
-  private def producerSettings(host: String, port: Int)(
-      implicit actorSystem: ActorSystem) =
+  private def producerSettings(host: String, port: Int)(implicit actorSystem: ActorSystem) =
     ProducerSettings(actorSystem, new StringSerializer, new StringSerializer)
       .withBootstrapServers(s"$host:$port")
 
   private def complete(p: Promise[Done]): Callback = {
     case (_, null) ⇒ p.success(Done)
-    case (_, ex) ⇒ p.failure(ex)
+    case (_, ex)   ⇒ p.failure(ex)
   }
 }

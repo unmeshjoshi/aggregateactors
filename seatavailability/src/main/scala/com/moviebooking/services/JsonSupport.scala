@@ -10,9 +10,11 @@ trait JsonSupport extends PlayJsonSupport {
     Json.format[TheatreInitialized]
   implicit val movieFormat: OFormat[MovieInitiazed] =
     Json.format[MovieInitiazed]
-  implicit val showIdFormat: OFormat[ShowId] = Json.format[ShowId]
+  implicit val movieStateFormat: OFormat[MovieState] =
+    Json.format[MovieState]
+  implicit val showIdFormat: OFormat[ShowId]         = Json.format[ShowId]
   implicit val seatNumberFormat: OFormat[SeatNumber] = Json.format[SeatNumber]
-  implicit val seatFormat: OFormat[Seat] = Json.format[Seat]
+  implicit val seatFormat: OFormat[Seat]             = Json.format[Seat]
   implicit val seatAvailabilityFormat: OFormat[Show] =
     Json.format[Show]
   implicit val orderFormat: OFormat[Order] = Json.format[Order]
@@ -23,13 +25,13 @@ trait JsonSupport extends PlayJsonSupport {
     Json.format[SeatsReserved]
 
   implicit val eventReads =
-    __.read[ShowInitialized].map(x => x: Event) orElse __
-      .read[SeatsReserved]
-      .map(x => x: Event) orElse __
-      .read[TheatreInitialized]
-      .map(x => x: Event) orElse __
-      .read[MovieInitiazed]
-      .map(x => x: Event)
+  __.read[ShowInitialized].map(x => x: Event) orElse __
+    .read[SeatsReserved]
+    .map(x => x: Event) orElse __
+    .read[TheatreInitialized]
+    .map(x => x: Event) orElse __
+    .read[MovieInitiazed]
+    .map(x => x: Event)
 
   implicit val eventWrites: Writes[Event] = new Writes[Event] {
     def writes(ins: Event): JsValue = ins match {

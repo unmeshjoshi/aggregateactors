@@ -13,17 +13,18 @@ case class Seat(seatNumber: SeatNumber, isReserved: Boolean = false) {
   }
 }
 
-case class ShowId(screenName: String,
-                  showTimeSlot: String,
-                  theatreName: String) {
+object ShowId {
+  def fromKey(key: String): ShowId = {
+    val strings = key.split('_')
+    ShowId(strings(0), strings(1), strings(2))
+  }
+}
+case class ShowId(screenName: String, showTimeSlot: String, theatreName: String) {
   override def toString() = showKey()
-  def showKey() = s"${screenName}_${showTimeSlot}_${theatreName}"
+  def showKey()           = s"${screenName}_${showTimeSlot}_${theatreName}"
 }
 
-case class Show(showId: ShowId,
-                showTime: LocalTime,
-                movieName: String,
-                seats: List[Seat]) {
+case class Show(showId: ShowId, showTime: LocalTime, movieName: String, seats: List[Seat]) {
   def areAvailable(seatNumbers: List[SeatNumber]) = {
     val seatsToBeReserved =
       seats.filter(seat ⇒ seatNumbers.contains(seat.seatNumber))
@@ -44,32 +45,22 @@ case class Show(showId: ShowId,
   }
 }
 
-case class InitializeShow(showId: ShowId,
-                          showTime: LocalTime,
-                          movieName: String,
-                          seats: List[Seat])
-    extends Command {
+case class InitializeShow(showId: ShowId, showTime: LocalTime, movieName: String, seats: List[Seat]) extends Command {
   def id = showId.toString
 
 }
 
-case class ReserveSeats(showId: ShowId, seats: List[SeatNumber])
-    extends Command {
+case class ReserveSeats(showId: ShowId, seats: List[SeatNumber]) extends Command {
   def id = showId.toString
 
 }
 
-case class SeatsReserved(showId: ShowId, seats: List[SeatNumber])
-    extends Event {
+case class SeatsReserved(showId: ShowId, seats: List[SeatNumber]) extends Event {
   def id = showId.toString
 
 }
 
-case class ShowInitialized(showId: ShowId,
-                           showTime: LocalTime,
-                           movieName: String,
-                           seats: List[Seat])
-    extends Event {
+case class ShowInitialized(showId: ShowId, showTime: LocalTime, movieName: String, seats: List[Seat]) extends Event {
   def id = showId.toString
 
 }
@@ -111,8 +102,7 @@ class ShowActor extends PersistentActor {
   }
 
   def initializeState(event: ShowInitialized): Unit = {
-    seatAvailability = Some(
-      Show(event.showId, event.showTime, event.movieName, event.seats))
+    seatAvailability = Some(Show(event.showId, event.showTime, event.movieName, event.seats))
   }
 
   def updateState(event: SeatsReserved): Unit = {

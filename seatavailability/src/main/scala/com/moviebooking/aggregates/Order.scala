@@ -7,17 +7,14 @@ sealed trait OrderStatus extends EnumEntry
 
 object OrderStatus extends Enum[PaymentStatus] {
   case object UnInitialized extends OrderStatus
-  case object Submitted extends OrderStatus
-  case object Confirmed extends OrderStatus
-  case object Declined extends OrderStatus
+  case object Submitted     extends OrderStatus
+  case object Confirmed     extends OrderStatus
+  case object Declined      extends OrderStatus
 
   val values = findValues
 }
 
-case class User(fistName: String = "",
-                lastName: String = "",
-                email: String = "",
-                mobileNumber: String = "") {}
+case class User(fistName: String = "", lastName: String = "", email: String = "", mobileNumber: String = "") {}
 
 case class OrderDetails(id: String = "",
                         totalPrice: BigDecimal = BigDecimal(0),
@@ -27,20 +24,16 @@ case class OrderDetails(id: String = "",
                         user: User = User()) {}
 
 case class SubmitOder(id: String, orderDetails: OrderDetails) extends Command
-case class ConfirmOrder(id: String) extends Command
+case class ConfirmOrder(id: String)                           extends Command
 
 sealed trait OrderEvent {
   val id: String
 }
-case class OrderSubmited(id: String, orderDetails: OrderDetails)
-    extends OrderEvent
+case class OrderSubmited(id: String, orderDetails: OrderDetails) extends OrderEvent
 
-case class OrderConfirmed(id: String, orderDetails: OrderDetails)
-    extends OrderEvent
+case class OrderConfirmed(id: String, orderDetails: OrderDetails) extends OrderEvent
 
-case class OrderState(id: String,
-                      orderStatus: OrderStatus,
-                      orderDetails: OrderDetails = OrderDetails()) {
+case class OrderState(id: String, orderStatus: OrderStatus, orderDetails: OrderDetails = OrderDetails()) {
   def confirm() = {
     copy(orderStatus = OrderStatus.Confirmed)
   }
@@ -62,7 +55,7 @@ class Order() extends PersistentActor {
   }
 
   override def receiveRecover: Receive = {
-    case event: OrderSubmited ⇒ updateState(event)
+    case event: OrderSubmited  ⇒ updateState(event)
     case event: OrderConfirmed ⇒ updateState(event)
 
   }

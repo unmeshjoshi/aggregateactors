@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 
 object ClusterSettings {
   val clusterName = "aggregate-cluster"
-  val seedPort = 2552
+  val seedPort    = 2552
 }
 
 class ClusterSettings(listenPort: Int = 0) {
@@ -30,16 +30,15 @@ class ClusterSettings(listenPort: Int = 0) {
   //Prepare config for ActorSystem to join csw-cluster
   def config: Config = {
     val computedValues: Map[String, Any] = Map(
-      "akka.remote.netty.tcp.hostname" → hostname,
-      "akka.remote.netty.tcp.port" → port,
-      "akka.cluster.seed-nodes" → seedNodes.asJava,
+      "akka.remote.netty.tcp.hostname"        → hostname,
+      "akka.remote.netty.tcp.port"            → port,
+      "akka.cluster.seed-nodes"               → seedNodes.asJava,
       "akka.cluster.http.management.hostname" → hostname,
-      "akka.cluster.http.management.port" → managementPort.getOrElse(19999),
-      "startManagement" → managementPort.isDefined
+      "akka.cluster.http.management.port"     → managementPort.getOrElse(19999),
+      "startManagement"                       → managementPort.isDefined
     )
 
-    println(
-      s"ClusterSettings using following configuration: [${computedValues.mkString(", ")}]")
+    println(s"ClusterSettings using following configuration: [${computedValues.mkString(", ")}]")
     ConfigFactory
       .parseMap(computedValues.asJava)
       .withFallback(ConfigFactory.load().getConfig(ClusterSettings.clusterName))

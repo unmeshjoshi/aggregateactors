@@ -37,6 +37,7 @@ lazy val `booking` = project
   //Read side
 lazy val `moviebookingapp` = project
   .enablePlugins(DeployApp,PlayScala)
+    .dependsOn(`seatavailability`)
   .settings(
     libraryDependencies ++= Dependencies.ViewService :+ guice)
 
