@@ -34,11 +34,11 @@ case class PaymentState(id: String, amount: BigDecimal, status: PaymentStatus = 
   }
 }
 
-object Payment {
+object PaymentActor {
   val shardName = "Payment"
 }
 
-class Payment() extends PersistentActor {
+class PaymentActor extends PersistentActor {
 
   var paymentState: PaymentState =
     PaymentState("", 0, PaymentStatus.UnInitialized)

@@ -25,9 +25,9 @@ object AdminApp extends App {
   ClusterShard.start()
   val screenShard                              = ClusterShard.shardRegion(ShowActor.shardName)
   implicit val materializer: ActorMaterializer = ActorMaterializer()
-  val paymentShard                             = ClusterShard.shardRegion(Payment.shardName)
+  val paymentShard                             = ClusterShard.shardRegion(PaymentActor.shardName)
   //create the actor system
-  val orderShard = ClusterShard.shardRegion(Order.shardName)
+  val orderShard = ClusterShard.shardRegion(OrderActor.shardName)
   val requestHandler: HttpRequest => Future[HttpResponse] = {
     case request @ HttpRequest(POST, Uri.Path("/init"), _, _, _) =>
       val theatres: Seq[(String, Address)] = Generators.theatres
@@ -47,7 +47,8 @@ object AdminApp extends App {
 
   Http().bindAndHandleAsync(requestHandler, settings.hostname, 8082)
 
-  def initializeScreens(movies: List[MovieState], theatres: Seq[(String, Address)])(implicit system: ActorSystem) = {
+  def initializeScreens(movies: List[MovieState],
+                        theatres: Seq[(String, Address)])(implicit system: ActorSystem): Future[immutable.Seq[Any]] = {
     implicit val timeout: Timeout = 20.seconds
     val showTimeTheatres: immutable.Seq[(String, (String, Address))] =
       Generators.showTimes.flatMap(showTime ⇒ {
@@ -80,7 +81,7 @@ object AdminApp extends App {
     Future.sequence(seq)
   }
 
-  def initializeTheatres(theatres: Seq[(String, Address)])(implicit system: ActorSystem) = {
+  def initializeTheatres(theatres: Seq[(String, Address)])(implicit system: ActorSystem): Future[Seq[Any]] = {
     implicit val timeout: Timeout = 20.seconds
     val theatreShard              = ClusterShard.shardRegion(Theatre.shardName)
     val futures =
@@ -88,7 +89,7 @@ object AdminApp extends App {
     Future.sequence(futures)
   }
 
-  def initializeMovies(movies: List[MovieState])(implicit system: ActorSystem) = {
+  def initializeMovies(movies: List[MovieState])(implicit system: ActorSystem): Future[List[Any]] = {
     implicit val timeout: Timeout = 20.seconds
     val movieShard                = ClusterShard.shardRegion(MovieActor.shardName)
     val futures =

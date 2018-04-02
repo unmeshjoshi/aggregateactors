@@ -9,41 +9,41 @@ services:
     ports:
      - 9042:9042
      - 7199:7199
-
-###############################
-   scyall1:
-    image: scylladb/scylla
-    container_name: scyall1
-    restart: always
-    depends_on:
-      - scyall0
-    ports:
-     - 9142:9042
-    links:
-     - scyall0:seed
-    environment:
-     - SEEDS=seed
 #
 ################################
-   scyall2:
-    image: scylladb/scylla
-    container_name: scyall2
-    restart: always
-    depends_on:
-          - scyall0
-    ports:
-     - 9242:9042
-    links:
-     - scyall0:seed
-    environment:
-     - SEEDS=seed
+#   scyall1:
+#    image: scylladb/scylla
+#    container_name: scyall1
+#    restart: always
+#    depends_on:
+#      - scyall0
+#    ports:
+#     - 9142:9042
+#    links:
+#     - scyall0:seed
+#    environment:
+#     - SEEDS=seed
+##
+#################################
+#   scyall2:
+#    image: scylladb/scylla
+#    container_name: scyall2
+#    restart: always
+#    depends_on:
+#          - scyall0
+#    ports:
+#     - 9242:9042
+#    links:
+#     - scyall0:seed
+#    environment:
+#     - SEEDS=seed
 
    zookeeper:
     image: confluentinc/cp-zookeeper:latest
     network_mode: host
     restart: always
     depends_on:
-      - scyall2
+      - scyall0
     environment:
       ZOOKEEPER_CLIENT_PORT: 32181
       ZOOKEEPER_TICK_TIME: 2000

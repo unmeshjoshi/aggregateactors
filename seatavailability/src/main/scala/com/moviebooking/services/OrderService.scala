@@ -15,10 +15,6 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 
 case class Order(screenId: ShowId, seatNumbers: List[SeatNumber])
-//
-object Main extends App with JsonSupport {
-  println(Json.toJson(Order(ShowId("Screen1", "11:20", "City Pride"), List(SeatNumber("A", 1), SeatNumber("A", 2)))))
-}
 
 object OrderService extends App with JsonSupport {
 
@@ -62,10 +58,4 @@ object OrderService extends App with JsonSupport {
   }
 
   Http().bindAndHandleAsync(requestHandler, settings.hostname, 8083)
-
-  //POST confirm booking
-
-  //send command initialize payment
-  //send command to initialize order
-  //
 }
