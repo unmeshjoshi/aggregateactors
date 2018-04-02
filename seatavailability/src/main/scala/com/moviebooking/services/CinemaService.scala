@@ -16,7 +16,7 @@ import play.api.libs.json.Json
 import scala.collection.immutable
 import scala.concurrent.Future
 
-object SeatAvailabilityService extends App with JsonSupport {
+object CinemaService extends App with JsonSupport {
   implicit val system                          = ActorSystem("SeatAvailability")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 

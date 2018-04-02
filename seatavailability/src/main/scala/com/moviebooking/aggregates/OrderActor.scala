@@ -39,11 +39,11 @@ case class OrderState(id: String, orderStatus: OrderStatus, orderDetails: OrderD
   }
 }
 
-object Order {
+object OrderActor {
   val shardName = "Order"
 }
 
-class Order() extends PersistentActor {
+class OrderActor extends PersistentActor {
   var orderState = OrderState("", OrderStatus.UnInitialized)
 
   def updateState(event: OrderEvent): Unit = {
