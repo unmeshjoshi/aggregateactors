@@ -18,8 +18,8 @@ import play.api.libs.json._
 import scala.concurrent.{Future, Promise}
 
 object EventReader extends App with JsonSupport {
-  private val settings = new ClusterSettings(2556)
-  implicit val system  = settings.system
+//  private val settings = new ClusterSettings(2556)
+  implicit val system = ActorSystem()
 
   val producerSettings: ProducerSettings[String, String] =
     producerSettings("localhost", 29092)

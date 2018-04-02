@@ -25,22 +25,22 @@ object Libs {
   val `akka-http-play-json`          = "de.heikoseeberger"      %% "akka-http-play-json"          % "1.18.1" //Apache 2.0
   val `scalapb-runtime`              = "com.trueaccord.scalapb" %% "scalapb-runtime"              % scalapbVersion % "protobuf"
   val `scalapb-json4s`               = "com.trueaccord.scalapb" %% "scalapb-json4s"               % "0.3.3"
-  val `derby`                        = "org.apache.derby" % "derby" % "10.14.1.0"
+  val `derby`                        = "org.apache.derby"       % "derby"                         % "10.14.1.0"
   val `scala-compiler`               = "org.scala-lang"         % "scala-compiler"                % ScalaVersion
-  val `guice`                          = "com.google.inject" % "guice" % "4.2.0"
+  val `guice`                        = "com.google.inject"      % "guice"                         % "4.2.0"
 }
 
 object Messaging {
-  val `artemis-client`               = "org.apache.activemq" % "artemis-core-client" % "2.4.0"
-  val `jms`                          = "javax.jms" % "javax.jms-api" % "2.0"
-  val `qpid`                         = "org.apache.qpid" % "qpid-client" % "6.3.0"
-  val `qpid-aqmp-client`             = "org.apache.qpid" % "qpid-amqp-1-0-client-jms" % "0.32"
-  val `qpid-jms-client`              =  "org.apache.qpid" % "qpid-jms-client" % "0.28.0"
-  val `rabbitmq-aqmp-client`         =  "com.rabbitmq" % "amqp-client" % "4.1.1"
-  val `jedis`                        =  "redis.clients" % "jedis" % "2.9.0"
-  val `lettuce`                      = "io.lettuce"             % "lettuce-core"                  % "5.0.2.RELEASE"
-  val `embedded-redis`               = "com.github.sebruck"     %% "scalatest-embedded-redis"     % "0.3.0"
-  val `scalatest-embedded-kafka`     = "net.manub"              %% "scalatest-embedded-kafka"     % "1.0.0"
+  val `artemis-client`           = "org.apache.activemq" % "artemis-core-client"       % "2.4.0"
+  val `jms`                      = "javax.jms"           % "javax.jms-api"             % "2.0"
+  val `qpid`                     = "org.apache.qpid"     % "qpid-client"               % "6.3.0"
+  val `qpid-aqmp-client`         = "org.apache.qpid"     % "qpid-amqp-1-0-client-jms"  % "0.32"
+  val `qpid-jms-client`          = "org.apache.qpid"     % "qpid-jms-client"           % "0.28.0"
+  val `rabbitmq-aqmp-client`     = "com.rabbitmq"        % "amqp-client"               % "4.1.1"
+  val `jedis`                    = "redis.clients"       % "jedis"                     % "2.9.0"
+  val `lettuce`                  = "io.lettuce"          % "lettuce-core"              % "5.0.2.RELEASE"
+  val `embedded-redis`           = "com.github.sebruck"  %% "scalatest-embedded-redis" % "0.3.0"
+  val `scalatest-embedded-kafka` = "net.manub"           %% "scalatest-embedded-kafka" % "1.0.0"
 }
 
 object Neo4JDriver {
@@ -48,8 +48,8 @@ object Neo4JDriver {
 }
 
 object Kafka {
-  val akkaStreamKafka = "com.typesafe.akka" %% "akka-stream-kafka" % "0.19"
-  val `scalatest-embedded-kafka`     = "net.manub"              %% "scalatest-embedded-kafka"     % "1.0.0"
+  val akkaStreamKafka            = "com.typesafe.akka" %% "akka-stream-kafka"        % "0.19"
+  val `scalatest-embedded-kafka` = "net.manub"         %% "scalatest-embedded-kafka" % "1.0.0"
 }
 
 object Alpakka {
@@ -57,23 +57,24 @@ object Alpakka {
 }
 
 object HBase {
-  val hbaseVersion = "1.2.4"
-  val hadoopVersion = "2.5.1"
-  val hbaseClient =  "org.apache.hbase" % "hbase-client" % hbaseVersion exclude ("log4j", "log4j") exclude ("org.slf4j", "slf4j-log4j12")// ApacheV2,
-  val hbaseCommon =  "org.apache.hbase" % "hbase-common" % hbaseVersion exclude ("log4j", "log4j") exclude ("org.slf4j", "slf4j-log4j12") // ApacheV2,
-  val hadoopCommon = "org.apache.hadoop" % "hadoop-common" % hadoopVersion exclude ("log4j", "log4j") exclude ("org.slf4j", "slf4j-log4j12") // ApacheV2,
+  val hbaseVersion    = "1.2.4"
+  val hadoopVersion   = "2.5.1"
+  val hbaseClient     = "org.apache.hbase" % "hbase-client" % hbaseVersion exclude ("log4j", "log4j") exclude ("org.slf4j", "slf4j-log4j12") // ApacheV2,
+  val hbaseCommon     = "org.apache.hbase" % "hbase-common" % hbaseVersion exclude ("log4j", "log4j") exclude ("org.slf4j", "slf4j-log4j12") // ApacheV2,
+  val hadoopCommon    = "org.apache.hadoop" % "hadoop-common" % hadoopVersion exclude ("log4j", "log4j") exclude ("org.slf4j", "slf4j-log4j12") // ApacheV2,
   val hadoopMapReduce = "org.apache.hadoop" % "hadoop-mapreduce-client-core" % hadoopVersion exclude ("log4j", "log4j") exclude ("org.slf4j", "slf4j-log4j12") // ApacheV2,
 }
 
+//NOTE:FIXME moved sparkstreaming code in separate repo as spark does not support scala 2.12.
 object SparkLibs {
-  val Version        = "2.2.1"
-  val sparkCore      = "org.apache.spark"  %% "spark-core"      % Version
-  val sparkStreaming = "org.apache.spark"  %% "spark-streaming" % Version
-  val sparkSQL       = "org.apache.spark"  %% "spark-sql"       % Version
-  val sparkHiveSQL   = "org.apache.spark"  %% "spark-hive"      % Version
+  val Version          = "2.2.1"
+  val sparkCore        = "org.apache.spark" %% "spark-core" % Version
+  val sparkStreaming   = "org.apache.spark" %% "spark-streaming" % Version
+  val sparkSQL         = "org.apache.spark" %% "spark-sql" % Version
+  val sparkHiveSQL     = "org.apache.spark" %% "spark-hive" % Version
   val sparkTestingBase = "com.holdenkarau" %% "spark-testing-base" % "2.2.0_0.8.0" % "test"
   //FIXME  val sparkRepl      = "org.apache.spark"  %% "spark-repl"      % Version
-
+  val sparkStreamingKafka = "org.apache.spark" % "spark-streaming-kafka_2.11" % "1.6.3"
 }
 
 object Jackson {
@@ -95,24 +96,24 @@ object Chill {
 }
 
 object Akka {
-  val Version                   = "2.5.10" //all akka is Apache License 2.0
-  val `akka-stream`             = "com.typesafe.akka" %% "akka-stream" % Version
-  val `akka-remote`             = "com.typesafe.akka" %% "akka-remote" % Version
-  val `akka-stream-testkit`     = "com.typesafe.akka" %% "akka-stream-testkit" % Version
-  val `akka-actor`              = "com.typesafe.akka" %% "akka-actor" % Version
-  val `akka-typed`              = "com.typesafe.akka" %% "akka-typed" % Version
-  val `akka-persistence`        =   "com.typesafe.akka"           %% "akka-persistence" % Version
-  val `akka-persistence-query`        =   "com.typesafe.akka" %% "akka-persistence-query" % Version
-  val `leveldb`                 =   "org.iq80.leveldb"            % "leveldb"          % "0.7"
-  val `leveldb-jni`             =   "org.fusesource.leveldbjni"   % "leveldbjni-all"   % "1.8"
-  val `akka-typed-testkit`      = "com.typesafe.akka" %% "akka-typed-testkit" % Version
-  val `akka-distributed-data`   = "com.typesafe.akka" %% "akka-distributed-data" % Version
-  val `akka-multi-node-testkit` = "com.typesafe.akka" %% "akka-multi-node-testkit" % Version
-  val `akka-cluster-tools`      = "com.typesafe.akka" %% "akka-cluster-tools" % Version
-  val `akka-cluster-sharding`                        = "com.typesafe.akka" %% "akka-cluster-sharding" % Version
-  val `akka-persistence-cassandra` = "com.typesafe.akka" %% "akka-persistence-cassandra" % "0.83"
+  val Version                               = "2.5.10" //all akka is Apache License 2.0
+  val `akka-stream`                         = "com.typesafe.akka" %% "akka-stream" % Version
+  val `akka-remote`                         = "com.typesafe.akka" %% "akka-remote" % Version
+  val `akka-stream-testkit`                 = "com.typesafe.akka" %% "akka-stream-testkit" % Version
+  val `akka-actor`                          = "com.typesafe.akka" %% "akka-actor" % Version
+  val `akka-typed`                          = "com.typesafe.akka" %% "akka-typed" % Version
+  val `akka-persistence`                    = "com.typesafe.akka" %% "akka-persistence" % Version
+  val `akka-persistence-query`              = "com.typesafe.akka" %% "akka-persistence-query" % Version
+  val `leveldb`                             = "org.iq80.leveldb" % "leveldb" % "0.7"
+  val `leveldb-jni`                         = "org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8"
+  val `akka-typed-testkit`                  = "com.typesafe.akka" %% "akka-typed-testkit" % Version
+  val `akka-distributed-data`               = "com.typesafe.akka" %% "akka-distributed-data" % Version
+  val `akka-multi-node-testkit`             = "com.typesafe.akka" %% "akka-multi-node-testkit" % Version
+  val `akka-cluster-tools`                  = "com.typesafe.akka" %% "akka-cluster-tools" % Version
+  val `akka-cluster-sharding`               = "com.typesafe.akka" %% "akka-cluster-sharding" % Version
+  val `akka-persistence-cassandra`          = "com.typesafe.akka" %% "akka-persistence-cassandra" % "0.83"
   val `akka-persistence-cassandra-launcher` = "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % "0.83"
-  val `akka-slf4j`              = "com.typesafe.akka" %% "akka-slf4j" % Version
+  val `akka-slf4j`                          = "com.typesafe.akka" %% "akka-slf4j" % Version
 }
 
 object AkkaHttp {
@@ -121,12 +122,12 @@ object AkkaHttp {
   val `akka-http-testkit` = "com.typesafe.akka" %% "akka-http-testkit" % Version //ApacheV2
   val `akka-http2`        = "com.typesafe.akka" %% "akka-http2-support" % Version
 }
-  // http://doc.akka.io/docs/akka/2.4.1/scala/persistence.html#Local_LevelDB_journal
+// http://doc.akka.io/docs/akka/2.4.1/scala/persistence.html#Local_LevelDB_journal
 
 object Neo4J {
-  val Version = "3.3.3"
-  val `neo4j-java` = "org.neo4j.driver" % "neo4j-java-driver" % "1.5.1"
-  val `neo4j-test` = "org.neo4j.test" % "neo4j-harness" % Version
-  val `neo4j-core` =  "org.neo4j" % "neo4j" % Version
-  val `neo4j-cypher` =  "org.neo4j" % "neo4j-cypher" % Version
+  val Version        = "3.3.3"
+  val `neo4j-java`   = "org.neo4j.driver" % "neo4j-java-driver" % "1.5.1"
+  val `neo4j-test`   = "org.neo4j.test" % "neo4j-harness" % Version
+  val `neo4j-core`   = "org.neo4j" % "neo4j" % Version
+  val `neo4j-cypher` = "org.neo4j" % "neo4j-cypher" % Version
 }

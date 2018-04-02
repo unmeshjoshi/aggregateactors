@@ -5,7 +5,7 @@ object Dependencies {
   val Version = "0.1-SNAPSHOT"
   val Service = Seq(
     Libs.`mockito-core` % Test,
-    Libs.`scalatest` % Test,
+    Libs.`scalatest`    % Test,
     AkkaHttp.`akka-http`,
     Neo4JDriver.`neo4jJava`
   )
@@ -15,7 +15,8 @@ object Dependencies {
     SparkLibs.sparkStreaming,
     SparkLibs.sparkSQL,
     SparkLibs.sparkHiveSQL,
-    SparkLibs.sparkTestingBase
+    SparkLibs.sparkTestingBase,
+    SparkLibs.sparkStreamingKafka
   )
 
   val Aggregates = Seq(
@@ -47,7 +48,7 @@ object Dependencies {
     Neo4J.`neo4j-core`,
     Neo4J.`neo4j-cypher`,
     Neo4J.`neo4j-test` % Test,
-    Libs.`scalatest` % Test,
+    Libs.`scalatest`   % Test,
     Kafka.akkaStreamKafka,
     Kafka.`scalatest-embedded-kafka` % Test,
     Enumeratum.`enumeratum`,
