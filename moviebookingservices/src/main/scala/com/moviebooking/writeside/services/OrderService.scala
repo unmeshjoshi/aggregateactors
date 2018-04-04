@@ -34,6 +34,7 @@ object OrderService extends App with JsonSupport {
         println(s"Reserving seats for ${order}")
         val response: Future[Any] = screenShard ? ReserveSeats(order.screenId, order.seatNumbers)
         val mapFuture: Future[HttpResponse] = response.map(any ⇒ {
+          println(s"response is ${any}")
           val entity = HttpEntity(ContentTypes.`application/json`, any.asInstanceOf[String])
           HttpResponse(entity = entity, status = StatusCodes.Created)
         })

@@ -8,7 +8,6 @@ import akka.util.ByteString
 import com.moviebooking.writeside.aggregates.{MovieState, SeatNumber, Show, ShowId}
 import com.moviebooking.writeside.services.{JsonSupport, Order}
 import javax.inject.Inject
-import play.api.data.Form
 import play.api.libs.json.{JsValue, Json}
 import play.api.mvc._
 
@@ -21,7 +20,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
   implicit val system                          = ActorSystem("moviebookingactorsystem")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-  private val hostIp = "192.168.0.111"
+  private val hostIp = "10.131.20.143"
 //  private val hostIp = "10.131.20.143"
 
   def index(): Action[AnyContent] =
@@ -53,10 +52,8 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
         futureMovieResponse.flatMap(movieResponse ⇒ {
           val eventualString = readResponse(movieResponse)
           eventualString.map((response: ByteString) ⇒ {
-            val movie   = Json.parse(response.toArray).as[MovieState]
-            val showIds = showId.map(idString ⇒ ShowId.fromKey(idString))
-
-            //            theatre -> (screens -> List[ShowId])
+            val movie      = Json.parse(response.toArray).as[MovieState]
+            val showIds    = showId.map(idString ⇒ ShowId.fromKey(idString))
             var theatreMap = Map[String, Map[String, List[String]]]()
             for (showId ← showIds) {
               if (!theatreMap.exists(_._1 == showId.theatreName)) {
@@ -114,19 +111,23 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
 
   case class ScreenShows(screenName: String, shows: List[ShowId])
 
-  import play.api.data.format.Formats._
   import play.api.data.Forms._
   import play.api.data._
+  import play.api.data.format.Formats._
 
   def confirmBooking(): Action[AnyContent] =
     Action.async({ implicit request ⇒
       val value = Form(tuple("showId" → of[String], "tickets" → of[String])).bindFromRequest()
       println(value.data)
-      val seatNumber: Option[String] = value("tickets").value
-      val strings                    = seatNumber.get.split("_")
+      val selectedSeatsCsv: Option[String] = value("tickets").value
+      val selectedSeats                    = selectedSeatsCsv.get.split(",")
+      val seatNumbers: Array[SeatNumber] = selectedSeats.map(seat ⇒ {
+        val strings = seat.split("_")
+        SeatNumber(strings(0), strings(1).toInt)
+      })
 
       val orderRequest: JsValue =
-        Json.toJson(Order(ShowId.fromKey(value("showId").value.get), List(SeatNumber(strings(0), strings(1).toInt))))
+        Json.toJson(Order(ShowId.fromKey(value("showId").value.get), seatNumbers.toList))
 
       println(orderRequest)
 
@@ -144,6 +145,11 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
           entity = HttpEntity(ContentTypes.`application/json`, orderRequest.toString())
         )
       )
-      orderResponse.map(r ⇒ Ok(views.html.confirm()))
+
+      val eventualEventualString = orderResponse.map(r ⇒ readResponse(r))
+      eventualEventualString.map(response ⇒ {
+        println(response)
+        Ok(views.html.confirm())
+      })
     })
 }

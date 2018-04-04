@@ -4,7 +4,11 @@ $(function(){
 
     $(function(){
         $('.seat').on('click',function(){
-            $("#tickets").val($(this).attr("data-value"))
+            var selectedSeats = $("#tickets").val()
+            if (selectedSeats) {
+                selectedSeats = selectedSeats + ","
+            }
+            $("#tickets").val(selectedSeats + $(this).attr("data-value"))
             if($(this).hasClass( "selected" )){
                 $( this ).removeClass( "selected" );
             }else{
