@@ -6,6 +6,7 @@ import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
 import akka.util.ByteString
 import com.moviebooking.writeside.aggregates.{MovieState, SeatNumber, Show, ShowId}
+import com.moviebooking.writeside.common.Networks
 import com.moviebooking.writeside.services.{JsonSupport, Order}
 import javax.inject.Inject
 import play.api.libs.json.{JsValue, Json}
@@ -20,7 +21,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
   implicit val system                          = ActorSystem("moviebookingactorsystem")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-  private val hostIp = "10.131.20.143"
+  private val hostIp = new Networks().hostname()
 //  private val hostIp = "10.131.20.143"
 
   def index(): Action[AnyContent] =
@@ -146,10 +147,12 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
         )
       )
 
-      val eventualEventualString = orderResponse.map(r ⇒ readResponse(r))
-      eventualEventualString.map(response ⇒ {
-        println(response)
-        Ok(views.html.confirm())
+      orderResponse.map(r ⇒ {
+        if (r.status.isSuccess())
+          Ok(views.html.confirm())
+        else
+          Conflict(views.html.conflict())
       })
+
     })
 }

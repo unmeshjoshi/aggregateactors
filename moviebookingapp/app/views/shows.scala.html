@@ -21,9 +21,13 @@
         <main role="main">
             <div class="container">
                 <div id="movieDetails" >
-                    <h2>@movie.name</h2>
+                    <h1 class="text-center">@movie.name</h1>
+                    @*<iframe width="560" height="315" src="@movie.metadata("video")"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>*@
                     <img src="/assets/images/@movie.metadata("image")" class="w-100 h-25">
                 </div>
+            </div>
+            <div class="container text-info">
+                <p>@movie.synopsis</p>
             </div>
             <div class="container">
                 <div id="shows" class="row">
@@ -33,12 +37,12 @@
                         <div id="theatreshows" class="col-6" style="background-color: lightgray !important">
 
                             <h2>
-                                <div id="theatre1" class="title">@theatreScreensShows._1</div>
+                                <div id="theatre1" class="dark title text-center">@theatreScreensShows._1</div>
                             </h2>
 
                             <div>
                             @for(screenShows ← theatreScreensShows._2) {
-                                <h3>@screenShows._1</h3>
+                                <h3 class="text-md-left">@screenShows._1</h3>
                                 <h4>
 
                                 @for(shows ← screenShows._2) {
@@ -54,6 +58,7 @@
                             </div>
                         </div>
                     }
+
                 </div>
             </div>
         </main>

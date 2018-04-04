@@ -6,7 +6,7 @@ import akka.http.scaladsl.model._
 import akka.pattern.ask
 import akka.stream.ActorMaterializer
 import akka.util.{ByteString, Timeout}
-import com.moviebooking.writeside.aggregates.{ReserveSeats, SeatNumber, ShowActor, ShowId}
+import com.moviebooking.writeside.aggregates._
 import com.moviebooking.writeside.common.{ClusterSettings, ClusterShard}
 import play.api.libs.json.Json
 
@@ -32,11 +32,19 @@ object OrderService extends App with JsonSupport {
         val order       = Json.parse(request.toArray).as[Order]
         val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
         println(s"Reserving seats for ${order}")
-        val response: Future[Any] = screenShard ? ReserveSeats(order.screenId, order.seatNumbers)
-        val mapFuture: Future[HttpResponse] = response.map(any ⇒ {
-          println(s"response is ${any}")
-          val entity = HttpEntity(ContentTypes.`application/json`, any.asInstanceOf[String])
-          HttpResponse(entity = entity, status = StatusCodes.Created)
+        val responseFuture: Future[Any] = screenShard ? ReserveSeats(order.screenId, order.seatNumbers)
+        val mapFuture: Future[HttpResponse] = responseFuture.map(response ⇒ {
+          response match {
+            case r: SeatsRejected ⇒ {
+              val entity = HttpEntity(ContentTypes.`application/json`, response.toString)
+              println(s"Rejecting ${response}")
+              HttpResponse(entity = entity, status = StatusCodes.Conflict)
+            }
+            case r: SeatsAccepted ⇒ {
+              val entity = HttpEntity(ContentTypes.`application/json`, response.toString)
+              HttpResponse(entity = entity, status = StatusCodes.Created)
+            }
+          }
         })
         mapFuture
       })

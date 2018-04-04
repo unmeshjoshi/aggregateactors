@@ -5,6 +5,9 @@ import java.time.LocalTime
 import akka.event.Logging
 import akka.persistence.PersistentActor
 
+object SeatNumber {
+  implicit val ord = Ordering.by(unapply)
+}
 case class SeatNumber(row: String, value: Int)
 
 case class Seat(seatNumber: SeatNumber, isReserved: Boolean = false) {
@@ -41,7 +44,9 @@ case class Show(showId: ShowId, showTime: LocalTime, movieName: String, seats: L
     val seatsWithReservations = seatsToBeReserved.map(
       seat ⇒ seat.reserve()
     )
-    copy(showId, showTime, movieName, seatsWithReservations ++ remainingSeats)
+
+    val updatedSeats = seatsWithReservations ++ remainingSeats
+    copy(showId, showTime, movieName, updatedSeats.sortBy(seat ⇒ seat.seatNumber))
   }
 }
 
@@ -65,6 +70,10 @@ case class ShowInitialized(showId: ShowId, showTime: LocalTime, movieName: Strin
 
 }
 
+case class SeatsRejected(showId: ShowId, seats: List[SeatNumber])
+case class SeatsInitialized()
+case class SeatsAccepted(showId: ShowId, seats: List[SeatNumber])
+
 object ShowActor {
   val shardName: String = "Screen"
 }
@@ -83,7 +92,7 @@ class ShowActor extends PersistentActor {
       log.info("Initializing seat availability")
       persist(ShowInitialized(id, showTime, movie, availableSeats)) { event ⇒
         initializeState(event)
-        sender() ! "Seats Initialized"
+        sender() ! SeatsInitialized()
       }
     }
     case ReserveSeats(id, seatNumbers) ⇒ {
@@ -93,10 +102,10 @@ class ShowActor extends PersistentActor {
         persist(SeatsReserved(id, seatNumbers)) { event ⇒
           println("Updating reservations")
           updateState(event)
-          sender() ! "Seats Accepted"
+          sender() ! SeatsAccepted(id, seatNumbers)
         }
       } else {
-        sender() ! "Seats Rejected"
+        sender() ! SeatsRejected(id, seatNumbers)
       }
     }
   }
