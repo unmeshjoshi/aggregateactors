@@ -17,12 +17,14 @@ import play.api.libs.json._
 
 import scala.concurrent.{Future, Promise}
 
-object EventReader extends App with JsonSupport {
-//  private val settings = new ClusterSettings(2556)
-  implicit val system = ActorSystem()
+object EventPublisher extends App with JsonSupport {
+  val movieBookingTopic = "seatAvailability"
+
+  implicit val system = ActorSystem("EventPublisher")
 
   val producerSettings: ProducerSettings[String, String] =
     producerSettings("localhost", 29092)
+
   val kafkaProducer: KafkaProducer[String, String] =
     producerSettings.createKafkaProducer()
   implicit val materializer: ActorMaterializer = ActorMaterializer()
@@ -50,12 +52,10 @@ object EventReader extends App with JsonSupport {
         })
 
     eventSource.map(convert).to(kafkaProducerSink).run()
-    //    eventSource.map(convert).to(Sink.ignore).run()
-    //    value.map(f ⇒ println(f))
   })
 
   def producerRecord(event: Event) = {
-    new ProducerRecord("seatAvailability", event.id, event)
+    new ProducerRecord(movieBookingTopic, event.id, event)
   }
 
   private def convert(event: Event): ProducerRecord[String, String] = {
