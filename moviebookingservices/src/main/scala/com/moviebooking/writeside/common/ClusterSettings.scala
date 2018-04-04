@@ -1,4 +1,4 @@
-package com.moviebooking.common
+package com.moviebooking.writeside.common
 
 import akka.actor.ActorSystem
 import com.typesafe.config.{Config, ConfigFactory}

@@ -1,4 +1,4 @@
-package com.moviebooking.common
+package com.moviebooking.writeside.common
 
 import java.net.{Inet6Address, InetAddress, NetworkInterface}
 

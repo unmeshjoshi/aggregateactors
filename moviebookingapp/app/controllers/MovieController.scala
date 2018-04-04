@@ -5,8 +5,8 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
 import akka.util.ByteString
-import com.moviebooking.aggregates.{MovieState, SeatNumber, Show, ShowId}
-import com.moviebooking.services.{JsonSupport, Order}
+import com.moviebooking.writeside.aggregates.{MovieState, SeatNumber, Show, ShowId}
+import com.moviebooking.writeside.services.{JsonSupport, Order}
 import javax.inject.Inject
 import play.api.data.Form
 import play.api.libs.json.{JsValue, Json}
@@ -83,8 +83,6 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
     })
 
   def getResponse(url: String): Future[HttpResponse] = {
-    implicit val system       = ActorSystem()
-    implicit val materializer = ActorMaterializer()
     // needed for the future flatMap/onComplete in the end
     implicit val executionContext = system.dispatcher
 

@@ -1,4 +1,4 @@
-package com.moviebooking.aggregates
+package com.moviebooking.writeside.aggregates
 
 import akka.persistence.PersistentActor
 import enumeratum._
@@ -16,6 +16,7 @@ object PaymentStatus extends Enum[PaymentStatus] {
   case object Confirmed extends PaymentStatus
 
   case object Declined extends PaymentStatus
+
 }
 
 sealed trait PaymentEvent
@@ -47,17 +48,17 @@ class PaymentActor extends PersistentActor {
     case event: PaymentEvent ⇒ updateState(event)
   }
 
+  override def receiveCommand: Receive = {
+    case sbt @ SubmitPayment(id, amount) ⇒
+      persist(PaymentSuccessful(id, amount))(updateState)
+  }
+
   def updateState(event: PaymentEvent): Unit = {
     event match {
       case PaymentSubmited(id, amount) ⇒
         paymentState = PaymentState(id, amount, PaymentStatus.Submitted)
 
     }
-  }
-
-  override def receiveCommand: Receive = {
-    case sbt @ SubmitPayment(id, amount) ⇒
-      persist(PaymentSuccessful(id, amount))(updateState)
   }
 
   override def persistenceId: String =

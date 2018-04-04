@@ -1,14 +1,13 @@
-package com.moviebooking.services
+package com.moviebooking.writeside.services
 
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpMethods.POST
 import akka.http.scaladsl.model._
 import akka.pattern.ask
 import akka.stream.ActorMaterializer
-import akka.stream.javadsl.Source
 import akka.util.{ByteString, Timeout}
-import com.moviebooking.aggregates.{ReserveSeats, SeatNumber, ShowActor, ShowId}
-import com.moviebooking.common.{ClusterSettings, ClusterShard}
+import com.moviebooking.writeside.aggregates.{ReserveSeats, SeatNumber, ShowActor, ShowId}
+import com.moviebooking.writeside.common.{ClusterSettings, ClusterShard}
 import play.api.libs.json.Json
 
 import scala.concurrent.Future
@@ -17,24 +16,15 @@ import scala.concurrent.duration._
 case class Order(screenId: ShowId, seatNumbers: List[SeatNumber])
 
 object OrderService extends App with JsonSupport {
-
-  //GET seat-availability json
-  //POST reserve seats
-  // reserve-seats command
-  //handle seats reserved
-  private val settings                         = new ClusterSettings(8081)
-  implicit val system                          = settings.system
-  implicit val materializer: ActorMaterializer = ActorMaterializer()
+  val settings              = new ClusterSettings(8081)
+  implicit val system       = settings.system
+  implicit val materializer = ActorMaterializer()
 
   import scala.concurrent.ExecutionContext.Implicits.global
-
-  ClusterShard.start()
 
   val requestHandler: HttpRequest => Future[HttpResponse] = {
     case request @ HttpRequest(POST, Uri.Path("/order"), _, _, _) =>
       implicit val timeout: Timeout = 15.seconds
-      val requestBytes: Source[ByteString, AnyRef] =
-        request.entity.getDataBytes()
       val requestF: Future[ByteString] =
         request.entity.dataBytes.runFold(ByteString.empty)(_ ++ _)
 
@@ -56,6 +46,12 @@ object OrderService extends App with JsonSupport {
         HttpResponse(status = StatusCodes.OK)
       }
   }
+
+  ClusterShard.start()
+  //GET seat-availability json
+  //POST reserve seats
+  // reserve-seats command
+  //handle seats reserved
 
   Http().bindAndHandleAsync(requestHandler, settings.hostname, 8083)
 }

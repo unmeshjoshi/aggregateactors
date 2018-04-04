@@ -1,4 +1,4 @@
-package com.moviebooking.aggregates
+package com.moviebooking.writeside.aggregates
 
 import akka.persistence.PersistentActor
 import enumeratum.{Enum, EnumEntry}

@@ -1,4 +1,4 @@
-package com.moviebooking.apps
+package com.moviebooking.writeside.apps
 
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -10,9 +10,9 @@ import akka.http.scaladsl.model._
 import akka.pattern.ask
 import akka.stream.ActorMaterializer
 import akka.util.Timeout
-import com.moviebooking.aggregates._
-import com.moviebooking.common.{ClusterSettings, ClusterShard}
-import com.moviebooking.generator.Generators
+import com.moviebooking.writeside.aggregates._
+import com.moviebooking.writeside.common.{ClusterSettings, ClusterShard}
+import com.moviebooking.writeside.generator.Generators
 
 import scala.collection.immutable
 import scala.concurrent.ExecutionContext.Implicits.global

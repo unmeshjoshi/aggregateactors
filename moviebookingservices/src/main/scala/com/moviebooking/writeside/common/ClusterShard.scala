@@ -1,8 +1,8 @@
-package com.moviebooking.common
+package com.moviebooking.writeside.common
 
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.cluster.sharding.{ClusterSharding, ClusterShardingSettings}
-import com.moviebooking.aggregates._
+import com.moviebooking.writeside.aggregates._
 
 object ClusterShard {
 
@@ -11,7 +11,7 @@ object ClusterShard {
   }
 
   def start()(implicit system: ActorSystem): Unit = {
-    val screenShard: ActorRef = ClusterSharding(system).start(
+    ClusterSharding(system).start(
       typeName = ShowActor.shardName,
       entityProps = Props[ShowActor],
       settings = ClusterShardingSettings(system),
@@ -19,7 +19,7 @@ object ClusterShard {
       extractShardId = Command.shardResolver
     )
 
-    val paymentShard: ActorRef = ClusterSharding(system).start(
+    ClusterSharding(system).start(
       typeName = PaymentActor.shardName,
       entityProps = Props[PaymentActor],
       settings = ClusterShardingSettings(system),
@@ -27,7 +27,7 @@ object ClusterShard {
       extractShardId = Command.shardResolver
     )
 
-    val orderShard: ActorRef = ClusterSharding(system).start(
+    ClusterSharding(system).start(
       typeName = OrderActor.shardName,
       entityProps = Props[OrderActor],
       settings = ClusterShardingSettings(system),
@@ -35,7 +35,7 @@ object ClusterShard {
       extractShardId = Command.shardResolver
     )
 
-    val theatreShard: ActorRef = ClusterSharding(system).start(
+    ClusterSharding(system).start(
       typeName = Theatre.shardName,
       entityProps = Props[TheatreActor],
       settings = ClusterShardingSettings(system),
@@ -43,7 +43,7 @@ object ClusterShard {
       extractShardId = Command.shardResolver
     )
 
-    val movieShard: ActorRef = ClusterSharding(system).start(
+    ClusterSharding(system).start(
       typeName = MovieActor.shardName,
       entityProps = Props[MovieActor],
       settings = ClusterShardingSettings(system),

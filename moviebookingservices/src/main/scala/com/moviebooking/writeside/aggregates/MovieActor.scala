@@ -1,4 +1,4 @@
-package com.moviebooking.aggregates
+package com.moviebooking.writeside.aggregates
 
 import akka.event.Logging
 import akka.persistence.PersistentActor
@@ -17,6 +17,7 @@ case class MovieInitiazed(id: String, cast: List[String], synopsis: String, genr
 object MovieActor {
   val shardName = "Movie"
 }
+
 class MovieActor extends PersistentActor {
 
   val log = Logging(context.system, this)

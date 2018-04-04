@@ -1,6 +1,6 @@
-package com.moviebooking.generator
+package com.moviebooking.writeside.generator
 
-import com.moviebooking.aggregates._
+import com.moviebooking.writeside.aggregates._
 
 import scala.util.Random
 

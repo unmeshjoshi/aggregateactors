@@ -1,4 +1,4 @@
-package com.moviebooking.apps
+package com.moviebooking.readside.apps
 
 import akka.Done
 import akka.actor.ActorSystem
@@ -6,10 +6,10 @@ import akka.kafka.scaladsl.Consumer
 import akka.kafka.{ConsumerSettings, Subscriptions}
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.Sink
-import com.moviebooking.aggregates._
-import com.moviebooking.services.JsonSupport
+import com.moviebooking.writeside.aggregates._
+import com.moviebooking.writeside.services.JsonSupport
 import io.lettuce.core.RedisClient
-import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord, KafkaConsumer}
+import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord}
 import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import play.api.libs.json.Json
@@ -38,8 +38,6 @@ object KafkaSubscriber extends App with JsonSupport {
       .plainSource(consumerSettings, subscription)
       .mapAsync(1)(readJson)
       .runWith(Sink.ignore)
-  private val consumer: KafkaConsumer[String, String] =
-    consumerSettings.createKafkaConsumer()
 
   def readJson(record: ConsumerRecord[String, String]): Future[Done] = Future {
     println(s"Reading record ${record}")
@@ -61,7 +59,7 @@ object KafkaSubscriber extends App with JsonSupport {
           markReservedSeats(reserved)
       }
     } catch {
-      case any @ _ ⇒ {
+      case any: Throwable ⇒ {
         any.printStackTrace()
       }
     }

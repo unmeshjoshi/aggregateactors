@@ -1,6 +1,6 @@
-package com.moviebooking.services
+package com.moviebooking.writeside.services
 
-import com.moviebooking.aggregates.{Event, _}
+import com.moviebooking.writeside.aggregates.{Event, _}
 import de.heikoseeberger.akkahttpplayjson.PlayJsonSupport
 import play.api.libs.json._
 

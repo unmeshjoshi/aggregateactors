@@ -1,4 +1,4 @@
-package com.moviebooking.apps
+package com.moviebooking.writeside.apps
 
 import akka.actor.ActorSystem
 import akka.kafka.ProducerSettings
@@ -8,14 +8,13 @@ import akka.persistence.query.{EventEnvelope, PersistenceQuery}
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{Sink, Source}
 import akka.{Done, NotUsed}
-import com.moviebooking.aggregates.Event
-import com.moviebooking.common.ClusterSettings
-import com.moviebooking.services.JsonSupport
-import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord}
+import com.moviebooking.writeside.aggregates.Event
+import com.moviebooking.writeside.services.JsonSupport
+import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.kafka.common.serialization.StringSerializer
 import play.api.libs.json._
 
-import scala.concurrent.{Future, Promise}
+import scala.concurrent.Future
 
 object EventPublisher extends App with JsonSupport {
   val movieBookingTopic = "seatAvailability"
@@ -65,7 +64,7 @@ object EventPublisher extends App with JsonSupport {
       println(s"json event is ${str}")
       new ProducerRecord("seatAvailability", event.id, str)
     } catch {
-      case any @ _ ⇒ {
+      case any: Throwable ⇒ {
         any.printStackTrace()
         throw any
       }
@@ -75,9 +74,4 @@ object EventPublisher extends App with JsonSupport {
   private def producerSettings(host: String, port: Int)(implicit actorSystem: ActorSystem) =
     ProducerSettings(actorSystem, new StringSerializer, new StringSerializer)
       .withBootstrapServers(s"$host:$port")
-
-  private def complete(p: Promise[Done]): Callback = {
-    case (_, null) ⇒ p.success(Done)
-    case (_, ex)   ⇒ p.failure(ex)
-  }
 }

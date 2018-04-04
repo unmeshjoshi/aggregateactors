@@ -1,8 +1,6 @@
-
-
-
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `moviebookingservices`,
+  `movierecommendationview`,
   `moviebookingapp`)
 
 

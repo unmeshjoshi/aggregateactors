@@ -1,6 +1,6 @@
-package com.moviebooking.apps
+package com.moviebooking.writeside.apps
 
-import com.moviebooking.common.{ClusterSettings, ClusterShard}
+import com.moviebooking.writeside.common.{ClusterSettings, ClusterShard}
 
 object ShardApp extends App {
   private val settings = new ClusterSettings(2555)

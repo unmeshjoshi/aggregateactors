@@ -9,7 +9,7 @@ object DatabaseFixture {
   def useExistingDatabase(db: GraphDatabaseService) = new DatabaseFixtureBuilder(db)
 
   class DatabaseFixtureBuilder(val db: GraphDatabaseService) {
-    private var initialContents:String = _
+    private var initialContents: String = _
 
     def populateWith(cypher: String): DatabaseFixtureBuilder = {
       initialContents = cypher
@@ -23,7 +23,7 @@ object DatabaseFixture {
 
 }
 
-class DatabaseFixture private(val db: GraphDatabaseService, val initialContents: String, val migrations: Iterable[Migration]) {
+class DatabaseFixture private (val db: GraphDatabaseService, val initialContents: String, val migrations: Iterable[Migration]) {
   populateWith(initialContents)
   applyMigrations(migrations)
 

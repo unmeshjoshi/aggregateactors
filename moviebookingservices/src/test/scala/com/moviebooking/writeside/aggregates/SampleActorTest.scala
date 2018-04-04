@@ -1,4 +1,4 @@
-package com.moviebooking.aggregates
+package com.moviebooking.writeside.aggregates
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 

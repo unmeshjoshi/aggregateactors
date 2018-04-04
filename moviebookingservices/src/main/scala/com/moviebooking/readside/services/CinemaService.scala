@@ -1,4 +1,4 @@
-package com.moviebooking.services
+package com.moviebooking.readside.services
 
 import java.util.Optional
 
@@ -7,8 +7,9 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpMethods.GET
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
-import com.moviebooking.aggregates.MovieState
-import com.moviebooking.common.Networks
+import com.moviebooking.writeside.aggregates.MovieState
+import com.moviebooking.writeside.common.Networks
+import com.moviebooking.writeside.services.JsonSupport
 import io.lettuce.core.RedisClient
 import io.lettuce.core.api.StatefulRedisConnection
 import play.api.libs.json.Json
