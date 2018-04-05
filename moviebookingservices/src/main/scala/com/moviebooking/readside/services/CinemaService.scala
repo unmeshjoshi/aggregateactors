@@ -2,17 +2,22 @@ package com.moviebooking.readside.services
 
 import java.util.Optional
 
+import akka.NotUsed
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
+import akka.http.scaladsl.model.HttpEntity.IndefiniteLength
 import akka.http.scaladsl.model.HttpMethods.GET
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
+import akka.stream.scaladsl.Source
+import akka.util.ByteString
 import com.moviebooking.writeside.aggregates.MovieState
 import com.moviebooking.writeside.common.Networks
 import com.moviebooking.writeside.services.JsonSupport
 import io.lettuce.core.RedisClient
 import io.lettuce.core.api.StatefulRedisConnection
 import play.api.libs.json.Json
+import reactor.core.publisher.Mono
 
 import scala.collection.immutable
 import scala.concurrent.Future
@@ -32,8 +37,9 @@ object CinemaService extends App with JsonSupport {
         val theatreName: Optional[String] =
           request.getUri().query().get("theatreName")
         println(s"Getting shows for ${theatreName}")
-        val shows = redisConnection.sync().get(s"${theatreName.get()}_show")
-        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, shows), status = StatusCodes.OK)
+        val shows: Mono[String]            = redisConnection.reactive().get(s"${theatreName.get()}_show")
+        val value: Source[ByteString, Any] = Source.fromPublisher(shows).map(string ⇒ ByteString.fromString(string))
+        HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, value), status = StatusCodes.OK)
       }
     case request @ HttpRequest(GET, Uri.Path("/theatres"), _, _, _) =>
       Future {
