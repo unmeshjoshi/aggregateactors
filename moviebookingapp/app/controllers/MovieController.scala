@@ -53,6 +53,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
         futureMovieResponse.flatMap(movieResponse ⇒ {
           val eventualString = readResponse(movieResponse)
           eventualString.map((response: ByteString) ⇒ {
+            println(s"parsing ${response.utf8String}")
             val movie      = Json.parse(response.toArray).as[MovieState]
             val showIds    = showId.map(idString ⇒ ShowId.fromKey(idString))
             var theatreMap = Map[String, Map[String, List[String]]]()
