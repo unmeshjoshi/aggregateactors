@@ -22,7 +22,6 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   private val hostIp = new Networks().hostname()
-//  private val hostIp = "10.131.20.143"
 
   def index(): Action[AnyContent] =
     Action.async({
@@ -105,7 +104,8 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
       })
       eventualString.map((response: ByteString) ⇒ {
         val show = Json.parse(response.toArray).as[Show]
-        Ok(views.html.bookseats(show))
+        val html = views.html.bookseats(show)
+        Ok(html)
       })
     })
 

@@ -39,12 +39,16 @@ object KafkaSubscriber extends App with JsonSupport {
       .mapAsync(1)(readJson)
       .runWith(Sink.ignore)
 
+  import org.slf4j.LoggerFactory
+
+  val logger = LoggerFactory.getLogger(this.getClass)
+
   def readJson(record: ConsumerRecord[String, String]): Future[Done] = Future {
-    println(s"Reading record ${record}")
+    log(s"Reading record ${record}")
     record.key()
     try {
       val event = Json.parse(record.value()).as[Event]
-      println(s"Parsed json ${event}")
+      log(s"Parsed json ${event}")
 
       event match {
         case m: MovieInitiazed ⇒ {
@@ -66,6 +70,8 @@ object KafkaSubscriber extends App with JsonSupport {
     Done
   }
 
+  def log(str: String) = logger.info(str)
+
   private def setMovie(m: MovieInitiazed) = {
     val redisCommand = redisConnection
       .sync()
@@ -79,7 +85,7 @@ object KafkaSubscriber extends App with JsonSupport {
       movieList = Json.parse(movieListJson).as[List[String]]
     }
     val newList = movieList :+ m.id
-    println(s"++++++++++++++++++++++++++New list is ${newList}")
+    log(s"++++++++++++++++++++++++++New list is ${newList}")
     redisCommand.set("movies", Json.toJson(newList.distinct).toString())
 
   }
@@ -97,12 +103,12 @@ object KafkaSubscriber extends App with JsonSupport {
       theatreList = Json.parse(theatreListJson).as[List[String]]
     }
     val newList = theatreList :+ t.id
-    println(s"++++++++++++++++++++++++++++++++++++++++++++New list is ${newList}")
+    log(s"++++++++++++++++++++++++++++++++++++++++++++New list is ${newList}")
     redisCommand.set("theatres", Json.toJson(newList.distinct).toString())
   }
 
   private def markReservedSeats(reserved: SeatsReserved) = {
-    println(s"Reserving seats ${reserved}")
+    log(s"Reserving seats ${reserved}")
     val seatJson         = redisConnection.sync().get(reserved.id.toString)
     val seatAvailability = Json.parse(seatJson).as[Show]
     val availability     = seatAvailability.reserve(reserved)
@@ -112,7 +118,7 @@ object KafkaSubscriber extends App with JsonSupport {
   }
 
   private def setShow(init: ShowInitialized) = {
-    println(s"Initializing screen ${init}")
+    log(s"Initializing screen ${init}")
     setMovie2ShowMap(init)
     setTheatre2ShowMap(init)
     setShowDetails(init)
@@ -131,7 +137,7 @@ object KafkaSubscriber extends App with JsonSupport {
       val showIds: Seq[String] = map(theatreMapKey)
       val shows: Seq[String]   = showIds :+ init.showId.toString()
       val newMap               = Map(theatreMapKey → shows)
-      println(s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${newMap}")
+      log(s"+++++++++++++++++ Setting theatreshows ${theatreMapKey} => ${newMap}")
       redisCommand.set(theatreMapKey, Json.toJson(newMap).toString())
     }
   }

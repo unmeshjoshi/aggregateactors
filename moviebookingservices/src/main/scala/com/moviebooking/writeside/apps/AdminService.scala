@@ -19,15 +19,14 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-object AdminApp extends App {
-  val settings        = new ClusterSettings(2553)
-  implicit val system = settings.system
-  ClusterShard.start()
-  val screenShard                              = ClusterShard.shardRegion(ShowActor.shardName)
+object AdminService extends App {
+  val settings                                 = new ClusterSettings(2553)
+  implicit val system                          = settings.system
   implicit val materializer: ActorMaterializer = ActorMaterializer()
-  val paymentShard                             = ClusterShard.shardRegion(PaymentActor.shardName)
-  //create the actor system
-  val orderShard = ClusterShard.shardRegion(OrderActor.shardName)
+
+  ClusterShard.start()
+
+  val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
   val requestHandler: HttpRequest => Future[HttpResponse] = {
     case request @ HttpRequest(POST, Uri.Path("/init"), _, _, _) =>
       val theatres: Seq[(String, Address)] = Generators.theatres
@@ -55,12 +54,12 @@ object AdminApp extends App {
         theatres.map(theatre ⇒ (showTime, theatre))
       })
 
+    //FIXME not all movies can be in all screens
     val tuples: immutable.Seq[((String, (String, Address)), MovieState)] =
       showTimeTheatres.flatMap(show ⇒ {
         movies.map(movie ⇒ (show, movie))
       })
-    //val tuples: immutable.Seq[((String, (String, Address)), MovieState)] = Generators.showTimes.zip(theatres).zip(movies)
-    println(s"Tuples ${tuples}")
+
     val seq: immutable.Seq[Future[Any]] = tuples.flatMap(tuple ⇒ {
       val screenShard = ClusterShard.shardRegion(ShowActor.shardName)
       val showIds     = Generators.screenIds

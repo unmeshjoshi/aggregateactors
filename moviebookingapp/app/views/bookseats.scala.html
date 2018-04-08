@@ -19,7 +19,7 @@
         <main role="main">
             <div class="container">
                 <h2>@show.showId.screenName</h2>
-                <form id="ticket-form" style="display: none" action="@routes.MovieController.confirmBooking()" method="POST">
+                <form id="ticket-form" class="hide" action="@routes.MovieController.confirmBooking()" method="POST">
                     <input name="showId" value="@show.showId.showKey()" class="hidden"/>
                     <input name="tickets" id="tickets" value="" class="hidden"/>
                     <button type="submit">Confirm Booking</button>

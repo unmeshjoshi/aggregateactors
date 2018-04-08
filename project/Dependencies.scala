@@ -5,7 +5,8 @@ object Dependencies {
   val Version = "0.1-SNAPSHOT"
   val Service = Seq(
     Libs.`mockito-core` % Test,
-    Libs.`scalatest`    % Test,
+    Libs.`scalatest` % Test,
+    Libs.`logback-classic`,
     AkkaHttp.`akka-http`,
     Neo4JDriver.`neo4jJava`
   )
@@ -23,6 +24,7 @@ object Dependencies {
     Libs.`play-json`,
     Libs.`play-json-extensions`,
     Libs.`akka-http-play-json`,
+    Libs.`logback-classic`,
     AkkaHttp.`akka-http`,
     Akka.`akka-actor`,
     Akka.`akka-remote`,
@@ -40,6 +42,7 @@ object Dependencies {
     Messaging.`lettuce`,
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`
+
   )
 
   val MovieRecommendations = Seq(
@@ -48,7 +51,8 @@ object Dependencies {
     Neo4J.`neo4j-core`,
     Neo4J.`neo4j-cypher`,
     Neo4J.`neo4j-test` % Test,
-    Libs.`scalatest`   % Test,
+    Libs.`scalatest` % Test,
+    Libs.`logback-classic`,
     Kafka.akkaStreamKafka,
     Kafka.`scalatest-embedded-kafka` % Test,
     Enumeratum.`enumeratum`,
@@ -60,6 +64,7 @@ object Dependencies {
     Libs.`play-json`,
     Libs.`play-json-extensions`,
     Libs.`akka-http-play-json`,
+    Libs.`logback-classic`,
     AkkaHttp.`akka-http`,
     Enumeratum.`enumeratum`,
     Enumeratum.`enumeratum-play`,
@@ -68,5 +73,4 @@ object Dependencies {
     Messaging.`embedded-redis` % Test,
     Libs.`guice`
   )
-
 }
