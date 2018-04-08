@@ -18,6 +18,9 @@ import scala.concurrent.Future
 class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder: AssetsFinder)
     extends AbstractController(cc)
     with JsonSupport {
+  import org.slf4j.LoggerFactory
+  val logger = LoggerFactory.getLogger(this.getClass)
+
   implicit val system                          = ActorSystem("moviebookingactorsystem")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
@@ -26,7 +29,6 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
   def index(): Action[AnyContent] =
     Action.async({
       val eventualResponse = getResponse("http://" + hostIp + ":8085/movies")
-      println(eventualResponse)
       val eventualString = eventualResponse.flatMap(response ⇒ {
         readResponse(response)
       })
@@ -52,7 +54,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
         futureMovieResponse.flatMap(movieResponse ⇒ {
           val eventualString = readResponse(movieResponse)
           eventualString.map((response: ByteString) ⇒ {
-            println(s"parsing ${response.utf8String}")
+            log(s"parsing ${response.utf8String}")
             val movie      = Json.parse(response.toArray).as[MovieState]
             val showIds    = showId.map(idString ⇒ ShowId.fromKey(idString))
             var theatreMap = Map[String, Map[String, List[String]]]()
@@ -73,7 +75,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
               showMap = showMap + (showId.screenName        → shows)
               theatreMap = theatreMap + (showId.theatreName → showMap)
             }
-            println(theatreMap)
+            log(theatreMap.toString())
             Ok(views.html.shows(theatreMap, movie))
           })
         })
@@ -98,7 +100,6 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
     Action.async({
       val eventualResponse =
         getResponse(s"http://${hostIp}:8085/available-seats?screenId=${java.net.URLEncoder.encode(showId, "UTF-8")}")
-      println(eventualResponse)
       val eventualString = eventualResponse.flatMap(response ⇒ {
         readResponse(response)
       })
@@ -120,7 +121,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
   def confirmBooking(): Action[AnyContent] =
     Action.async({ implicit request ⇒
       val value = Form(tuple("showId" → of[String], "tickets" → of[String])).bindFromRequest()
-      println(value.data)
+      log(value.data.toString())
       val selectedSeatsCsv: Option[String] = value("tickets").value
       val selectedSeats                    = selectedSeatsCsv.get.split(",")
       val seatNumbers: Array[SeatNumber] = selectedSeats.map(seat ⇒ {
@@ -131,12 +132,10 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
       val orderRequest: JsValue =
         Json.toJson(Order(ShowId.fromKey(value("showId").value.get), seatNumbers.toList))
 
-      println(orderRequest)
+      log(orderRequest.toString())
 
       val url = s"http://${hostIp}:8083/order"
 
-      implicit val system       = ActorSystem()
-      implicit val materializer = ActorMaterializer()
       // needed for the future flatMap/onComplete in the end
       implicit val executionContext = system.dispatcher
 
@@ -156,4 +155,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
       })
 
     })
+
+  def log(str: String) = logger.info(str)
+
 }

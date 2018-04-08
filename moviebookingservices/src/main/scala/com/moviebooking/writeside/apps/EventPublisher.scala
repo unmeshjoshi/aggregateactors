@@ -17,7 +17,10 @@ import play.api.libs.json._
 import scala.concurrent.Future
 
 object EventPublisher extends App with JsonSupport {
-  val movieBookingTopic = "seatAvailability"
+  import org.slf4j.LoggerFactory
+  val logger = LoggerFactory.getLogger(this.getClass)
+
+  val kafkaTopic = "seatAvailability"
 
   implicit val system = ActorSystem("EventPublisher")
 
@@ -35,9 +38,11 @@ object EventPublisher extends App with JsonSupport {
   val persistentIds: Source[String, NotUsed] =
     readJournal.persistenceIds()
 
+  def log(str: String) = logger.info(str)
+
   persistentIds.runForeach((id: String) ⇒ {
 
-    println(s"reading events for persisten id ${id}")
+    log(s"reading events for persisten id ${id}")
 
     val eventEnvelopeSource: Source[EventEnvelope, NotUsed] =
       readJournal.eventsByPersistenceId(id, 0, Long.MaxValue)
@@ -46,7 +51,7 @@ object EventPublisher extends App with JsonSupport {
       eventEnvelopeSource
         .map(event ⇒ event.event.asInstanceOf[Event])
         .map(event ⇒ {
-          println(event)
+          log(event.toString)
           event
         })
 
@@ -54,14 +59,14 @@ object EventPublisher extends App with JsonSupport {
   })
 
   def producerRecord(event: Event) = {
-    new ProducerRecord(movieBookingTopic, event.id, event)
+    new ProducerRecord(kafkaTopic, event.id, event)
   }
 
   private def convert(event: Event): ProducerRecord[String, String] = {
     try {
       val node = Json.toJson(event)
       val str  = node.toString()
-      println(s"json event is ${str}")
+      log(s"json event is ${str}")
       new ProducerRecord("seatAvailability", event.id, str)
     } catch {
       case any: Throwable ⇒ {
