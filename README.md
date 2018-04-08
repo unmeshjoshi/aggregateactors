@@ -1,4 +1,4 @@
-An end to end application to demonstrate event sourcing and CQRS with Akka persistence. It consists of following building blocks
+An end to end application to demonstrate the usage of Akka family of frameworks along with event sourcing and CQRS with Akka persistence. It consists of following building blocks
 
 1. A movie booking web site built with Play framework
 2. RESTful APIs backing the website built with Akka HTTP
