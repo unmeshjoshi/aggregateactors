@@ -85,5 +85,6 @@ echo "Starting Movie Service"
 echo "Starting Movie booking web app"
 ./target/universal/stage/bin/moviebookingapp 2>&1 > moviebookingapp.log &
 
+wait_tcp_port localhost 9000
 
 tail -f docker.log admin-service.log seed.log order-service.log event-publisher.log kafka-subscriber.log movie-service.log moviebookingapp.log

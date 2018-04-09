@@ -28,11 +28,11 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
 
   def index(): Action[AnyContent] =
     Action.async({
-      val eventualResponse = getResponse("http://" + hostIp + ":8085/movies")
-      val eventualString = eventualResponse.flatMap(response ⇒ {
+      val responseF = getResponse("http://" + hostIp + ":8085/movies")
+      val jsonF = responseF.flatMap(response ⇒ {
         readResponse(response)
       })
-      eventualString.map((response: ByteString) ⇒ {
+      jsonF.map((response: ByteString) ⇒ {
         val movies = Json.parse(response.toArray).as[List[MovieState]]
         Ok(views.html.main(movies))
       })
@@ -40,23 +40,23 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
 
   def shows(movieName: String): Action[AnyContent] =
     Action.async({
-      val eventualResponse =
+      val screensF =
         getResponse(s"http://$hostIp:8085/screens?movieName=${java.net.URLEncoder.encode(movieName, "UTF-8")}")
-      val futureMovieResponse =
+      val movieDetailsF =
         getResponse(s"http://$hostIp:8085/movie?movieName=${java.net.URLEncoder.encode(movieName, "UTF-8")}")
-      val eventualString = eventualResponse.flatMap(response ⇒ {
+      val screensJson = screensF.flatMap(response ⇒ {
         readResponse(response)
       })
-      val eventualResult = eventualString.map((response: ByteString) ⇒ {
+      val showIdsF = screensJson.map((response: ByteString) ⇒ {
         Json.parse(response.toArray).as[Seq[String]]
       })
-      eventualResult.flatMap((showId: Seq[String]) ⇒ {
-        futureMovieResponse.flatMap(movieResponse ⇒ {
-          val eventualString = readResponse(movieResponse)
-          eventualString.map((response: ByteString) ⇒ {
+      showIdsF.flatMap((showIdStrs: Seq[String]) ⇒ {
+        movieDetailsF.flatMap(movieResponse ⇒ {
+          val movieDetailsJson = readResponse(movieResponse)
+          movieDetailsJson.map((response: ByteString) ⇒ {
             log(s"parsing ${response.utf8String}")
             val movie      = Json.parse(response.toArray).as[MovieState]
-            val showIds    = showId.map(idString ⇒ ShowId.fromKey(idString))
+            val showIds    = showIdStrs.map(idString ⇒ ShowId.fromKey(idString))
             var theatreMap = Map[String, Map[String, List[String]]]()
             for (showId ← showIds) {
               if (!theatreMap.exists(_._1 == showId.theatreName)) {
@@ -98,13 +98,13 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
 
   def bookSeats(showId: String): Action[AnyContent] =
     Action.async({
-      val eventualResponse =
+      val httpResponseF =
         getResponse(s"http://${hostIp}:8085/available-seats?screenId=${java.net.URLEncoder.encode(showId, "UTF-8")}")
-      val eventualString = eventualResponse.flatMap(response ⇒ {
+      val jsonF = httpResponseF.flatMap(response ⇒ {
         readResponse(response)
       })
-      eventualString.map((response: ByteString) ⇒ {
-        val show = Json.parse(response.toArray).as[Show]
+      jsonF.map((json: ByteString) ⇒ {
+        val show = Json.parse(json.toArray).as[Show]
         val html = views.html.bookseats(show)
         Ok(html)
       })
@@ -120,9 +120,9 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
 
   def confirmBooking(): Action[AnyContent] =
     Action.async({ implicit request ⇒
-      val value = Form(tuple("showId" → of[String], "tickets" → of[String])).bindFromRequest()
-      log(value.data.toString())
-      val selectedSeatsCsv: Option[String] = value("tickets").value
+      val orderForm = Form(tuple("showId" → of[String], "tickets" → of[String])).bindFromRequest()
+      log(orderForm.data.toString())
+      val selectedSeatsCsv: Option[String] = orderForm("tickets").value
       val selectedSeats                    = selectedSeatsCsv.get.split(",")
       val seatNumbers: Array[SeatNumber] = selectedSeats.map(seat ⇒ {
         val strings = seat.split("_")
@@ -130,7 +130,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
       })
 
       val orderRequest: JsValue =
-        Json.toJson(Order(ShowId.fromKey(value("showId").value.get), seatNumbers.toList))
+        Json.toJson(Order(ShowId.fromKey(orderForm("showId").value.get), seatNumbers.toList))
 
       log(orderRequest.toString())
 
