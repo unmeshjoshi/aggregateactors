@@ -44,7 +44,7 @@ object AdminService extends App {
 
   }
 
-  Http().bindAndHandleAsync(requestHandler, settings.hostname, 8082)
+  Http().bindAndHandleAsync(requestHandler, settings.hostname, 8089)
 
   def initializeScreens(movies: List[MovieState],
                         theatres: Seq[(String, Address)])(implicit system: ActorSystem): Future[immutable.Seq[Any]] = {

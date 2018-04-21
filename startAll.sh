@@ -62,7 +62,7 @@ wait_tcp_port $default_ip 2552
 echo "Starting Admin Service"
 ./target/universal/stage/bin/admin-service 2>&1 > admin-service.log &
 
-wait_tcp_port $default_ip 8082
+wait_tcp_port $default_ip 8089
 
 echo "Starting Order Service"
 ./target/universal/stage/bin/order-service 2>&1 > order-service.log &

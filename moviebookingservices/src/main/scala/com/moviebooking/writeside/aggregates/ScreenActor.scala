@@ -97,10 +97,10 @@ class ShowActor extends PersistentActor {
     }
     case ReserveSeats(id, seatNumbers) ⇒ {
       log.info(s"Received reserve seats event for ${seatNumbers}")
-      println(s"Current state is ${seatAvailability}")
+      log.info(s"Current state is ${seatAvailability}")
       if (seatAvailability.get.areAvailable(seatNumbers)) {
         persist(SeatsReserved(id, seatNumbers)) { event ⇒
-          println("Updating reservations")
+          log.info(s"Updating reservations ${event}")
           updateState(event)
           sender() ! SeatsAccepted(id, seatNumbers)
         }
@@ -121,7 +121,7 @@ class ShowActor extends PersistentActor {
 
   override def persistenceId: String = {
     val id = self.path.parent.name + "-" + self.path.name
-    println(s"ID IS ${id}")
+    log.info(s" persistence id is ${id}")
     id
   }
 }
