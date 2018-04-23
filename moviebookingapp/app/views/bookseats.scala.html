@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>jQuery Seat Charts Plugin Demo</title>
+        <title>Movie Booking CQRS</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href=@assetsFinder.path("stylesheets/carousel.css") rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -18,20 +18,15 @@
     <body>
         <main role="main">
             <div class="container">
-                <h2>@show.showId.screenName</h2>
-                <form id="ticket-form" class="hide" action="@routes.MovieController.confirmBooking()" method="POST">
-                    <input name="showId" value="@show.showId.showKey()" class="hidden"/>
-                    <input name="tickets" id="tickets" value="" class="hidden"/>
-                    <button type="submit">Confirm Booking</button>
-                </form>
-
                 <div id="messagePanel" class="messagePanel">
+                <h2 class="text-center mb-5 pr-5">@show.showId.screenName</h2>
+
                 @for(key ← seatMap.keys.toList.sorted) {
                     <div class="row w-100">
                     <div class="seatNumber"> @key </div>
                     @for(seat <- seatMap(key)) {
                         @if(seat.isReserved) {
-                            <div class='seat selected' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.value </div>
+                            <div class='seat notAvailable' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.value </div>
 
                         } else {
                                 <div class='seat available' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.value </div>
@@ -41,7 +36,19 @@
                     </div>
                 }
                 </div>
+
+             <div class="w-100">
+               <form id="ticket-form" class="hide" action="@routes.MovieController.confirmBooking()" method="POST">
+                <div class="d-none">
+                    <input name="showId" value="@show.showId.showKey()" class="hidden"/>
+                    <input name="tickets" id="tickets" value="" class="hidden"/>
+                </div>
+                <div class="text-center mt-5 pr-5">
+                    <button class="text-input-dialog" type="submit">Confirm Booking</button>
+                 </div>
+                </form>
             </div>
+         </div>
         </main>
     </body>
 </html>

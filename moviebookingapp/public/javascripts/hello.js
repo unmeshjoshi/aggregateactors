@@ -4,6 +4,9 @@ $(function(){
 
     $(function(){
         $('.seat').on('click',function(){
+            if($(this).hasClass( "notAvailable" )){
+                return
+            }
             var selectedSeats = $("#tickets").val()
             if (selectedSeats) {
                 selectedSeats = selectedSeats + ","
@@ -18,6 +21,9 @@ $(function(){
         });
 
         $('.seat').mouseenter(function(){
+            if($(this).hasClass( "notAvailable" )){
+                return
+            }
             $( this ).addClass( "hovering" );
 
             $('.seat').mouseleave(function(){

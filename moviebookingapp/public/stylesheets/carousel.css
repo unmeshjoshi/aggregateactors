@@ -90,9 +90,13 @@ messagePanel { border: solid 1px black; width: 320px; height: 330px; }
     width: 35px;
     height: 20px;
     margin: 5px;
-    border: solid 1px black;
+    border: 1px solid #a7a7a7;
     float: left;
-    font-weight: bold;
+    font-weight: 400;
+    line-height: 21px;
+    font-size: 10.5px;
+    text-align: center;
+    border-radius: 26%;
 }
 
 .seatNumber {
@@ -106,14 +110,17 @@ messagePanel { border: solid 1px black; width: 320px; height: 330px; }
 
 .clearfix { clear: both;}
 .available {
-    background-color: #96c131;
+}
+
+.notAvailable {
+    background-color:  #d8d8d8;
 }
 
 .hovering{
-    background-color: #ae59b3;
+    background-color: #2dc492;
 }
 .selected{
-    background-color: red;
+    background-color: #2dc492
 }
 
 
@@ -121,4 +128,53 @@ messagePanel { border: solid 1px black; width: 320px; height: 330px; }
     .featurette-heading {
         margin-top: 7rem;
     }
+}
+
+.movie-details {
+    background-color: #e9ecef;
+}
+
+.theatre-shows {
+    background-color: #e9ecef!important;
+}
+
+.screenName {
+    font-weight: 700;
+}
+
+.theatreName {
+    background-color: #e9ecef;
+    font-weight: 700;
+    border-bottom: 10px black;
+
+}
+
+.__heading {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #333;
+    font-size: 14px;
+}
+
+.__cast-member {
+    overflow: hidden;
+    margin-left: 12px;
+    margin-right: 50px;
+    text-align: center;
+    color: #49ba8e;
+    float: left;
+}
+
+.__cast-member::after {
+    content: "";
+    clear: both;
+}
+
+.__cast-image {
+    visibility: visible;
+    animation-name: fadeIn;
+    width: 116px;
+    height: 116px;
+    overflow: hidden;
+    border-radius: 50%;
 }

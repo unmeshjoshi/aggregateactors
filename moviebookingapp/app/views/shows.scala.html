@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" href="../../../../favicon.ico">
 
-        <title>Carousel Template for Bootstrap</title>
+        <title>Movie Booking CQRS</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href=@assetsFinder.path("stylesheets/carousel.css") rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
@@ -17,10 +17,32 @@
     <body>
         <main role="main">
             <div class="container">
-                <div id="movieDetails" class="text-center">
+                <div id="movieDetails" class="text-center movie-details">
                     <h1 class="text-center">@movie.name</h1>
-                    @*<iframe width="560" height="315" src="@movie.metadata("video")"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>*@
-                    <img src="/assets/images/@movie.metadata("image")" class="w-50 h-25 right">
+                    <iframe width="560" height="315" src="@movie.metadata("video")"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    @*<img src="/assets/images/@movie.metadata("image")" class="w-50 h-25 right">*@
+                </div>
+                <div class="jumbotron">
+                    <div class="__heading">SYNOPSIS</div>
+                    <p>@movie.synopsis</p>
+                    <div style="clear:both">
+                        <div class="__heading">Cast</div>
+
+                        @for(castMember ← movie.cast) {
+                        <div class="__cast-member">
+                            @*<div class="__cast-image wow fadeIn" style="visibility: visible; animation-name: fadeIn;">*@
+                                @*<img src=@{"/assets/images/" + castMember +".jpg"}>*@
+
+                            @*</div>*@
+                            <br>@castMember<br>
+                            <span class="__role">Actor</span><br>
+                        </div>
+                    }
+                    <div class="clearfix"></div>
+
+                    </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -31,14 +53,14 @@
                     @for(theatreScreensShows ← showMap) {
                         <div id="theatreshows" class="col-6" style="background-color: lightgray !important">
 
-                            <h2>
-                                <div id="theatre1" class="dark title text-center">@theatreScreensShows._1</div>
-                            </h2>
+                            <h4>
+                                <div id="theatre1" class="dark title text-center theatreName">@theatreScreensShows._1</div>
+                            </h4>
 
-                            <div>
+                            <div class="theatre-shows pl-5 pb-5">
                             @for(screenShows ← theatreScreensShows._2) {
-                                <h3 class="text-md-left">@screenShows._1</h3>
-                                <h4>
+                                <h5 class="text-md-left screenName">@screenShows._1</h5>
+                                <h5>
 
                                 @for(shows ← screenShows._2) {
                                         <span class="badge badge-light">
@@ -47,7 +69,7 @@
                                             </a>
                                         </span>
                                 }
-                            </h4>
+                            </h5>
 
                             }
                             </div>

@@ -17,21 +17,21 @@ object Generators {
         List("John Boyega", "Burn Gorman"),
         "The globe-spanning conflict between otherworldly monsters of mass destruction and the human-piloted super-machines built to vanquish them was only a prelude to the all-out assault on humanity in Pacific Rim Uprising. \n\nJohn Boyega stars as the rebellious Jake Pentecost, a once-promising Jaeger pilot whose legendary father gave his life to secure humanity's victory against the monstrous \"Kaiju\". Jake has since abandoned his training only to become caught up in a criminal underworld. But when an even more unstoppable threat is unleashed to tear through our cities and bring the world to its knees, he is given one last chance to live up to his father's legacy by his estranged sister, Mako Mori -- who is leading a brave new generation of pilots that have grown up in the shadow of war. As they seek justice for the fallen, their only hope is to unite together in a global uprising against the forces of extinction. \n\nJake is joined by gifted rival pilot Lambert and 15-year-old Jaeger hacker Amara, as the heroes of the PPDC become the only family he has left. Rising up to become the most powerful defense force to ever walk the earth, they will set course for a spectacular all-new adventure on a towering scale.",
         "Action",
-        Map("image" → "PacificRim.jpg", "video" → "https://www.youtube.com/embed/xjDjIWPwcPU")
+        Map("image" → "PacificRim.jpg", "video" → "https://www.youtube.com/embed/8BAhwgjMvnM")
       ),
       MovieState(
         "Black Panther",
         List("Chadwick Boseman", "Lupita Nyong'o"),
         "After the events of Captain America: Civil War, King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. \n\nWhen two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.",
         "Adventure",
-        Map("image" → "Black Panther.jpg", "video" → "https://www.youtube.com/embed/8BAhwgjMvnM")
+        Map("image" → "Black Panther.jpg", "video" → "https://www.youtube.com/embed/xjDjIWPwcPU")
       ),
       MovieState(
         "Bahubali: The Beginning",
         List("Prabhas", "Anushka Shetty"),
         "In the kingdom of Mahishmati, while pursuing his love, Shivudu learns about the conflict-ridden past of his family and his legacy. He must now prepare himself to face his new-found archenemy.",
         "Adventure",
-        Map("image" → "Bahubali.jpg", "video" → "https://www.youtube.com/watch?v=3NQRhE772b0")
+        Map("image" → "Bahubali.jpg", "video" → "https://www.youtube.com/embed/3NQRhE772b0")
       )
     )
 
