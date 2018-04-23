@@ -87,11 +87,20 @@ body {
 messagePanel { border: solid 1px black; width: 320px; height: 330px; }
 
 .seat {
-    width: 50px;
+    width: 35px;
     height: 20px;
     margin: 5px;
     border: solid 1px black;
     float: left;
+    font-weight: bold;
+}
+
+.seatNumber {
+    float: left;
+    width: 35px;
+    /*border: solid 1px black;*/
+    height: 20px;
+    margin: 5px;
     font-weight: bold;
 }
 

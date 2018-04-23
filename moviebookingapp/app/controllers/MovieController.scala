@@ -5,13 +5,14 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
 import akka.util.ByteString
-import com.moviebooking.writeside.aggregates.{MovieState, SeatNumber, Show, ShowId}
+import com.moviebooking.writeside.aggregates._
 import com.moviebooking.writeside.common.Networks
 import com.moviebooking.writeside.services.{JsonSupport, Order}
 import javax.inject.Inject
 import play.api.libs.json.{JsValue, Json}
 import play.api.mvc._
 
+import scala.collection.immutable.SortedMap
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
@@ -60,7 +61,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
             var theatreMap = Map[String, Map[String, List[String]]]()
             for (showId ← showIds) {
               if (!theatreMap.exists(_._1 == showId.theatreName)) {
-                val showMap = Map[String, List[String]]()
+                val showMap = SortedMap[String, List[String]]()
                 theatreMap = theatreMap + (showId.theatreName → showMap)
               }
               var showMap = theatreMap(showId.theatreName)
@@ -72,7 +73,7 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
 
               var shows = showMap(showId.screenName)
               shows = shows :+ showId.showTimeSlot
-              showMap = showMap + (showId.screenName        → shows)
+              showMap = showMap + (showId.screenName        → shows.sorted)
               theatreMap = theatreMap + (showId.theatreName → showMap)
             }
             log(theatreMap.toString())
@@ -104,8 +105,19 @@ class MovieController @Inject()(cc: ControllerComponents)(implicit assetsFinder:
         readResponse(response)
       })
       jsonF.map((json: ByteString) ⇒ {
-        val show = Json.parse(json.toArray).as[Show]
-        val html = views.html.bookseats(show)
+        val show    = Json.parse(json.toArray).as[Show]
+        var seatMap = Map[String, List[Seat]]()
+        show.seats.foreach(seat ⇒ {
+          val seatNumber = seat.seatNumber
+          var seats      = List[Seat]()
+          if (seatMap.contains(seatNumber.row)) {
+            seats = seatMap(seatNumber.row)
+          }
+          seats = seats :+ seat
+          seatMap = seatMap + (seatNumber.row → seats)
+        })
+
+        val html = views.html.bookseats(show, seatMap)
         Ok(html)
       })
     })

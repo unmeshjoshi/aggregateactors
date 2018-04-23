@@ -1,5 +1,6 @@
 @import com.moviebooking.writeside.aggregates.Show
-@(show: Show)(implicit assetsFinder: AssetsFinder)
+@import com.moviebooking.writeside.aggregates.Seat
+@(show: Show, seatMap: Map[String, List[Seat]])(implicit assetsFinder: AssetsFinder)
 <!doctype html>
 <html>
     <head>
@@ -25,14 +26,19 @@
                 </form>
 
                 <div id="messagePanel" class="messagePanel">
-                @for(seat ← show.seats) {
-                    @if(seat.isReserved) {
-                        <div class='seat selected' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.row @seat.seatNumber.value</div>
+                @for(key ← seatMap.keys.toList.sorted) {
+                    <div class="row w-100">
+                    <div class="seatNumber"> @key </div>
+                    @for(seat <- seatMap(key)) {
+                        @if(seat.isReserved) {
+                            <div class='seat selected' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.value </div>
 
-                    } else {
-                        <div class='seat available' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.row @seat.seatNumber.value</div>
+                        } else {
+                                <div class='seat available' data-value="@(seat.seatNumber.row + "_" + seat.seatNumber.value)">@seat.seatNumber.value </div>
 
+                        }
                     }
+                    </div>
                 }
                 </div>
             </div>

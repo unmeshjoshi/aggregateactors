@@ -17,15 +17,13 @@
     <body>
         <main role="main">
             <div class="container">
-                <div id="movieDetails" >
+                <div id="movieDetails" class="text-center">
                     <h1 class="text-center">@movie.name</h1>
                     @*<iframe width="560" height="315" src="@movie.metadata("video")"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>*@
-                    <img src="/assets/images/@movie.metadata("image")" class="w-100 h-25">
+                    <img src="/assets/images/@movie.metadata("image")" class="w-50 h-25 right">
                 </div>
             </div>
-            <div class="container text-info">
-                <p>@movie.synopsis</p>
-            </div>
+
             <div class="container">
                 <div id="shows" class="row">
                     @*Map[String, Map[String, List[String]]]*@
