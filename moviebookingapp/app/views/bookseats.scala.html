@@ -17,10 +17,18 @@
 
     <body>
         <main role="main">
+            <div class="header-container">
+					<!-- Event name -->
+					<span class="__event-name"> </span>
+				<!-- Event details such as venue name and timing -->
+					<span class="__event-details">
+						<span id="strVenName">@show.showId.theatreName @show.showId.screenName @show.movieName</span>
+					</span>
+
+			</div>
+
             <div class="container">
                 <div id="messagePanel" class="messagePanel">
-                <h2 class="text-center mb-5 pr-5">@show.showId.screenName</h2>
-
                 @for(key ← seatMap.keys.toList.sorted) {
                     <div class="row w-100">
                     <div class="seatNumber"> @key </div>

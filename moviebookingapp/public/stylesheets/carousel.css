@@ -3,7 +3,7 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    padding-top: 3rem;
+    /*padding-top: 3rem;*/
     padding-bottom: 3rem;
     color: #5a5a5a;
 }
@@ -177,4 +177,20 @@ messagePanel { border: solid 1px black; width: 320px; height: 330px; }
     height: 116px;
     overflow: hidden;
     border-radius: 50%;
+}
+
+.header-container {
+    position: relative;
+    zoom: 1;
+    min-width: 320px;
+    padding: 9px 0 9px 30px;
+    background: #1f2533;
+    font-size: 100%;
+    font-weight: 400;
+    vertical-align: baseline;
+    text-align: left;
+    color: #fff;
+    background: #1f2533;
+    font-size: 14px;
+    color: #fff;
 }
