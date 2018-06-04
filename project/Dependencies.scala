@@ -37,11 +37,14 @@ object Dependencies {
     Akka.`leveldb`,
     Akka.`leveldb-jni`,
     Akka.`akka-multi-node-testkit` % Test,
+    Akka.`alpakka-ftp`,
     Kafka.akkaStreamKafka,
     Kafka.`scalatest-embedded-kafka`,
     Messaging.`lettuce`,
     Enumeratum.`enumeratum`,
-    Enumeratum.`enumeratum-play`
+    Enumeratum.`enumeratum-play`,
+    Prometheus.`hotspot-client`,
+    Prometheus.`simpleclient`
 
   )
 
@@ -56,7 +59,9 @@ object Dependencies {
     Kafka.akkaStreamKafka,
     Kafka.`scalatest-embedded-kafka` % Test,
     Enumeratum.`enumeratum`,
-    Enumeratum.`enumeratum-play`
+    Enumeratum.`enumeratum-play`,
+    Prometheus.`hotspot-client`,
+    Prometheus.`simpleclient`
   )
 
   val ViewService = Seq(
@@ -71,6 +76,8 @@ object Dependencies {
     Libs.`scalatest` % Test,
     Messaging.`lettuce`,
     Messaging.`embedded-redis` % Test,
-    Libs.`guice`
+    Libs.`guice`,
+    Prometheus.`hotspot-client`,
+    Prometheus.`simpleclient`
   )
 }

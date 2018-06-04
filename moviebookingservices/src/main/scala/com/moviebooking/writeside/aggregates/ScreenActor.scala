@@ -1,6 +1,6 @@
 package com.moviebooking.writeside.aggregates
 
-import java.time.LocalTime
+import java.time.{LocalDate, LocalTime}
 
 import akka.event.Logging
 import akka.persistence.PersistentActor
@@ -22,13 +22,16 @@ object ShowId {
     ShowId(strings(0), strings(1), strings(2))
   }
 }
+
+case class ShowDateTime(date: LocalDate, showTimeSlot: LocalTime)
+
 case class ShowId(screenName: String, showTimeSlot: String, theatreName: String) {
   override def toString() = showKey()
   def showKey()           = s"${screenName}_${showTimeSlot}_${theatreName}"
 }
 
 case class Show(showId: ShowId, showTime: LocalTime, movieName: String, seats: List[Seat]) {
-  def areAvailable(seatNumbers: List[SeatNumber]) = {
+  def areAvailable(seatNumbers: List[SeatNumber]): Boolean = {
     val seatsToBeReserved =
       seats.filter(seat ⇒ seatNumbers.contains(seat.seatNumber))
     val availableSeats = seatsToBeReserved.filter(seat ⇒ !seat.isReserved)

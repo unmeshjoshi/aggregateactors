@@ -114,6 +114,7 @@ object Akka {
   val `akka-persistence-cassandra`          = "com.typesafe.akka" %% "akka-persistence-cassandra" % "0.83"
   val `akka-persistence-cassandra-launcher` = "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % "0.83"
   val `akka-slf4j`                          = "com.typesafe.akka" %% "akka-slf4j" % Version
+  val `alpakka-ftp` =  "com.lightbend.akka" %% "akka-stream-alpakka-ftp" % "0.18"
 }
 
 object AkkaHttp {
@@ -130,4 +131,11 @@ object Neo4J {
   val `neo4j-test`   = "org.neo4j.test" % "neo4j-harness" % Version
   val `neo4j-core`   = "org.neo4j" % "neo4j" % Version
   val `neo4j-cypher` = "org.neo4j" % "neo4j-cypher" % Version
+}
+
+object Prometheus {
+  private val Version = "0.3.0"
+  val `hotspot-client` = "io.prometheus" % "simpleclient_hotspot" % Version
+  val `simpleclient` = "io.prometheus" % "simpleclient" % Version
+
 }

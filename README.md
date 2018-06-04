@@ -6,6 +6,7 @@ An end to end application to demonstrate the usage of Akka family of frameworks 
 4. Reactive Kafka to subscribe to Events and populate Redis read store
 
 To Run the example
+1. Install docker and docker-compose. This is needed as this application runs scylladb, kafka and redis with docker containers
 1. sbt stage
 2. ./startAll
 3. In browser go to http://localhost:9000
