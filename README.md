@@ -9,4 +9,12 @@ To Run the example
 1. Install docker and docker-compose. This is needed as this application runs scylladb, kafka and redis with docker containers
 1. sbt stage
 2. ./startAll
-3. In browser go to http://localhost:9000
+3. Find your IP address of your system and run following command to initialise the system.
+   
+   curl -i -X POST  http://<YOUR IP ADDRESS>:8089/init
+   
+4. In browser go to http://localhost:9000
+
+This application setups multiple components in docker container as following
+
+![Screenshot](AkkaFamilyFrameworks.png)
