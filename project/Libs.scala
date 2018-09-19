@@ -96,7 +96,7 @@ object Chill {
 }
 
 object Akka {
-  val Version                               = "2.5.11" //all akka is Apache License 2.0
+  val Version                               = "2.5.13" //all akka is Apache License 2.0
   val `akka-stream`                         = "com.typesafe.akka" %% "akka-stream" % Version
   val `akka-remote`                         = "com.typesafe.akka" %% "akka-remote" % Version
   val `akka-stream-testkit`                 = "com.typesafe.akka" %% "akka-stream-testkit" % Version
@@ -114,7 +114,9 @@ object Akka {
   val `akka-persistence-cassandra`          = "com.typesafe.akka" %% "akka-persistence-cassandra" % "0.83"
   val `akka-persistence-cassandra-launcher` = "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % "0.83"
   val `akka-slf4j`                          = "com.typesafe.akka" %% "akka-slf4j" % Version
-  val `alpakka-ftp` =  "com.lightbend.akka" %% "akka-stream-alpakka-ftp" % "0.18"
+  val `alpakka-ftp`                         =  "com.lightbend.akka" %% "akka-stream-alpakka-ftp" % "0.20"
+  val `alpakka-file`                        = "com.lightbend.akka" %% "akka-stream-alpakka-file" % "0.20"
+
 }
 
 object AkkaHttp {

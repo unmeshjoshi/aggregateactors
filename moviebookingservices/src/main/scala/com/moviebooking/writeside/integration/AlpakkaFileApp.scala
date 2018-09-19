@@ -12,4 +12,5 @@ class AlpakkaFileApp {
     binary = true,
     passiveMode = true
   )
+
 }

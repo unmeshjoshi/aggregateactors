@@ -80,4 +80,21 @@ object Dependencies {
     Prometheus.`hotspot-client`,
     Prometheus.`simpleclient`
   )
+
+  val MovieDataIngestion = Seq(
+    Kafka.akkaStreamKafka,
+    Libs.`play-json`,
+    Libs.`play-json-extensions`,
+    Libs.`akka-http-play-json`,
+    Libs.`logback-classic`,
+    AkkaHttp.`akka-http`,
+    Enumeratum.`enumeratum`,
+    Enumeratum.`enumeratum-play`,
+    Libs.`scalatest` % Test,
+    Messaging.`lettuce`,
+    Messaging.`embedded-redis` % Test,
+    Libs.`guice`,
+    Prometheus.`hotspot-client`,
+    Prometheus.`simpleclient`
+  )
 }

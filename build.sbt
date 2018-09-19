@@ -11,7 +11,7 @@ lazy val `moviebookingservices` = project
   )
 
 
-  //Read side
+  //Write and Read
 lazy val `moviebookingapp` = project
   .enablePlugins(DeployApp,PlayScala)
     .dependsOn(`moviebookingservices`)

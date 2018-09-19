@@ -5,7 +5,7 @@ services:
    scyall0:
     image: scylladb/scylla
     container_name: scyall0
-    restart: always
+#restart: always
     ports:
      - 9042:9042
      - 9160:9160
@@ -42,7 +42,7 @@ services:
    zookeeper:
     image: confluentinc/cp-zookeeper:latest
     network_mode: host
-    restart: always
+    #  restart: always
     depends_on:
       - scyall0
     environment:
@@ -56,7 +56,7 @@ services:
     network_mode: host
     depends_on:
       - zookeeper
-    restart: always
+        #    restart: always
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: localhost:32181

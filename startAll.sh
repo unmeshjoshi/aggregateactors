@@ -34,7 +34,7 @@ function scyallaDbIsReady() {
 }
 
 get_default_ip() {
- default_ip="$(route | grep '^default' | grep -o '[^ ]*$' |xargs -n 1 ifconfig |grep 'inet addr:'| cut -d: -f2| awk '{ print $1}')"
+ default_ip="$(route | grep '^default' | grep -o '[^ ]*$' |xargs -n 1 ifconfig |grep 'inet '| cut -d: -f2| awk '{ print $2}')"
  echo "Using default ip $default_ip"
 }
 
