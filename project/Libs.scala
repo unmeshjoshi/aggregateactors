@@ -128,11 +128,12 @@ object AkkaHttp {
 // http://doc.akka.io/docs/akka/2.4.1/scala/persistence.html#Local_LevelDB_journal
 
 object Neo4J {
-  val Version        = "3.3.3"
+  val Version        = "4.0.3"
   val `neo4j-java`   = "org.neo4j.driver" % "neo4j-java-driver" % "1.5.1"
   val `neo4j-test`   = "org.neo4j.test" % "neo4j-harness" % Version
   val `neo4j-core`   = "org.neo4j" % "neo4j" % Version
   val `neo4j-cypher` = "org.neo4j" % "neo4j-cypher" % Version
+  val `neo4j-kernel` = "org.neo4j" % "neo4j-kernel" % Version
 }
 
 object Prometheus {

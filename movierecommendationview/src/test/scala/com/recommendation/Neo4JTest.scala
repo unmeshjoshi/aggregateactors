@@ -1,12 +1,8 @@
 package com.recommendation
 
 object Neo4JTest extends App {
-
-  val finder = new RecommendationFinder(
-    DatabaseFixture.createDatabase
-      .populateWith(ExampleData.movieGraph)
-      .applyMigrations(List[Migration]())
-      .database
-  )
+  val db = DatabaseFixture.createDatabase
+  db.executeTransactionally(ExampleData.movieGraph)
+  val finder = new RecommendationFinder(db)
   finder.findRecommendationFor("User1")
 }

@@ -7,9 +7,9 @@ class BookingEventHandlerTest extends FunSuite {
 
   test("should create booked relationship for new booking") {
     val database = DatabaseFixture.createDatabase
-      .populateWith(ExampleData.movieGraph)
-      .applyMigrations(List[Migration]())
-      .database
+    database.executeTransactionally(ExampleData.movieGraph)
+
+//      .applyMigrations(List[Migration]())
 
     val repository     = new RecommendationRepository(database)
     val bookingHandler = new BookingEventHandler(repository)

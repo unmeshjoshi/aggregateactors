@@ -45,7 +45,6 @@ object Dependencies {
     Enumeratum.`enumeratum-play`,
     Prometheus.`hotspot-client`,
     Prometheus.`simpleclient`
-
   )
 
   val MovieRecommendations = Seq(

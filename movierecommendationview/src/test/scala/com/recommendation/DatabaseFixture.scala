@@ -1,10 +1,17 @@
 package com.recommendation
 
+import java.io.File
+
 import org.neo4j.graphdb.GraphDatabaseService
-import org.neo4j.test.TestGraphDatabaseFactory
+import org.neo4j.configuration.GraphDatabaseSettings.DEFAULT_DATABASE_NAME
 
 object DatabaseFixture {
-  def createDatabase = new DatabaseFixtureBuilder(new TestGraphDatabaseFactory().newImpermanentDatabaseBuilder.newGraphDatabase)
+  private val databaseDirectory = new File("target/java-query-db")
+  def createDatabase = {
+    import org.neo4j.dbms.api.DatabaseManagementServiceBuilder
+    val managementService = new DatabaseManagementServiceBuilder(databaseDirectory).build
+    managementService.database(DEFAULT_DATABASE_NAME)
+  }
 
   def useExistingDatabase(db: GraphDatabaseService) = new DatabaseFixtureBuilder(db)
 
@@ -29,11 +36,13 @@ class DatabaseFixture private (val db: GraphDatabaseService, val initialContents
 
   def database: GraphDatabaseService = db
 
-  def shutdown(): Unit = {
-    db.shutdown()
-  }
+  def shutdown(): Unit = {}
 
-  private def populateWith(cypher: String) = db.execute(cypher)
+  private def populateWith(cypher: String) = {
+    val tx = db.beginTx()
+    tx.execute(cypher);
+    tx.commit();
+  }
 
   private def applyMigrations(migrations: Iterable[Migration]): Unit = {
     for (migration <- migrations) {
