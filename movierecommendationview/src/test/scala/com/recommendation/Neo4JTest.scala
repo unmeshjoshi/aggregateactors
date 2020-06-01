@@ -4,5 +4,6 @@ object Neo4JTest extends App {
   val db = DatabaseFixture.createDatabase
   db.executeTransactionally(ExampleData.movieGraph)
   val finder = new RecommendationFinder(db)
-  finder.findRecommendationFor("User1")
+  private val strings: Iterator[String] = finder.findRecommendationFor("User1")
+  strings.foreach(movie ⇒ println(movie))
 }

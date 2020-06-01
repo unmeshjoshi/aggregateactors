@@ -1,6 +1,40 @@
 package com.recommendation
 
+import org.neo4j.graphdb.GraphDatabaseService
+
 object ExampleData {
+
+  def personQuery(names:String*) = {
+    val namesQueryPart = names.toList.map(name ⇒ {
+      person(name)
+    }).mkString(",\n")
+
+    s"CREATE ${namesQueryPart}"
+  }
+
+
+  def person(name:String) = {
+    s"(${identifier(name)}:Person{name:'${name}'})"
+  }
+
+  private def identifier(name: String) = {
+    name.toLowerCase.strip().replace(" ", "_")
+  }
+
+
+  class BetterString(person1:String, val database: GraphDatabaseService) {
+    def childOf(person2:String) = {
+      val query = s"CREATE (${person1})-[:CHILD_OF]->(${person2})"
+      println(query)
+      database.executeTransactionally(query)
+    }
+    def marriedTo(person2:String) = {
+      val query = s"MATCH (child: Person) MATCH (parent:Person) CREATE (child)-[:CHILD_OF]->(parent)"
+      println(query)
+      database.executeTransactionally(query)
+    }
+  }
+
 
   val movieGraph = "CREATE (movie1:Movie{name:'Justice League'}), \n" +
   "              (movie2:Movie{name:'Jurasic Park'}),\n" +
